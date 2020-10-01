@@ -7,6 +7,7 @@
 //
 
 #import "ADJViewController.h"
+#import "ACPCore.h"
 
 @interface ADJViewController ()
 
@@ -17,7 +18,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"123abc"}];
+    [ACPCore trackState:@"TestState" data:@{@"a": @"b"}];
+    
 }
 
 - (void)didReceiveMemoryWarning

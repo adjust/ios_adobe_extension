@@ -7,12 +7,34 @@
 //
 
 #import "ADJAppDelegate.h"
+#import "AdjustAdobeExtension.h"
+#import "ACPCore.h"
+#import "ACPGriffon.h"
+#import "ACPIdentity.h"
+#import "ACPLifecycle.h"
+#import "ACPSignal.h"
+#import "ACPUserProfile.h"
+
 
 @implementation ADJAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    
+    [ACPCore setLogLevel:ACPMobileLogLevelDebug];
+    [ACPCore configureWithAppId:@"89645c501ce0/540de252943f/launch-f8d889dd15b6-development"];
+    
+    [AdjustAdobeExtension registerExtension];
+    
+    [ACPGriffon registerExtension];
+    [ACPIdentity registerExtension];
+    [ACPLifecycle registerExtension];
+    [ACPSignal registerExtension];
+    [ACPUserProfile registerExtension];
+    [ACPCore start:^{
+        [ACPCore lifecycleStart:nil];
+    }];
+    
     return YES;
 }
 

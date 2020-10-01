@@ -1,0 +1,6 @@
+framework module ACPGriffon {
+  umbrella header "ACPGriffon-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1987 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0417720FF1431900606EF232EF160F71 /* ADJUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 9275FE49DD5A1CF1C9914A3B0ACB4FC7 /* ADJUserDefaults.m */; };
+		04664B5975BFB6B2DE1268FFD8FA5E14 /* AdjustAdobeExtensionSharedStateListener.m in Sources */ = {isa = PBXBuildFile; fileRef = F16181DACD69EB4200BB2F3DFAF927DB /* AdjustAdobeExtensionSharedStateListener.m */; };
+		05767E16245BC2A35F2BE79B2221275C /* ACPExtensionError.h in Headers */ = {isa = PBXBuildFile; fileRef = DA26566345330B40483431229C365177 /* ACPExtensionError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		08C6DDC7641C19256A40B7F859C07F84 /* ADJSdkClickHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 301AD1803A176FAA2FB7FEB53DF0F687 /* ADJSdkClickHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D5824E5C7F5CA1240CD99A7652E5F08 /* ADJBackoffStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 5000CA0BA7A59B33E80E06D3C12EF4AA /* ADJBackoffStrategy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1238EC6279FCE37891598248EA122F65 /* ADJSubscription.m in Sources */ = {isa = PBXBuildFile; fileRef = E4644752DCB75A35DA795F376FA41516 /* ADJSubscription.m */; };
+		167D65947EC994CEBA90DC115B3DF167 /* Pods-AdjustAdobeExtension_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ACE52D89FE952C3D3C58E0ED2B1D5CF /* Pods-AdjustAdobeExtension_Tests-dummy.m */; };
+		179CF12637B2C02EE75121A54D4E8000 /* ACPGriffon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB6E9D150D42B391B3603D8B6F7BFE5D /* ACPGriffon-dummy.m */; };
+		17A72A237E68127D0D153271961BDE4F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		19F47CFF6559E99B95101EA686590B91 /* ADJEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = C49963691C76926678AA707B18530979 /* ADJEvent.m */; };
+		1A2EA8BF69B8D31EFA1358B874FC0766 /* ADJUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 71FAA8988B2B77CC41CA9EE7974FEBAA /* ADJUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20F9654F540A0F772A08CE0C60D0D1C7 /* ADJActivityState.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A6F9FD852E222F5B22C7722353BCF8A /* ADJActivityState.m */; };
+		22D9323199411D7851AEE57D42F31585 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		245E1CC0B64DD431A12F254C1AC3F2FF /* ACPCore-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A73EFC0BD5B559389141E2196A7933 /* ACPCore-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3598F6A2E0B65DF6A6168B9DF130B8B7 /* ADJAttribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D0FD845518D8A40FB54798BDCB08E39 /* ADJAttribution.m */; };
+		35FF730DFA3BEC0F1C317F982E962B0B /* ADJBackoffStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE728CE008C7AD54DCE3CC487ACB306 /* ADJBackoffStrategy.m */; };
+		39754B56597CFD70776F65E68C2E5D97 /* Pods-AdjustAdobeExtension_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EEDD0A609011D8975313B39497DC559C /* Pods-AdjustAdobeExtension_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B36D64B52ADCE0338D5D5B748F9D63B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		3C2B1092863D2490F83F55FDCA266A5E /* ADJEventFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 93C4E5114318999A8994F7549145487C /* ADJEventFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		412BD333DD9AA16ADD397AD62142A95E /* ADJAdjustFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = AF8AC7D80BF109463F2154B1C5BBEBF5 /* ADJAdjustFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		412C61FED36ACF4959CB9845FE7D6B30 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		41FFAB25C5FD85AF9AEAB0B4B49691B2 /* ACPNetworkServiceOverrider.h in Headers */ = {isa = PBXBuildFile; fileRef = A53800396FD2B9214BE5E134FA94AAEC /* ACPNetworkServiceOverrider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43EE2CA8BBB22E3BC776697263E8EFA0 /* AdjustAdobeExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = F02DD54ECD3EE90932AE1E57C56D9575 /* AdjustAdobeExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47CBF225FB8D265884D7A7A6D669F1C1 /* NSData+ADJAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = E420C8502E6D37D2D530D4CA729EFEE2 /* NSData+ADJAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47FB563A9B4348DDEC21071DA645EFF1 /* ACPLifecycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BBAA19E70C748C358830E00861A882D /* ACPLifecycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4AF148B54CF2555559E902005166FA93 /* ACPGriffonEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 177AABD14956E3270AB47CEA36ED76AE /* ACPGriffonEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B140FD4A1B057961692A03BC6B7B368 /* ACPIdentity.h in Headers */ = {isa = PBXBuildFile; fileRef = 1983BA9AB9D4861DF4C4AF0E42965420 /* ACPIdentity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4C5CA2A460EF6BE168BC36AE5DE76967 /* AdjustAdobeExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = BE49C8CC296207BF48D1622FF030EF1C /* AdjustAdobeExtension.m */; };
+		4EB11ACE0CC375AD2F8DC4BD91E42DCF /* ACPSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B48FEDBCF5327811D698F5885A3682D /* ACPSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EDF7C70CF480CF6DE49864EB7F3E7EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		52FA88B77735D83D8D1639C38B722E9D /* ADJSessionParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D424C5AFB9161F3413AE6043283022E /* ADJSessionParameters.m */; };
+		538D97C42A89BAE29284EDF318C830FE /* Adjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1A59D90E962FA4B011445966992CD6 /* Adjust.m */; };
+		584D2B1847CC7373B1034C06C5D1CAA4 /* Adjust.h in Headers */ = {isa = PBXBuildFile; fileRef = DE086E30F98A83B8AA137FC13E74A4F6 /* Adjust.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		60F94A109A8753B9ED39182D919E68B4 /* ADJSessionSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F08B55E49E830EA4EEDA50F1BCFAE90 /* ADJSessionSuccess.m */; };
+		6407AA3AB61786B2C5B040F652C10A6F /* ADJUrlStrategy.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A375ACAA9FCA45693FC4B585E094F2 /* ADJUrlStrategy.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		64552AEA2DE510DF49A8AD87CECBA1C0 /* ADJAttributionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 78E51D9A49D8924543606E23315DB381 /* ADJAttributionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65D52E8E702FB1D0D466739C69DB3BA7 /* Adjust-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B8DF96CA9B42FB29AEAA5827E9D72288 /* Adjust-dummy.m */; };
+		6BF79A85F67E3F050F192B7114CE1244 /* ADJLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 611C92254D0BB05F4830B987F18EFBB4 /* ADJLogger.m */; };
+		6C7116967BAFA626B2BF9B686403825A /* ADJEventFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ECA21AD8F9B5C4719A2150285025C28 /* ADJEventFailure.m */; };
+		6CB85C6BDC402F234DDEF6ADF8368291 /* ACPExtensionApi.h in Headers */ = {isa = PBXBuildFile; fileRef = CED8C331EFBC14E57C37D015C1E06A65 /* ACPExtensionApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E621CD992DFDE928EF81CE17C2D8B34 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E1D540B7F8CD204F516324C088AC7C9 /* Empty.m */; };
+		72B00F4E46EE033B53448E5A75B9C200 /* ADJAdjustFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6525021CC1667239F349BE64DC531D20 /* ADJAdjustFactory.m */; };
+		74789537A0A32415BE6831669261E257 /* ADJReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 40728415812215B15EB077997BC62C71 /* ADJReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		74BC3AE41B39385AA9C1EE66E5E9C34F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		7A79668004CD3D1FBC6C81B2526639ED /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 911639EAF459A4340C10FED65B1A3FEE /* Empty.m */; };
+		7F05046FF7FC8160B07EDDD866165B2B /* ADJAttributionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C644576ECA3700B5C8C8D253B9570D /* ADJAttributionHandler.m */; };
+		809962CBD0F7586927A45665585CB165 /* ACPExtensionListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 863A6D2382BA3721B1AAE2FE241031DA /* ACPExtensionListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80AEF952ACB93DF0AC2EC3E3B6F4E718 /* Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA403F9051EA0D3D0A7B68F2099749D /* Empty.m */; };
+		80E7A71B41CEF0903AB981E30205AE01 /* ADJConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 74A428758AD5CF95209E1F36A7F87598 /* ADJConfig.m */; };
+		82ADFB5708C8F3DCD35026FAA4FAF05E /* ADJPackageBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 58909E98576A4AE7FA87F51E2FD9CD25 /* ADJPackageBuilder.m */; };
+		84936ADE09A4171E096B47841497D11E /* ADJEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 76CF07EFF46D0D6494BC2754E35FB5F2 /* ADJEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87711A07652FF18E6CA4550CBD4AE344 /* ADJTimerCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6C5BEB73A2DB5DE8722FDF2555346 /* ADJTimerCycle.m */; };
+		88A8FEE8E171D89C144723D5DE15F219 /* ACPCore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6951355958B9C9356822AC284872BE6F /* ACPCore-dummy.m */; };
+		8A7F17A77382A89B0CE54D5E9AC02197 /* AdjustAdobeExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD8F36CD1659451C72377BF36B23E00 /* AdjustAdobeExtension-dummy.m */; };
+		8AF684B27DC467A6DB74569093AE96DA /* ADJSessionSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D090A8C12A88F0372577CFBD663A2D6 /* ADJSessionSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B664E4AB105DFBA905D3229E036B851 /* ACPMobileVisitorId.h in Headers */ = {isa = PBXBuildFile; fileRef = EFA3355B5F1B321DD6EB369708B8C04A /* ACPMobileVisitorId.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CBA9E5B6289CFAE29AAE2B732271C63 /* NSData+ADJAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D064929F5570B004CB27802BDCD1B0F4 /* NSData+ADJAdditions.m */; };
+		900395B4C76CA9826A87ED6E508CA78A /* AdjustAdobeExtensionSharedStateListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 74D88BDC9672515CE0EF7CF07DB3D7D6 /* AdjustAdobeExtensionSharedStateListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		91A0851027DD2F0A4F63E64CEA4D51DB /* ADJSdkClickHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED30C76B4C3D8F5A58828C1A03DF88 /* ADJSdkClickHandler.m */; };
+		935B60429DF86F8AE4A04150AE15C32D /* ADJTimerOnce.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F9E3A3D98EDE5E4BD6B2902200B7A18 /* ADJTimerOnce.m */; };
+		96C8D3D16427BB265AE7AF23804C4736 /* ADJReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DEF7BC8450BC1E6DC1B6C564484077 /* ADJReachability.m */; };
+		A0B604631AE0AEB8089722ABB3876F9D /* ADJPackageBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A5062A98009C8FEBFCE81FE25E659E0 /* ADJPackageBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A243A09AC6328119EC35D6BEAFAC305E /* ADJPackageHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = F679A3FB9041003C0EAD563A8F792599 /* ADJPackageHandler.m */; };
+		A3DF52188100B7411E6A356E8779EF93 /* ACPUserProfile-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 54E9985210797C8646E6DA7E2CB795F6 /* ACPUserProfile-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A4AEF0E2F00E6D344E06CF1AD02E07BC /* ADJRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB7F6D5B75986C0AD5D21AA98C72EF9 /* ADJRequestHandler.m */; };
+		A58A8A43E0A0564D350E79870C84E8FC /* ACPExtensionEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = A1CF3CEC10078F7E81A82BF9EF95A834 /* ACPExtensionEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A85118E625CC1E9E0C0D402213DD7E27 /* NSString+ADJAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 885DFE4666FC9D2704CD900013759CC8 /* NSString+ADJAdditions.m */; };
+		A8FD9B00ABA0AA61F45D6406E265FA61 /* ADJSystemProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CDD71FF1F1AB96D479E5FF93381F8D3 /* ADJSystemProfile.m */; };
+		AB92B8CD08904C3E5F4B8304FD9E70E2 /* ADJActivityKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE0E75A22044CE826A2F81C9779FAA8 /* ADJActivityKind.m */; };
+		ABB353435E606370CD7684C74656A31C /* ADJDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CDBF13B3EC9BF90B61D2CA3FBB9A88F9 /* ADJDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ADAAD73731CF7BB4B7D72D4066C7DC0E /* ADJRequestHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CC05271E6FA7A10D5D9B9F39C8CD30B /* ADJRequestHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AECAC2CD87BB8A1E7B859F534C9F5A83 /* ADJSessionParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 4086B971C7DA69836BC8688A0DDF0BCB /* ADJSessionParameters.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B1DDF56A622F43745F9A013B45D94552 /* NSString+ADJAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 70543AC171A369202FBA7DD3E8A75A8A /* NSString+ADJAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B21F90BB5BE131B28AE6B97BA6415AE4 /* ACPGriffon.h in Headers */ = {isa = PBXBuildFile; fileRef = B586D7705314536EEB0F87C15C34C4E7 /* ACPGriffon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B636DB87C47D2F4F11B1C693EBF74168 /* ADJKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = EA39986A781C32D5B13B6B3D5701F7E7 /* ADJKeychain.m */; };
+		B66E5C2BF1D8403CE72CA874705DA9EC /* ACPError.h in Headers */ = {isa = PBXBuildFile; fileRef = 883564DA4E657BBFB3AD8DEAFD1BD2B4 /* ACPError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA29C7CAB0B86B88F7FFBF288C392F20 /* ADJConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C5EDB9B4FCC6A130CC5F99E3FF6E0DFA /* ADJConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA2A852FDCA2CE4E916EEE1012ADA83F /* ADJLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = FE58C4EDCC2AE7A61B7FA9E4F1879FE8 /* ADJLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB52B11F29013B86DF3373450364A1A4 /* ADJResponseData.h in Headers */ = {isa = PBXBuildFile; fileRef = CFF7D1BAC129E413638729528EAFBD8D /* ADJResponseData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BCDB3D3388F332ECC6D9A7D61A8C3869 /* Pods-AdjustAdobeExtension_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9FF0375AB96285AAFB086EA478ECC0C /* Pods-AdjustAdobeExtension_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF0869B26195F93024575BAC001FF160 /* ADJSessionFailure.h in Headers */ = {isa = PBXBuildFile; fileRef = 91F3BB5F2CDD282C76B36E72893B297B /* ADJSessionFailure.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFF849B93008C6D77122E47EDD20514F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */; };
+		C05568B74E606B19B9803B52DDFE441F /* ADJAttribution.h in Headers */ = {isa = PBXBuildFile; fileRef = 94A2CBF75658AC1FFFF5F8B77FEB1AA8 /* ADJAttribution.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C3F4E555790A3D4F6E04F44DE75B64A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4F7799189C352E1D9346617C1FCFED /* SystemConfiguration.framework */; };
+		C42B9041F1A911E4303BFC0D81DCA680 /* ADJActivityState.h in Headers */ = {isa = PBXBuildFile; fileRef = 07328DB6E0154604104E56A40DC47B9B /* ADJActivityState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C57A016E7E2AB174407CAA9C981DC9D7 /* ADJDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 20095C0D7F4FDC532F68F3B0598F65AC /* ADJDeviceInfo.m */; };
+		C918F37CE9D3F547DAA206F4126A3040 /* ADJSessionFailure.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D68406E89A1F79417EEE049126BA38 /* ADJSessionFailure.m */; };
+		C9B220492B824B0AD3C7F8E8CEE08057 /* ADJActivityKind.h in Headers */ = {isa = PBXBuildFile; fileRef = 554D223928D120DA2539CDA4DA0D94EF /* ADJActivityKind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA6E660838AB0D84534CF9742C7110F4 /* UIDevice+ADJAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 90344CAFF98D394A9961D23A8B884313 /* UIDevice+ADJAdditions.m */; };
+		CAD7B6381557D3C122FB81049F8AC2F9 /* ADJResponseData.m in Sources */ = {isa = PBXBuildFile; fileRef = F99BB4FE8A84B4F8E3F39BF0DB446C17 /* ADJResponseData.m */; };
+		CE8AF53B25ED2CC0D682D7ADBDB48DFE /* ADJTimerOnce.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C101D50218B47012102C7A74BFE12D8 /* ADJTimerOnce.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF788AFA040C0C8CB428FC4C85C2EBE4 /* ADJActivityPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A241F7758D42BA7DA66541E6349AE46 /* ADJActivityPackage.m */; };
+		D0ABB86DD1887DE6590B28E3CDB45727 /* ADJTimerCycle.h in Headers */ = {isa = PBXBuildFile; fileRef = 24A22EFD5D95732A4D05864CF629B8B1 /* ADJTimerCycle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D245101B84342499F5E7AFB22A608A3D /* ADJPackageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FE9E1DEEA78A83165A5CE57C687411A /* ADJPackageHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D268EC49F22F3F830550868522B7C8FB /* AdjustAdobeExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AD9E90B1BAAE063EE3A27EF1282240F /* AdjustAdobeExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D312DD65577BA0A98FDB3575333D2427 /* ACPExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = C48D8D2D1731A91A0AF0A6BC09338AA3 /* ACPExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D4F427036C2F0C149A97B74C8068302A /* Pods-AdjustAdobeExtension_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0478C307A4CD1BD693BB4D790E242467 /* Pods-AdjustAdobeExtension_Example-dummy.m */; };
+		D5D586D80D78CA8DEA0815671B88B15D /* ADJActivityPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F5F8985D77361E6AB8F97044E3218A3 /* ADJActivityPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D78686AA25220D7F00CA185D /* AdjustAdobeExtensionEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = D78686A825220D7F00CA185D /* AdjustAdobeExtensionEventListener.h */; };
+		D78686AB25220D7F00CA185D /* AdjustAdobeExtensionEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = D78686A925220D7F00CA185D /* AdjustAdobeExtensionEventListener.m */; };
+		D8D847DEBFC6FFFC33172243E1B78FEE /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC33F78F2AA2A54842946277749EB7B4 /* ADJUrlStrategy.m */; };
+		D9C550924CD7CA89A6531DE43C04DB75 /* Adjust-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF56C2DCE3F126F0F53598B1AE7057F0 /* Adjust-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD211CE0E9D34E5FF18716EC76085F2F /* UIDevice+ADJAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D27A101A0B2D2F1BD379E143010BCF0 /* UIDevice+ADJAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2229DF835633CA1305F90656DD585CD /* ADJEventSuccess.h in Headers */ = {isa = PBXBuildFile; fileRef = C021C847EFB2C3F3C77380253D608A6D /* ADJEventSuccess.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E83115DCF27BA07EA3F5F2EE12111A2C /* ADJEventSuccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 67DA9CB8A643E074F89436261D61850D /* ADJEventSuccess.m */; };
+		EA3B88E8D9576D9C9A7E663DC75B581A /* ADJActivityHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F8A190639A50D7C71AF7A94880839C /* ADJActivityHandler.m */; };
+		F1634C41A66B1FCB4A444D1BF746CF0B /* ACPGriffon-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 99453B5E2F156D35160B89C4F3850729 /* ACPGriffon-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2ECDD6D3D6E1B68F0083C6A45FAEBE3 /* ACPCore.h in Headers */ = {isa = PBXBuildFile; fileRef = 1207C77552543F80045B9984B3CF47C4 /* ACPCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F30688EBC9EB3CD28A499651C18953B4 /* ADJSubscription.h in Headers */ = {isa = PBXBuildFile; fileRef = E91DE36B7414F809B144E9E51E05F325 /* ADJSubscription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F315DD11B2C20D9D92C5F3C4DFD78C47 /* ADJSystemProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F128A004134E5191743039B04357A3 /* ADJSystemProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F462FFACD1D861579F3CD1DBE4978C0B /* ACPUserProfile-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CE7BA43BBF04E6B96DB3D8520EBABF1 /* ACPUserProfile-dummy.m */; };
+		F4C56AB3BB755505524970DDF1874455 /* ADJUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C53EFCEF65286A083BDD82052A50B93 /* ADJUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F72DD76321B490A47EF9D18A86E29FD3 /* ADJUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FA28E0FA3A40A4A87A4DA1825422538 /* ADJUtil.m */; };
+		FA4CEFB05419AF2D57D8A6C29316FDD7 /* ACPUserProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = E74DC8CC5E238CC7068630E17C8E24CA /* ACPUserProfile.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FDDE31AB7CEA2B0C318EC900DE994BE9 /* ADJKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = D47B84AEC65D4EE6BEA145A40F8C820D /* ADJKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFB8D025D37A710C64E6E2D42E1170E6 /* ADJActivityHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 106EC5A0104D2FB39045D14039D2844C /* ADJActivityHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		182B45078AB40081F0825C277C4ADE97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F324573329120F52BFD49392D78B4464;
+			remoteInfo = ACPCore;
+		};
+		1B1ED3CF4008C1A28BE35F0E9089DF3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7F0A8DE2B5E182AABB40DABA316E2C9C;
+			remoteInfo = AdjustAdobeExtension;
+		};
+		3D2E8B9205F9EED511AD32EA770273FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F324573329120F52BFD49392D78B4464;
+			remoteInfo = ACPCore;
+		};
+		514C0452F7E4CD9A9BBDE36937FAC8A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08A9EDC37A53E5D39F64F6B61A7D5E5C;
+			remoteInfo = ACPGriffon;
+		};
+		928CE25231FF2AD0ACBB11098BA6CCF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7111F362EA0D14BECD8B96EA1EAA5F79;
+			remoteInfo = Adjust;
+		};
+		AB2E81DD0330D5E1CDAA64D7261715D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7111F362EA0D14BECD8B96EA1EAA5F79;
+			remoteInfo = Adjust;
+		};
+		C5B057BA91CDB548DCC8D1BE9F548ADA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E7673858F0A064B3F3A307817D85AA84;
+			remoteInfo = "Pods-AdjustAdobeExtension_Example";
+		};
+		EB83038DD91F4639341E627200266C26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F324573329120F52BFD49392D78B4464;
+			remoteInfo = ACPCore;
+		};
+		F65E97A11469F4BE40142AE99CBC92C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CAB23789210D705E4F2F59BF4CC77B2;
+			remoteInfo = ACPUserProfile;
+		};
+		FE023CB3AB40007E8E12CB0A6EC88BA0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F324573329120F52BFD49392D78B4464;
+			remoteInfo = ACPCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007C40CB51441CEFF931716B95258C43 /* Adjust-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Adjust-Info.plist"; sourceTree = "<group>"; };
+		0229DC2AB25593B8146ACDC14D17E353 /* ACPUserProfile-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPUserProfile-prefix.pch"; sourceTree = "<group>"; };
+		0478C307A4CD1BD693BB4D790E242467 /* Pods-AdjustAdobeExtension_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AdjustAdobeExtension_Example-dummy.m"; sourceTree = "<group>"; };
+		07328DB6E0154604104E56A40DC47B9B /* ADJActivityState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJActivityState.h; path = Adjust/ADJActivityState.h; sourceTree = "<group>"; };
+		07F128A004134E5191743039B04357A3 /* ADJSystemProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJSystemProfile.h; path = Adjust/ADJSystemProfile.h; sourceTree = "<group>"; };
+		0A68E9E39C5B3A932CF38BA68953E587 /* Pods-AdjustAdobeExtension_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AdjustAdobeExtension_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0B48FEDBCF5327811D698F5885A3682D /* ACPSignal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPSignal.h; path = include/ACPSignal.h; sourceTree = "<group>"; };
+		0CA403F9051EA0D3D0A7B68F2099749D /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Empty.m; path = include/Empty.m; sourceTree = "<group>"; };
+		0D424C5AFB9161F3413AE6043283022E /* ADJSessionParameters.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJSessionParameters.m; path = Adjust/ADJSessionParameters.m; sourceTree = "<group>"; };
+		0D616BE1C2647E6E3A3CC15BF12E36BA /* AdjustAdobeExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = AdjustAdobeExtension.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0DBBF5B1CE33A6656552BB3D8A030431 /* libACPIdentity_iOS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libACPIdentity_iOS.a; sourceTree = "<group>"; };
+		0FE9E1DEEA78A83165A5CE57C687411A /* ADJPackageHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJPackageHandler.h; path = Adjust/ADJPackageHandler.h; sourceTree = "<group>"; };
+		106EC5A0104D2FB39045D14039D2844C /* ADJActivityHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJActivityHandler.h; path = Adjust/ADJActivityHandler.h; sourceTree = "<group>"; };
+		11381745637218648B729F49314B6D10 /* ACPGriffon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ACPGriffon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1207C77552543F80045B9984B3CF47C4 /* ACPCore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPCore.h; path = include/ACPCore.h; sourceTree = "<group>"; };
+		1383964103B32F4A574E8FB431C0B7EC /* libACPUserProfile_iOS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libACPUserProfile_iOS.a; sourceTree = "<group>"; };
+		13F0D6EF80010B77CB39EB803E17F9B9 /* Pods-AdjustAdobeExtension_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AdjustAdobeExtension_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		165E3A681B5DAE24C47B2B834D67ADC2 /* ACPCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ACPCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16EE465F9F188D65BC5255C0EE8AAFE9 /* Pods-AdjustAdobeExtension_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AdjustAdobeExtension_Example-frameworks.sh"; sourceTree = "<group>"; };
+		1762FEAC31CE6BA297BD698130531A31 /* libACPLifecycle_iOS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libACPLifecycle_iOS.a; sourceTree = "<group>"; };
+		177AABD14956E3270AB47CEA36ED76AE /* ACPGriffonEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPGriffonEvent.h; path = include/ACPGriffonEvent.h; sourceTree = "<group>"; };
+		1983BA9AB9D4861DF4C4AF0E42965420 /* ACPIdentity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPIdentity.h; path = include/ACPIdentity.h; sourceTree = "<group>"; };
+		1C101D50218B47012102C7A74BFE12D8 /* ADJTimerOnce.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJTimerOnce.h; path = Adjust/ADJTimerOnce.h; sourceTree = "<group>"; };
+		1CAA12DC1876F32A2E888A580CD3B391 /* AdjustAdobeExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AdjustAdobeExtension.debug.xcconfig; sourceTree = "<group>"; };
+		1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1E687350CFDEFA2071AB8EF480005446 /* Pods-AdjustAdobeExtension_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AdjustAdobeExtension_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1EE728CE008C7AD54DCE3CC487ACB306 /* ADJBackoffStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJBackoffStrategy.m; path = Adjust/ADJBackoffStrategy.m; sourceTree = "<group>"; };
+		20095C0D7F4FDC532F68F3B0598F65AC /* ADJDeviceInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJDeviceInfo.m; path = Adjust/ADJDeviceInfo.m; sourceTree = "<group>"; };
+		2136D1DBD85ED2024D136DDDCE4B3734 /* ACPCore-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ACPCore-Info.plist"; sourceTree = "<group>"; };
+		21544C1C42F2673F6AD0963A622D70BE /* libACPCore_iOS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libACPCore_iOS.a; sourceTree = "<group>"; };
+		24A22EFD5D95732A4D05864CF629B8B1 /* ADJTimerCycle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJTimerCycle.h; path = Adjust/ADJTimerCycle.h; sourceTree = "<group>"; };
+		25D68406E89A1F79417EEE049126BA38 /* ADJSessionFailure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJSessionFailure.m; path = Adjust/ADJSessionFailure.m; sourceTree = "<group>"; };
+		2F5F8985D77361E6AB8F97044E3218A3 /* ADJActivityPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJActivityPackage.h; path = Adjust/ADJActivityPackage.h; sourceTree = "<group>"; };
+		301AD1803A176FAA2FB7FEB53DF0F687 /* ADJSdkClickHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJSdkClickHandler.h; path = Adjust/ADJSdkClickHandler.h; sourceTree = "<group>"; };
+		31120CA4F3A418F0693035BC5442E0F1 /* libACPSignal_iOS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libACPSignal_iOS.a; sourceTree = "<group>"; };
+		3567E19CEAD04FADB0F0AD2297EC0BC3 /* ACPGriffon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPGriffon-prefix.pch"; sourceTree = "<group>"; };
+		374A229F66C069C357C20C72B6247053 /* Adjust.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Adjust.release.xcconfig; sourceTree = "<group>"; };
+		3CC05271E6FA7A10D5D9B9F39C8CD30B /* ADJRequestHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJRequestHandler.h; path = Adjust/ADJRequestHandler.h; sourceTree = "<group>"; };
+		3CDD71FF1F1AB96D479E5FF93381F8D3 /* ADJSystemProfile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJSystemProfile.m; path = Adjust/ADJSystemProfile.m; sourceTree = "<group>"; };
+		3E3B2B6CB8837468EE94FB791368ABB7 /* ACPGriffon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPGriffon.debug.xcconfig; sourceTree = "<group>"; };
+		3F08B55E49E830EA4EEDA50F1BCFAE90 /* ADJSessionSuccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJSessionSuccess.m; path = Adjust/ADJSessionSuccess.m; sourceTree = "<group>"; };
+		3F9E3A3D98EDE5E4BD6B2902200B7A18 /* ADJTimerOnce.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJTimerOnce.m; path = Adjust/ADJTimerOnce.m; sourceTree = "<group>"; };
+		3FA28E0FA3A40A4A87A4DA1825422538 /* ADJUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJUtil.m; path = Adjust/ADJUtil.m; sourceTree = "<group>"; };
+		40728415812215B15EB077997BC62C71 /* ADJReachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJReachability.h; path = Adjust/ADJReachability.h; sourceTree = "<group>"; };
+		4086B971C7DA69836BC8688A0DDF0BCB /* ADJSessionParameters.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJSessionParameters.h; path = Adjust/ADJSessionParameters.h; sourceTree = "<group>"; };
+		46158A2E918D1251956432A7ECF0C904 /* ACPCore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPCore-prefix.pch"; sourceTree = "<group>"; };
+		476BE05694B52D977A48F152F4086F97 /* ACPUserProfile-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ACPUserProfile-Info.plist"; sourceTree = "<group>"; };
+		4A241F7758D42BA7DA66541E6349AE46 /* ADJActivityPackage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJActivityPackage.m; path = Adjust/ADJActivityPackage.m; sourceTree = "<group>"; };
+		4AC2ACAAED3D1A19DDF0B6F8EF4E94E6 /* Pods-AdjustAdobeExtension_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AdjustAdobeExtension_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		4D27A101A0B2D2F1BD379E143010BCF0 /* UIDevice+ADJAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIDevice+ADJAdditions.h"; path = "Adjust/ADJAdditions/UIDevice+ADJAdditions.h"; sourceTree = "<group>"; };
+		4E603BB1A4E82029826D44F494625668 /* Pods-AdjustAdobeExtension_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AdjustAdobeExtension_Example.modulemap"; sourceTree = "<group>"; };
+		5000CA0BA7A59B33E80E06D3C12EF4AA /* ADJBackoffStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJBackoffStrategy.h; path = Adjust/ADJBackoffStrategy.h; sourceTree = "<group>"; };
+		54E9985210797C8646E6DA7E2CB795F6 /* ACPUserProfile-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPUserProfile-umbrella.h"; sourceTree = "<group>"; };
+		554D223928D120DA2539CDA4DA0D94EF /* ADJActivityKind.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJActivityKind.h; path = Adjust/ADJActivityKind.h; sourceTree = "<group>"; };
+		58909E98576A4AE7FA87F51E2FD9CD25 /* ADJPackageBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJPackageBuilder.m; path = Adjust/ADJPackageBuilder.m; sourceTree = "<group>"; };
+		58A16A76FFEF08AF195DF404273608A7 /* Adjust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Adjust.debug.xcconfig; sourceTree = "<group>"; };
+		5A5062A98009C8FEBFCE81FE25E659E0 /* ADJPackageBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJPackageBuilder.h; path = Adjust/ADJPackageBuilder.h; sourceTree = "<group>"; };
+		611C92254D0BB05F4830B987F18EFBB4 /* ADJLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJLogger.m; path = Adjust/ADJLogger.m; sourceTree = "<group>"; };
+		6355C5DFBA8C99CE5A0E0A65E535DCC8 /* ACPUserProfile.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ACPUserProfile.modulemap; sourceTree = "<group>"; };
+		64C5073694518FF35740404ABB9E3FDB /* Pods_AdjustAdobeExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdjustAdobeExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6525021CC1667239F349BE64DC531D20 /* ADJAdjustFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJAdjustFactory.m; path = Adjust/ADJAdjustFactory.m; sourceTree = "<group>"; };
+		66A332F403BCC45983C3618859C8674A /* ACPUserProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ACPUserProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67DA9CB8A643E074F89436261D61850D /* ADJEventSuccess.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJEventSuccess.m; path = Adjust/ADJEventSuccess.m; sourceTree = "<group>"; };
+		6951355958B9C9356822AC284872BE6F /* ACPCore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ACPCore-dummy.m"; sourceTree = "<group>"; };
+		6A6F9FD852E222F5B22C7722353BCF8A /* ADJActivityState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJActivityState.m; path = Adjust/ADJActivityState.m; sourceTree = "<group>"; };
+		6AD9E90B1BAAE063EE3A27EF1282240F /* AdjustAdobeExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AdjustAdobeExtension-umbrella.h"; sourceTree = "<group>"; };
+		6C53EFCEF65286A083BDD82052A50B93 /* ADJUserDefaults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJUserDefaults.h; path = Adjust/ADJUserDefaults.h; sourceTree = "<group>"; };
+		6D090A8C12A88F0372577CFBD663A2D6 /* ADJSessionSuccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJSessionSuccess.h; path = Adjust/ADJSessionSuccess.h; sourceTree = "<group>"; };
+		6EEB5118FA327F0B0F2744704A6EDB7C /* Adjust-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Adjust-prefix.pch"; sourceTree = "<group>"; };
+		70543AC171A369202FBA7DD3E8A75A8A /* NSString+ADJAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+ADJAdditions.h"; path = "Adjust/ADJAdditions/NSString+ADJAdditions.h"; sourceTree = "<group>"; };
+		71FAA8988B2B77CC41CA9EE7974FEBAA /* ADJUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJUtil.h; path = Adjust/ADJUtil.h; sourceTree = "<group>"; };
+		74A428758AD5CF95209E1F36A7F87598 /* ADJConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJConfig.m; path = Adjust/ADJConfig.m; sourceTree = "<group>"; };
+		74D88BDC9672515CE0EF7CF07DB3D7D6 /* AdjustAdobeExtensionSharedStateListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AdjustAdobeExtensionSharedStateListener.h; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionSharedStateListener.h; sourceTree = "<group>"; };
+		76CF07EFF46D0D6494BC2754E35FB5F2 /* ADJEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJEvent.h; path = Adjust/ADJEvent.h; sourceTree = "<group>"; };
+		7702C9368E88731949A5B9316A797531 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		78E51D9A49D8924543606E23315DB381 /* ADJAttributionHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJAttributionHandler.h; path = Adjust/ADJAttributionHandler.h; sourceTree = "<group>"; };
+		7AFA756DF9D2A8EE5594F871A220B58E /* ACPCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPCore.debug.xcconfig; sourceTree = "<group>"; };
+		7BBAA19E70C748C358830E00861A882D /* ACPLifecycle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPLifecycle.h; path = include/ACPLifecycle.h; sourceTree = "<group>"; };
+		7BF1044F1BC15319F43FFA23369BDF1E /* Pods-AdjustAdobeExtension_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AdjustAdobeExtension_Tests-Info.plist"; sourceTree = "<group>"; };
+		7ECA21AD8F9B5C4719A2150285025C28 /* ADJEventFailure.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJEventFailure.m; path = Adjust/ADJEventFailure.m; sourceTree = "<group>"; };
+		7FE0E75A22044CE826A2F81C9779FAA8 /* ADJActivityKind.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJActivityKind.m; path = Adjust/ADJActivityKind.m; sourceTree = "<group>"; };
+		7FF5C62DF1E2D492F272FD7D2A1EF4A3 /* Adjust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Adjust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		81FD615FF33B38D7B56BA191C997F2A5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		84A375ACAA9FCA45693FC4B585E094F2 /* ADJUrlStrategy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJUrlStrategy.h; path = Adjust/ADJUrlStrategy.h; sourceTree = "<group>"; };
+		863A6D2382BA3721B1AAE2FE241031DA /* ACPExtensionListener.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPExtensionListener.h; path = include/ACPExtensionListener.h; sourceTree = "<group>"; };
+		883564DA4E657BBFB3AD8DEAFD1BD2B4 /* ACPError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPError.h; path = include/ACPError.h; sourceTree = "<group>"; };
+		885DFE4666FC9D2704CD900013759CC8 /* NSString+ADJAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+ADJAdditions.m"; path = "Adjust/ADJAdditions/NSString+ADJAdditions.m"; sourceTree = "<group>"; };
+		894E1B47A4FC061186967EEA0AF33F33 /* AdjustAdobeExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AdjustAdobeExtension-prefix.pch"; sourceTree = "<group>"; };
+		8A1A59D90E962FA4B011445966992CD6 /* Adjust.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Adjust.m; path = Adjust/Adjust.m; sourceTree = "<group>"; };
+		8BF6C5BEB73A2DB5DE8722FDF2555346 /* ADJTimerCycle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJTimerCycle.m; path = Adjust/ADJTimerCycle.m; sourceTree = "<group>"; };
+		8E1D540B7F8CD204F516324C088AC7C9 /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Empty.m; path = include/Empty.m; sourceTree = "<group>"; };
+		90344CAFF98D394A9961D23A8B884313 /* UIDevice+ADJAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+ADJAdditions.m"; path = "Adjust/ADJAdditions/UIDevice+ADJAdditions.m"; sourceTree = "<group>"; };
+		911639EAF459A4340C10FED65B1A3FEE /* Empty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Empty.m; path = include/Empty.m; sourceTree = "<group>"; };
+		91F3BB5F2CDD282C76B36E72893B297B /* ADJSessionFailure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJSessionFailure.h; path = Adjust/ADJSessionFailure.h; sourceTree = "<group>"; };
+		9275FE49DD5A1CF1C9914A3B0ACB4FC7 /* ADJUserDefaults.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJUserDefaults.m; path = Adjust/ADJUserDefaults.m; sourceTree = "<group>"; };
+		93C4E5114318999A8994F7549145487C /* ADJEventFailure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJEventFailure.h; path = Adjust/ADJEventFailure.h; sourceTree = "<group>"; };
+		940E22A15093648A93C2FF6C74A7B787 /* Adjust.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Adjust.modulemap; sourceTree = "<group>"; };
+		94A2CBF75658AC1FFFF5F8B77FEB1AA8 /* ADJAttribution.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJAttribution.h; path = Adjust/ADJAttribution.h; sourceTree = "<group>"; };
+		94F8A190639A50D7C71AF7A94880839C /* ADJActivityHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJActivityHandler.m; path = Adjust/ADJActivityHandler.m; sourceTree = "<group>"; };
+		95EFA50633B766ED1603158A6474BBFC /* AdjustAdobeExtension-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AdjustAdobeExtension-Info.plist"; sourceTree = "<group>"; };
+		98E7251BF80A2651C6AF2BFD2EF5D974 /* ACPGriffon.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ACPGriffon.modulemap; sourceTree = "<group>"; };
+		99453B5E2F156D35160B89C4F3850729 /* ACPGriffon-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPGriffon-umbrella.h"; sourceTree = "<group>"; };
+		9ACE52D89FE952C3D3C58E0ED2B1D5CF /* Pods-AdjustAdobeExtension_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AdjustAdobeExtension_Tests-dummy.m"; sourceTree = "<group>"; };
+		9CE7BA43BBF04E6B96DB3D8520EBABF1 /* ACPUserProfile-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ACPUserProfile-dummy.m"; sourceTree = "<group>"; };
+		9D0FD845518D8A40FB54798BDCB08E39 /* ADJAttribution.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJAttribution.m; path = Adjust/ADJAttribution.m; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1C97C8A5D4647201090C371B721BCAC /* ACPUserProfile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPUserProfile.release.xcconfig; sourceTree = "<group>"; };
+		A1CF3CEC10078F7E81A82BF9EF95A834 /* ACPExtensionEvent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPExtensionEvent.h; path = include/ACPExtensionEvent.h; sourceTree = "<group>"; };
+		A2C64FD4E2E83A09D91C835985C22487 /* ACPCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ACPCore.modulemap; sourceTree = "<group>"; };
+		A465D6476E671F7AFE81AA42BD3EE4DC /* Pods-AdjustAdobeExtension_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdjustAdobeExtension_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		A53800396FD2B9214BE5E134FA94AAEC /* ACPNetworkServiceOverrider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPNetworkServiceOverrider.h; path = include/ACPNetworkServiceOverrider.h; sourceTree = "<group>"; };
+		A92B86F9198C82C361029F87330B4901 /* Pods-AdjustAdobeExtension_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdjustAdobeExtension_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		A9FF0375AB96285AAFB086EA478ECC0C /* Pods-AdjustAdobeExtension_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AdjustAdobeExtension_Example-umbrella.h"; sourceTree = "<group>"; };
+		AEB7F6D5B75986C0AD5D21AA98C72EF9 /* ADJRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJRequestHandler.m; path = Adjust/ADJRequestHandler.m; sourceTree = "<group>"; };
+		AF0774E665289EE2A9D1E765B7AC2340 /* libACPGriffon_iOS.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libACPGriffon_iOS.a; sourceTree = "<group>"; };
+		AF8AC7D80BF109463F2154B1C5BBEBF5 /* ADJAdjustFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJAdjustFactory.h; path = Adjust/ADJAdjustFactory.h; sourceTree = "<group>"; };
+		B21BD66E7164EA3FE36A20C82B8578AB /* Pods-AdjustAdobeExtension_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdjustAdobeExtension_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		B27C38BF5C369496CA1ED21A6E5E0E2A /* ACPUserProfile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPUserProfile.debug.xcconfig; sourceTree = "<group>"; };
+		B586D7705314536EEB0F87C15C34C4E7 /* ACPGriffon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPGriffon.h; path = include/ACPGriffon.h; sourceTree = "<group>"; };
+		B6A2AEC745DDAC229156D795611CC0E0 /* ACPCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPCore.release.xcconfig; sourceTree = "<group>"; };
+		B8DF96CA9B42FB29AEAA5827E9D72288 /* Adjust-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Adjust-dummy.m"; sourceTree = "<group>"; };
+		BE49C8CC296207BF48D1622FF030EF1C /* AdjustAdobeExtension.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AdjustAdobeExtension.m; path = AdjustAdobeExtension/Classes/AdjustAdobeExtension.m; sourceTree = "<group>"; };
+		C021C847EFB2C3F3C77380253D608A6D /* ADJEventSuccess.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJEventSuccess.h; path = Adjust/ADJEventSuccess.h; sourceTree = "<group>"; };
+		C1DEF7BC8450BC1E6DC1B6C564484077 /* ADJReachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJReachability.m; path = Adjust/ADJReachability.m; sourceTree = "<group>"; };
+		C48D8D2D1731A91A0AF0A6BC09338AA3 /* ACPExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPExtension.h; path = include/ACPExtension.h; sourceTree = "<group>"; };
+		C49963691C76926678AA707B18530979 /* ADJEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJEvent.m; path = Adjust/ADJEvent.m; sourceTree = "<group>"; };
+		C5EDB9B4FCC6A130CC5F99E3FF6E0DFA /* ADJConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJConfig.h; path = Adjust/ADJConfig.h; sourceTree = "<group>"; };
+		CDBF13B3EC9BF90B61D2CA3FBB9A88F9 /* ADJDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJDeviceInfo.h; path = Adjust/ADJDeviceInfo.h; sourceTree = "<group>"; };
+		CDCBDC11C29A229199DE7B64F42BE941 /* Pods-AdjustAdobeExtension_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AdjustAdobeExtension_Example.release.xcconfig"; sourceTree = "<group>"; };
+		CE4F7799189C352E1D9346617C1FCFED /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		CED8C331EFBC14E57C37D015C1E06A65 /* ACPExtensionApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPExtensionApi.h; path = include/ACPExtensionApi.h; sourceTree = "<group>"; };
+		CF56C2DCE3F126F0F53598B1AE7057F0 /* Adjust-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Adjust-umbrella.h"; sourceTree = "<group>"; };
+		CFF7D1BAC129E413638729528EAFBD8D /* ADJResponseData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJResponseData.h; path = Adjust/ADJResponseData.h; sourceTree = "<group>"; };
+		D064929F5570B004CB27802BDCD1B0F4 /* NSData+ADJAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ADJAdditions.m"; path = "Adjust/ADJAdditions/NSData+ADJAdditions.m"; sourceTree = "<group>"; };
+		D0ED30C76B4C3D8F5A58828C1A03DF88 /* ADJSdkClickHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJSdkClickHandler.m; path = Adjust/ADJSdkClickHandler.m; sourceTree = "<group>"; };
+		D47B84AEC65D4EE6BEA145A40F8C820D /* ADJKeychain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJKeychain.h; path = Adjust/ADJKeychain.h; sourceTree = "<group>"; };
+		D60C33C6F35F084F239F5DE13FFA0737 /* Pods-AdjustAdobeExtension_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AdjustAdobeExtension_Tests.modulemap"; sourceTree = "<group>"; };
+		D78686A825220D7F00CA185D /* AdjustAdobeExtensionEventListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AdjustAdobeExtensionEventListener.h; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionEventListener.h; sourceTree = "<group>"; };
+		D78686A925220D7F00CA185D /* AdjustAdobeExtensionEventListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AdjustAdobeExtensionEventListener.m; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionEventListener.m; sourceTree = "<group>"; };
+		DA26566345330B40483431229C365177 /* ACPExtensionError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPExtensionError.h; path = include/ACPExtensionError.h; sourceTree = "<group>"; };
+		DB6E9D150D42B391B3603D8B6F7BFE5D /* ACPGriffon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ACPGriffon-dummy.m"; sourceTree = "<group>"; };
+		DC244FC4B30E1B4C27D3344CFA49D361 /* AdjustAdobeExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AdjustAdobeExtension.release.xcconfig; sourceTree = "<group>"; };
+		DD7F23DEF996E4BAA5E5A4B022FE4257 /* ACPGriffon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ACPGriffon.release.xcconfig; sourceTree = "<group>"; };
+		DE086E30F98A83B8AA137FC13E74A4F6 /* Adjust.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Adjust.h; path = Adjust/Adjust.h; sourceTree = "<group>"; };
+		E420C8502E6D37D2D530D4CA729EFEE2 /* NSData+ADJAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ADJAdditions.h"; path = "Adjust/ADJAdditions/NSData+ADJAdditions.h"; sourceTree = "<group>"; };
+		E4644752DCB75A35DA795F376FA41516 /* ADJSubscription.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJSubscription.m; path = Adjust/ADJSubscription.m; sourceTree = "<group>"; };
+		E5A73EFC0BD5B559389141E2196A7933 /* ACPCore-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ACPCore-umbrella.h"; sourceTree = "<group>"; };
+		E74DC8CC5E238CC7068630E17C8E24CA /* ACPUserProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPUserProfile.h; path = include/ACPUserProfile.h; sourceTree = "<group>"; };
+		E83D38433039D01CC917B777DA55C286 /* AdjustAdobeExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AdjustAdobeExtension.modulemap; sourceTree = "<group>"; };
+		E91DE36B7414F809B144E9E51E05F325 /* ADJSubscription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJSubscription.h; path = Adjust/ADJSubscription.h; sourceTree = "<group>"; };
+		EA39986A781C32D5B13B6B3D5701F7E7 /* ADJKeychain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJKeychain.m; path = Adjust/ADJKeychain.m; sourceTree = "<group>"; };
+		EB48633F7F577A955FF72EA46F2A1A83 /* AdjustAdobeExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AdjustAdobeExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE223E69EAEA7E778AC497CF81856D00 /* Pods-AdjustAdobeExtension_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AdjustAdobeExtension_Example-Info.plist"; sourceTree = "<group>"; };
+		EEDD0A609011D8975313B39497DC559C /* Pods-AdjustAdobeExtension_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AdjustAdobeExtension_Tests-umbrella.h"; sourceTree = "<group>"; };
+		EFA3355B5F1B321DD6EB369708B8C04A /* ACPMobileVisitorId.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPMobileVisitorId.h; path = include/ACPMobileVisitorId.h; sourceTree = "<group>"; };
+		EFD8F36CD1659451C72377BF36B23E00 /* AdjustAdobeExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AdjustAdobeExtension-dummy.m"; sourceTree = "<group>"; };
+		F02DD54ECD3EE90932AE1E57C56D9575 /* AdjustAdobeExtension.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AdjustAdobeExtension.h; path = AdjustAdobeExtension/Classes/AdjustAdobeExtension.h; sourceTree = "<group>"; };
+		F16181DACD69EB4200BB2F3DFAF927DB /* AdjustAdobeExtensionSharedStateListener.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AdjustAdobeExtensionSharedStateListener.m; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionSharedStateListener.m; sourceTree = "<group>"; };
+		F679A3FB9041003C0EAD563A8F792599 /* ADJPackageHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJPackageHandler.m; path = Adjust/ADJPackageHandler.m; sourceTree = "<group>"; };
+		F8C644576ECA3700B5C8C8D253B9570D /* ADJAttributionHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJAttributionHandler.m; path = Adjust/ADJAttributionHandler.m; sourceTree = "<group>"; };
+		F8E52D535DB49775B4AFC7EAEF9E5742 /* Pods_AdjustAdobeExtension_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdjustAdobeExtension_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F99BB4FE8A84B4F8E3F39BF0DB446C17 /* ADJResponseData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJResponseData.m; path = Adjust/ADJResponseData.m; sourceTree = "<group>"; };
+		FC33F78F2AA2A54842946277749EB7B4 /* ADJUrlStrategy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ADJUrlStrategy.m; path = Adjust/ADJUrlStrategy.m; sourceTree = "<group>"; };
+		FD835DB93743FBD4F6BFD6F2C1D76848 /* ACPGriffon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ACPGriffon-Info.plist"; sourceTree = "<group>"; };
+		FE58C4EDCC2AE7A61B7FA9E4F1879FE8 /* ADJLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ADJLogger.h; path = Adjust/ADJLogger.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2762C967415635620C8AD69B89628F04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22D9323199411D7851AEE57D42F31585 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41DD9DBE78FB4836D72081A7F8556AC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF849B93008C6D77122E47EDD20514F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BB38D5139C31EEBD976A88660F71525 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				412C61FED36ACF4959CB9845FE7D6B30 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7E23B0C56D4E46FCB3A9F8CE6F9B1032 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74BC3AE41B39385AA9C1EE66E5E9C34F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		819EA726B901C5F299259FA0A2B736BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EDF7C70CF480CF6DE49864EB7F3E7EE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B119C9D32124266930E87E74F2035FC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B36D64B52ADCE0338D5D5B748F9D63B /* Foundation.framework in Frameworks */,
+				C3F4E555790A3D4F6E04F44DE75B64A0 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F046D1D0F4B2E0C02AE79E4A6999D56A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A72A237E68127D0D153271961BDE4F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C799B16B255D281D539E6C748757145 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1383964103B32F4A574E8FB431C0B7EC /* libACPUserProfile_iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0D25EE0F37FE3B6E6E5C0896AF07CFB2 /* Adjust */ = {
+			isa = PBXGroup;
+			children = (
+				1213598089E70E415AC9FD46AB71C041 /* Core */,
+				941B75803C16F90DBB413B0CAF36A089 /* Support Files */,
+			);
+			path = Adjust;
+			sourceTree = "<group>";
+		};
+		1213598089E70E415AC9FD46AB71C041 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				106EC5A0104D2FB39045D14039D2844C /* ADJActivityHandler.h */,
+				94F8A190639A50D7C71AF7A94880839C /* ADJActivityHandler.m */,
+				554D223928D120DA2539CDA4DA0D94EF /* ADJActivityKind.h */,
+				7FE0E75A22044CE826A2F81C9779FAA8 /* ADJActivityKind.m */,
+				2F5F8985D77361E6AB8F97044E3218A3 /* ADJActivityPackage.h */,
+				4A241F7758D42BA7DA66541E6349AE46 /* ADJActivityPackage.m */,
+				07328DB6E0154604104E56A40DC47B9B /* ADJActivityState.h */,
+				6A6F9FD852E222F5B22C7722353BCF8A /* ADJActivityState.m */,
+				AF8AC7D80BF109463F2154B1C5BBEBF5 /* ADJAdjustFactory.h */,
+				6525021CC1667239F349BE64DC531D20 /* ADJAdjustFactory.m */,
+				94A2CBF75658AC1FFFF5F8B77FEB1AA8 /* ADJAttribution.h */,
+				9D0FD845518D8A40FB54798BDCB08E39 /* ADJAttribution.m */,
+				78E51D9A49D8924543606E23315DB381 /* ADJAttributionHandler.h */,
+				F8C644576ECA3700B5C8C8D253B9570D /* ADJAttributionHandler.m */,
+				5000CA0BA7A59B33E80E06D3C12EF4AA /* ADJBackoffStrategy.h */,
+				1EE728CE008C7AD54DCE3CC487ACB306 /* ADJBackoffStrategy.m */,
+				C5EDB9B4FCC6A130CC5F99E3FF6E0DFA /* ADJConfig.h */,
+				74A428758AD5CF95209E1F36A7F87598 /* ADJConfig.m */,
+				CDBF13B3EC9BF90B61D2CA3FBB9A88F9 /* ADJDeviceInfo.h */,
+				20095C0D7F4FDC532F68F3B0598F65AC /* ADJDeviceInfo.m */,
+				76CF07EFF46D0D6494BC2754E35FB5F2 /* ADJEvent.h */,
+				C49963691C76926678AA707B18530979 /* ADJEvent.m */,
+				93C4E5114318999A8994F7549145487C /* ADJEventFailure.h */,
+				7ECA21AD8F9B5C4719A2150285025C28 /* ADJEventFailure.m */,
+				C021C847EFB2C3F3C77380253D608A6D /* ADJEventSuccess.h */,
+				67DA9CB8A643E074F89436261D61850D /* ADJEventSuccess.m */,
+				D47B84AEC65D4EE6BEA145A40F8C820D /* ADJKeychain.h */,
+				EA39986A781C32D5B13B6B3D5701F7E7 /* ADJKeychain.m */,
+				FE58C4EDCC2AE7A61B7FA9E4F1879FE8 /* ADJLogger.h */,
+				611C92254D0BB05F4830B987F18EFBB4 /* ADJLogger.m */,
+				5A5062A98009C8FEBFCE81FE25E659E0 /* ADJPackageBuilder.h */,
+				58909E98576A4AE7FA87F51E2FD9CD25 /* ADJPackageBuilder.m */,
+				0FE9E1DEEA78A83165A5CE57C687411A /* ADJPackageHandler.h */,
+				F679A3FB9041003C0EAD563A8F792599 /* ADJPackageHandler.m */,
+				40728415812215B15EB077997BC62C71 /* ADJReachability.h */,
+				C1DEF7BC8450BC1E6DC1B6C564484077 /* ADJReachability.m */,
+				3CC05271E6FA7A10D5D9B9F39C8CD30B /* ADJRequestHandler.h */,
+				AEB7F6D5B75986C0AD5D21AA98C72EF9 /* ADJRequestHandler.m */,
+				CFF7D1BAC129E413638729528EAFBD8D /* ADJResponseData.h */,
+				F99BB4FE8A84B4F8E3F39BF0DB446C17 /* ADJResponseData.m */,
+				301AD1803A176FAA2FB7FEB53DF0F687 /* ADJSdkClickHandler.h */,
+				D0ED30C76B4C3D8F5A58828C1A03DF88 /* ADJSdkClickHandler.m */,
+				91F3BB5F2CDD282C76B36E72893B297B /* ADJSessionFailure.h */,
+				25D68406E89A1F79417EEE049126BA38 /* ADJSessionFailure.m */,
+				4086B971C7DA69836BC8688A0DDF0BCB /* ADJSessionParameters.h */,
+				0D424C5AFB9161F3413AE6043283022E /* ADJSessionParameters.m */,
+				6D090A8C12A88F0372577CFBD663A2D6 /* ADJSessionSuccess.h */,
+				3F08B55E49E830EA4EEDA50F1BCFAE90 /* ADJSessionSuccess.m */,
+				E91DE36B7414F809B144E9E51E05F325 /* ADJSubscription.h */,
+				E4644752DCB75A35DA795F376FA41516 /* ADJSubscription.m */,
+				07F128A004134E5191743039B04357A3 /* ADJSystemProfile.h */,
+				3CDD71FF1F1AB96D479E5FF93381F8D3 /* ADJSystemProfile.m */,
+				24A22EFD5D95732A4D05864CF629B8B1 /* ADJTimerCycle.h */,
+				8BF6C5BEB73A2DB5DE8722FDF2555346 /* ADJTimerCycle.m */,
+				1C101D50218B47012102C7A74BFE12D8 /* ADJTimerOnce.h */,
+				3F9E3A3D98EDE5E4BD6B2902200B7A18 /* ADJTimerOnce.m */,
+				84A375ACAA9FCA45693FC4B585E094F2 /* ADJUrlStrategy.h */,
+				FC33F78F2AA2A54842946277749EB7B4 /* ADJUrlStrategy.m */,
+				6C53EFCEF65286A083BDD82052A50B93 /* ADJUserDefaults.h */,
+				9275FE49DD5A1CF1C9914A3B0ACB4FC7 /* ADJUserDefaults.m */,
+				DE086E30F98A83B8AA137FC13E74A4F6 /* Adjust.h */,
+				8A1A59D90E962FA4B011445966992CD6 /* Adjust.m */,
+				71FAA8988B2B77CC41CA9EE7974FEBAA /* ADJUtil.h */,
+				3FA28E0FA3A40A4A87A4DA1825422538 /* ADJUtil.m */,
+				E420C8502E6D37D2D530D4CA729EFEE2 /* NSData+ADJAdditions.h */,
+				D064929F5570B004CB27802BDCD1B0F4 /* NSData+ADJAdditions.m */,
+				70543AC171A369202FBA7DD3E8A75A8A /* NSString+ADJAdditions.h */,
+				885DFE4666FC9D2704CD900013759CC8 /* NSString+ADJAdditions.m */,
+				4D27A101A0B2D2F1BD379E143010BCF0 /* UIDevice+ADJAdditions.h */,
+				90344CAFF98D394A9961D23A8B884313 /* UIDevice+ADJAdditions.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB7EBF6CCCA535BA4F447E10039CEA16 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		20A83C55E8552DECA56D8BF633FC27AC /* ACPCore */ = {
+			isa = PBXGroup;
+			children = (
+				9610345F347E814F7C9F3C0C5777CD6D /* main */,
+				3C665FFDA6D574B9603A359C597D232E /* Support Files */,
+			);
+			path = ACPCore;
+			sourceTree = "<group>";
+		};
+		2850B0C0B483DADF4A4304D308F1EA32 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B586D7705314536EEB0F87C15C34C4E7 /* ACPGriffon.h */,
+				177AABD14956E3270AB47CEA36ED76AE /* ACPGriffonEvent.h */,
+				911639EAF459A4340C10FED65B1A3FEE /* Empty.m */,
+				B600FF1C75FB9FC3C5C54FF7BD09E106 /* Frameworks */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		2DD59AAD6BBECAF289E0A13E89738D45 /* ACPGriffon */ = {
+			isa = PBXGroup;
+			children = (
+				2850B0C0B483DADF4A4304D308F1EA32 /* iOS */,
+				78AD30AAA03110772D4E79678573EA79 /* Support Files */,
+			);
+			path = ACPGriffon;
+			sourceTree = "<group>";
+		};
+		2F408E621447585CEFBBD9CF8C7D5EB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21544C1C42F2673F6AD0963A622D70BE /* libACPCore_iOS.a */,
+				0DBBF5B1CE33A6656552BB3D8A030431 /* libACPIdentity_iOS.a */,
+				1762FEAC31CE6BA297BD698130531A31 /* libACPLifecycle_iOS.a */,
+				31120CA4F3A418F0693035BC5442E0F1 /* libACPSignal_iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C665FFDA6D574B9603A359C597D232E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A2C64FD4E2E83A09D91C835985C22487 /* ACPCore.modulemap */,
+				6951355958B9C9356822AC284872BE6F /* ACPCore-dummy.m */,
+				2136D1DBD85ED2024D136DDDCE4B3734 /* ACPCore-Info.plist */,
+				46158A2E918D1251956432A7ECF0C904 /* ACPCore-prefix.pch */,
+				E5A73EFC0BD5B559389141E2196A7933 /* ACPCore-umbrella.h */,
+				7AFA756DF9D2A8EE5594F871A220B58E /* ACPCore.debug.xcconfig */,
+				B6A2AEC745DDAC229156D795611CC0E0 /* ACPCore.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ACPCore";
+			sourceTree = "<group>";
+		};
+		5296F10558186CC55AEEBBEDFDAB4C46 /* ACPUserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				E0D062B0034438325DC4EE4205753A64 /* iOS */,
+				70CCB836AE90969A180298D6FF307ADA /* Support Files */,
+			);
+			path = ACPUserProfile;
+			sourceTree = "<group>";
+		};
+		56486B893447A5F688EDD478DF0F347B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20A83C55E8552DECA56D8BF633FC27AC /* ACPCore */,
+				2DD59AAD6BBECAF289E0A13E89738D45 /* ACPGriffon */,
+				5296F10558186CC55AEEBBEDFDAB4C46 /* ACPUserProfile */,
+				0D25EE0F37FE3B6E6E5C0896AF07CFB2 /* Adjust */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70CCB836AE90969A180298D6FF307ADA /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6355C5DFBA8C99CE5A0E0A65E535DCC8 /* ACPUserProfile.modulemap */,
+				9CE7BA43BBF04E6B96DB3D8520EBABF1 /* ACPUserProfile-dummy.m */,
+				476BE05694B52D977A48F152F4086F97 /* ACPUserProfile-Info.plist */,
+				0229DC2AB25593B8146ACDC14D17E353 /* ACPUserProfile-prefix.pch */,
+				54E9985210797C8646E6DA7E2CB795F6 /* ACPUserProfile-umbrella.h */,
+				B27C38BF5C369496CA1ED21A6E5E0E2A /* ACPUserProfile.debug.xcconfig */,
+				A1C97C8A5D4647201090C371B721BCAC /* ACPUserProfile.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ACPUserProfile";
+			sourceTree = "<group>";
+		};
+		78AD30AAA03110772D4E79678573EA79 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				98E7251BF80A2651C6AF2BFD2EF5D974 /* ACPGriffon.modulemap */,
+				DB6E9D150D42B391B3603D8B6F7BFE5D /* ACPGriffon-dummy.m */,
+				FD835DB93743FBD4F6BFD6F2C1D76848 /* ACPGriffon-Info.plist */,
+				3567E19CEAD04FADB0F0AD2297EC0BC3 /* ACPGriffon-prefix.pch */,
+				99453B5E2F156D35160B89C4F3850729 /* ACPGriffon-umbrella.h */,
+				3E3B2B6CB8837468EE94FB791368ABB7 /* ACPGriffon.debug.xcconfig */,
+				DD7F23DEF996E4BAA5E5A4B022FE4257 /* ACPGriffon.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/ACPGriffon";
+			sourceTree = "<group>";
+		};
+		82B4CD0CAA8FC2E4323EC0D7A92BED2E /* Pods-AdjustAdobeExtension_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D60C33C6F35F084F239F5DE13FFA0737 /* Pods-AdjustAdobeExtension_Tests.modulemap */,
+				1E687350CFDEFA2071AB8EF480005446 /* Pods-AdjustAdobeExtension_Tests-acknowledgements.markdown */,
+				13F0D6EF80010B77CB39EB803E17F9B9 /* Pods-AdjustAdobeExtension_Tests-acknowledgements.plist */,
+				9ACE52D89FE952C3D3C58E0ED2B1D5CF /* Pods-AdjustAdobeExtension_Tests-dummy.m */,
+				7BF1044F1BC15319F43FFA23369BDF1E /* Pods-AdjustAdobeExtension_Tests-Info.plist */,
+				EEDD0A609011D8975313B39497DC559C /* Pods-AdjustAdobeExtension_Tests-umbrella.h */,
+				A465D6476E671F7AFE81AA42BD3EE4DC /* Pods-AdjustAdobeExtension_Tests.debug.xcconfig */,
+				A92B86F9198C82C361029F87330B4901 /* Pods-AdjustAdobeExtension_Tests.release.xcconfig */,
+			);
+			name = "Pods-AdjustAdobeExtension_Tests";
+			path = "Target Support Files/Pods-AdjustAdobeExtension_Tests";
+			sourceTree = "<group>";
+		};
+		8452E2C377577E683FFAA6E5C4B3B0C2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1E19E0D5D8DC9CA5F72D0C4FC02D845 /* Pods-AdjustAdobeExtension_Example */,
+				82B4CD0CAA8FC2E4323EC0D7A92BED2E /* Pods-AdjustAdobeExtension_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		941B75803C16F90DBB413B0CAF36A089 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				940E22A15093648A93C2FF6C74A7B787 /* Adjust.modulemap */,
+				B8DF96CA9B42FB29AEAA5827E9D72288 /* Adjust-dummy.m */,
+				007C40CB51441CEFF931716B95258C43 /* Adjust-Info.plist */,
+				6EEB5118FA327F0B0F2744704A6EDB7C /* Adjust-prefix.pch */,
+				CF56C2DCE3F126F0F53598B1AE7057F0 /* Adjust-umbrella.h */,
+				58A16A76FFEF08AF195DF404273608A7 /* Adjust.debug.xcconfig */,
+				374A229F66C069C357C20C72B6247053 /* Adjust.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Adjust";
+			sourceTree = "<group>";
+		};
+		9610345F347E814F7C9F3C0C5777CD6D /* main */ = {
+			isa = PBXGroup;
+			children = (
+				1207C77552543F80045B9984B3CF47C4 /* ACPCore.h */,
+				883564DA4E657BBFB3AD8DEAFD1BD2B4 /* ACPError.h */,
+				C48D8D2D1731A91A0AF0A6BC09338AA3 /* ACPExtension.h */,
+				CED8C331EFBC14E57C37D015C1E06A65 /* ACPExtensionApi.h */,
+				DA26566345330B40483431229C365177 /* ACPExtensionError.h */,
+				A1CF3CEC10078F7E81A82BF9EF95A834 /* ACPExtensionEvent.h */,
+				863A6D2382BA3721B1AAE2FE241031DA /* ACPExtensionListener.h */,
+				1983BA9AB9D4861DF4C4AF0E42965420 /* ACPIdentity.h */,
+				7BBAA19E70C748C358830E00861A882D /* ACPLifecycle.h */,
+				EFA3355B5F1B321DD6EB369708B8C04A /* ACPMobileVisitorId.h */,
+				A53800396FD2B9214BE5E134FA94AAEC /* ACPNetworkServiceOverrider.h */,
+				0B48FEDBCF5327811D698F5885A3682D /* ACPSignal.h */,
+				8E1D540B7F8CD204F516324C088AC7C9 /* Empty.m */,
+				2F408E621447585CEFBBD9CF8C7D5EB6 /* Frameworks */,
+			);
+			name = main;
+			sourceTree = "<group>";
+		};
+		A1E19E0D5D8DC9CA5F72D0C4FC02D845 /* Pods-AdjustAdobeExtension_Example */ = {
+			isa = PBXGroup;
+			children = (
+				4E603BB1A4E82029826D44F494625668 /* Pods-AdjustAdobeExtension_Example.modulemap */,
+				0A68E9E39C5B3A932CF38BA68953E587 /* Pods-AdjustAdobeExtension_Example-acknowledgements.markdown */,
+				4AC2ACAAED3D1A19DDF0B6F8EF4E94E6 /* Pods-AdjustAdobeExtension_Example-acknowledgements.plist */,
+				0478C307A4CD1BD693BB4D790E242467 /* Pods-AdjustAdobeExtension_Example-dummy.m */,
+				16EE465F9F188D65BC5255C0EE8AAFE9 /* Pods-AdjustAdobeExtension_Example-frameworks.sh */,
+				EE223E69EAEA7E778AC497CF81856D00 /* Pods-AdjustAdobeExtension_Example-Info.plist */,
+				A9FF0375AB96285AAFB086EA478ECC0C /* Pods-AdjustAdobeExtension_Example-umbrella.h */,
+				B21BD66E7164EA3FE36A20C82B8578AB /* Pods-AdjustAdobeExtension_Example.debug.xcconfig */,
+				CDCBDC11C29A229199DE7B64F42BE941 /* Pods-AdjustAdobeExtension_Example.release.xcconfig */,
+			);
+			name = "Pods-AdjustAdobeExtension_Example";
+			path = "Target Support Files/Pods-AdjustAdobeExtension_Example";
+			sourceTree = "<group>";
+		};
+		B0E803EDF5DF4E441B8EAE5BC62BE976 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E83D38433039D01CC917B777DA55C286 /* AdjustAdobeExtension.modulemap */,
+				EFD8F36CD1659451C72377BF36B23E00 /* AdjustAdobeExtension-dummy.m */,
+				95EFA50633B766ED1603158A6474BBFC /* AdjustAdobeExtension-Info.plist */,
+				894E1B47A4FC061186967EEA0AF33F33 /* AdjustAdobeExtension-prefix.pch */,
+				6AD9E90B1BAAE063EE3A27EF1282240F /* AdjustAdobeExtension-umbrella.h */,
+				1CAA12DC1876F32A2E888A580CD3B391 /* AdjustAdobeExtension.debug.xcconfig */,
+				DC244FC4B30E1B4C27D3344CFA49D361 /* AdjustAdobeExtension.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/AdjustAdobeExtension";
+			sourceTree = "<group>";
+		};
+		B600FF1C75FB9FC3C5C54FF7BD09E106 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF0774E665289EE2A9D1E765B7AC2340 /* libACPGriffon_iOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E2BFDEF4678E5EDFA776AD6CE7C5D7C2 /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				56486B893447A5F688EDD478DF0F347B /* Pods */,
+				D2E6C358FCB55B790CA1AFABCE22374B /* Products */,
+				8452E2C377577E683FFAA6E5C4B3B0C2 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D2E6C358FCB55B790CA1AFABCE22374B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				165E3A681B5DAE24C47B2B834D67ADC2 /* ACPCore.framework */,
+				11381745637218648B729F49314B6D10 /* ACPGriffon.framework */,
+				66A332F403BCC45983C3618859C8674A /* ACPUserProfile.framework */,
+				7FF5C62DF1E2D492F272FD7D2A1EF4A3 /* Adjust.framework */,
+				EB48633F7F577A955FF72EA46F2A1A83 /* AdjustAdobeExtension.framework */,
+				64C5073694518FF35740404ABB9E3FDB /* Pods_AdjustAdobeExtension_Example.framework */,
+				F8E52D535DB49775B4AFC7EAEF9E5742 /* Pods_AdjustAdobeExtension_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB7EBF6CCCA535BA4F447E10039CEA16 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1DE354DA182454A49972F1EA0BAB0B3E /* Foundation.framework */,
+				CE4F7799189C352E1D9346617C1FCFED /* SystemConfiguration.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E0D062B0034438325DC4EE4205753A64 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E74DC8CC5E238CC7068630E17C8E24CA /* ACPUserProfile.h */,
+				0CA403F9051EA0D3D0A7B68F2099749D /* Empty.m */,
+				0C799B16B255D281D539E6C748757145 /* Frameworks */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		E2BFDEF4678E5EDFA776AD6CE7C5D7C2 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA8EA9BFC879982CE6129D05C3494515 /* AdjustAdobeExtension */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		F39325032973BF6B8905D11101B0176B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				0D616BE1C2647E6E3A3CC15BF12E36BA /* AdjustAdobeExtension.podspec */,
+				81FD615FF33B38D7B56BA191C997F2A5 /* LICENSE */,
+				7702C9368E88731949A5B9316A797531 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		FA8EA9BFC879982CE6129D05C3494515 /* AdjustAdobeExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F02DD54ECD3EE90932AE1E57C56D9575 /* AdjustAdobeExtension.h */,
+				BE49C8CC296207BF48D1622FF030EF1C /* AdjustAdobeExtension.m */,
+				74D88BDC9672515CE0EF7CF07DB3D7D6 /* AdjustAdobeExtensionSharedStateListener.h */,
+				F16181DACD69EB4200BB2F3DFAF927DB /* AdjustAdobeExtensionSharedStateListener.m */,
+				D78686A825220D7F00CA185D /* AdjustAdobeExtensionEventListener.h */,
+				D78686A925220D7F00CA185D /* AdjustAdobeExtensionEventListener.m */,
+				F39325032973BF6B8905D11101B0176B /* Pod */,
+				B0E803EDF5DF4E441B8EAE5BC62BE976 /* Support Files */,
+			);
+			name = AdjustAdobeExtension;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0D9E4D671092EE8473547E8030943B3F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3DF52188100B7411E6A356E8779EF93 /* ACPUserProfile-umbrella.h in Headers */,
+				FA4CEFB05419AF2D57D8A6C29316FDD7 /* ACPUserProfile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EE906E4716B5CA331DF2762927665A4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D78686AA25220D7F00CA185D /* AdjustAdobeExtensionEventListener.h in Headers */,
+				D268EC49F22F3F830550868522B7C8FB /* AdjustAdobeExtension-umbrella.h in Headers */,
+				43EE2CA8BBB22E3BC776697263E8EFA0 /* AdjustAdobeExtension.h in Headers */,
+				900395B4C76CA9826A87ED6E508CA78A /* AdjustAdobeExtensionSharedStateListener.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6FD74363BE8F941EDA183E2B3FEB049A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCDB3D3388F332ECC6D9A7D61A8C3869 /* Pods-AdjustAdobeExtension_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7CD515CC36A18A266262EB52B984C484 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39754B56597CFD70776F65E68C2E5D97 /* Pods-AdjustAdobeExtension_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BCFDF45603815B22F077FB17C160202 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFB8D025D37A710C64E6E2D42E1170E6 /* ADJActivityHandler.h in Headers */,
+				C9B220492B824B0AD3C7F8E8CEE08057 /* ADJActivityKind.h in Headers */,
+				D5D586D80D78CA8DEA0815671B88B15D /* ADJActivityPackage.h in Headers */,
+				C42B9041F1A911E4303BFC0D81DCA680 /* ADJActivityState.h in Headers */,
+				412BD333DD9AA16ADD397AD62142A95E /* ADJAdjustFactory.h in Headers */,
+				C05568B74E606B19B9803B52DDFE441F /* ADJAttribution.h in Headers */,
+				64552AEA2DE510DF49A8AD87CECBA1C0 /* ADJAttributionHandler.h in Headers */,
+				0D5824E5C7F5CA1240CD99A7652E5F08 /* ADJBackoffStrategy.h in Headers */,
+				BA29C7CAB0B86B88F7FFBF288C392F20 /* ADJConfig.h in Headers */,
+				ABB353435E606370CD7684C74656A31C /* ADJDeviceInfo.h in Headers */,
+				84936ADE09A4171E096B47841497D11E /* ADJEvent.h in Headers */,
+				3C2B1092863D2490F83F55FDCA266A5E /* ADJEventFailure.h in Headers */,
+				E2229DF835633CA1305F90656DD585CD /* ADJEventSuccess.h in Headers */,
+				FDDE31AB7CEA2B0C318EC900DE994BE9 /* ADJKeychain.h in Headers */,
+				BA2A852FDCA2CE4E916EEE1012ADA83F /* ADJLogger.h in Headers */,
+				A0B604631AE0AEB8089722ABB3876F9D /* ADJPackageBuilder.h in Headers */,
+				D245101B84342499F5E7AFB22A608A3D /* ADJPackageHandler.h in Headers */,
+				74789537A0A32415BE6831669261E257 /* ADJReachability.h in Headers */,
+				ADAAD73731CF7BB4B7D72D4066C7DC0E /* ADJRequestHandler.h in Headers */,
+				BB52B11F29013B86DF3373450364A1A4 /* ADJResponseData.h in Headers */,
+				08C6DDC7641C19256A40B7F859C07F84 /* ADJSdkClickHandler.h in Headers */,
+				BF0869B26195F93024575BAC001FF160 /* ADJSessionFailure.h in Headers */,
+				AECAC2CD87BB8A1E7B859F534C9F5A83 /* ADJSessionParameters.h in Headers */,
+				8AF684B27DC467A6DB74569093AE96DA /* ADJSessionSuccess.h in Headers */,
+				F30688EBC9EB3CD28A499651C18953B4 /* ADJSubscription.h in Headers */,
+				F315DD11B2C20D9D92C5F3C4DFD78C47 /* ADJSystemProfile.h in Headers */,
+				D0ABB86DD1887DE6590B28E3CDB45727 /* ADJTimerCycle.h in Headers */,
+				CE8AF53B25ED2CC0D682D7ADBDB48DFE /* ADJTimerOnce.h in Headers */,
+				6407AA3AB61786B2C5B040F652C10A6F /* ADJUrlStrategy.h in Headers */,
+				F4C56AB3BB755505524970DDF1874455 /* ADJUserDefaults.h in Headers */,
+				D9C550924CD7CA89A6531DE43C04DB75 /* Adjust-umbrella.h in Headers */,
+				584D2B1847CC7373B1034C06C5D1CAA4 /* Adjust.h in Headers */,
+				1A2EA8BF69B8D31EFA1358B874FC0766 /* ADJUtil.h in Headers */,
+				47CBF225FB8D265884D7A7A6D669F1C1 /* NSData+ADJAdditions.h in Headers */,
+				B1DDF56A622F43745F9A013B45D94552 /* NSString+ADJAdditions.h in Headers */,
+				DD211CE0E9D34E5FF18716EC76085F2F /* UIDevice+ADJAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A06BF90B97F8E713F3B501E713B0A966 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				245E1CC0B64DD431A12F254C1AC3F2FF /* ACPCore-umbrella.h in Headers */,
+				F2ECDD6D3D6E1B68F0083C6A45FAEBE3 /* ACPCore.h in Headers */,
+				B66E5C2BF1D8403CE72CA874705DA9EC /* ACPError.h in Headers */,
+				D312DD65577BA0A98FDB3575333D2427 /* ACPExtension.h in Headers */,
+				6CB85C6BDC402F234DDEF6ADF8368291 /* ACPExtensionApi.h in Headers */,
+				05767E16245BC2A35F2BE79B2221275C /* ACPExtensionError.h in Headers */,
+				A58A8A43E0A0564D350E79870C84E8FC /* ACPExtensionEvent.h in Headers */,
+				809962CBD0F7586927A45665585CB165 /* ACPExtensionListener.h in Headers */,
+				4B140FD4A1B057961692A03BC6B7B368 /* ACPIdentity.h in Headers */,
+				47FB563A9B4348DDEC21071DA645EFF1 /* ACPLifecycle.h in Headers */,
+				8B664E4AB105DFBA905D3229E036B851 /* ACPMobileVisitorId.h in Headers */,
+				41FFAB25C5FD85AF9AEAB0B4B49691B2 /* ACPNetworkServiceOverrider.h in Headers */,
+				4EB11ACE0CC375AD2F8DC4BD91E42DCF /* ACPSignal.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB184A364059139B10A7B1F609478114 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1634C41A66B1FCB4A444D1BF746CF0B /* ACPGriffon-umbrella.h in Headers */,
+				B21F90BB5BE131B28AE6B97BA6415AE4 /* ACPGriffon.h in Headers */,
+				4AF148B54CF2555559E902005166FA93 /* ACPGriffonEvent.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		08A9EDC37A53E5D39F64F6B61A7D5E5C /* ACPGriffon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A282FA69BE4D5010EF6E12E2276C43F6 /* Build configuration list for PBXNativeTarget "ACPGriffon" */;
+			buildPhases = (
+				AB184A364059139B10A7B1F609478114 /* Headers */,
+				019BD56121A0F31617A97DC37C572CD9 /* Sources */,
+				2762C967415635620C8AD69B89628F04 /* Frameworks */,
+				B904B2F434CD527B3B9334DBA3D70B0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE91EEAFDADA801C02BCF61028FA15A2 /* PBXTargetDependency */,
+			);
+			name = ACPGriffon;
+			productName = ACPGriffon;
+			productReference = 11381745637218648B729F49314B6D10 /* ACPGriffon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4CAB23789210D705E4F2F59BF4CC77B2 /* ACPUserProfile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53D963AD70B95435CB15920A50F25866 /* Build configuration list for PBXNativeTarget "ACPUserProfile" */;
+			buildPhases = (
+				0D9E4D671092EE8473547E8030943B3F /* Headers */,
+				684F4C96E87F3CB75730065ADB78CCA9 /* Sources */,
+				F046D1D0F4B2E0C02AE79E4A6999D56A /* Frameworks */,
+				BE30102FA858C6607ECD1E42B7E6A34F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35A3CFFF2330C408F366288FD9614719 /* PBXTargetDependency */,
+			);
+			name = ACPUserProfile;
+			productName = ACPUserProfile;
+			productReference = 66A332F403BCC45983C3618859C8674A /* ACPUserProfile.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7111F362EA0D14BECD8B96EA1EAA5F79 /* Adjust */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A1A31E7B90E92C161721DACB02B4DE1 /* Build configuration list for PBXNativeTarget "Adjust" */;
+			buildPhases = (
+				8BCFDF45603815B22F077FB17C160202 /* Headers */,
+				27B6A33A2CEA9B992E694C1E94055EBE /* Sources */,
+				B119C9D32124266930E87E74F2035FC2 /* Frameworks */,
+				27FCF788D5DCE61439B8CDDDF3099DB4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Adjust;
+			productName = Adjust;
+			productReference = 7FF5C62DF1E2D492F272FD7D2A1EF4A3 /* Adjust.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		7F0A8DE2B5E182AABB40DABA316E2C9C /* AdjustAdobeExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 516E7EC249B5DDBADA26C62F1BCF8E63 /* Build configuration list for PBXNativeTarget "AdjustAdobeExtension" */;
+			buildPhases = (
+				2EE906E4716B5CA331DF2762927665A4 /* Headers */,
+				72AF1608CC0444B3C04DAF7FF93906E3 /* Sources */,
+				819EA726B901C5F299259FA0A2B736BC /* Frameworks */,
+				022FCE3E62AA15161149A7D97FF96A7D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C8346EECDBA5B8DAD6E6D5C9832A56E /* PBXTargetDependency */,
+				6E2E6671F3B8A41327C722460F72B3FC /* PBXTargetDependency */,
+			);
+			name = AdjustAdobeExtension;
+			productName = AdjustAdobeExtension;
+			productReference = EB48633F7F577A955FF72EA46F2A1A83 /* AdjustAdobeExtension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8A51FB46F8CFEBF42BBF1942DACE1890 /* Pods-AdjustAdobeExtension_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B2838C41ECB8A14D65F7739A797F0DAE /* Build configuration list for PBXNativeTarget "Pods-AdjustAdobeExtension_Tests" */;
+			buildPhases = (
+				7CD515CC36A18A266262EB52B984C484 /* Headers */,
+				623E06E8EB0E9660BF880A93BFD07BA1 /* Sources */,
+				5BB38D5139C31EEBD976A88660F71525 /* Frameworks */,
+				29772EBCDE17D0E20BE2183181B05BA5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F20C3E24CFC075D05F7CC67962566086 /* PBXTargetDependency */,
+			);
+			name = "Pods-AdjustAdobeExtension_Tests";
+			productName = "Pods-AdjustAdobeExtension_Tests";
+			productReference = F8E52D535DB49775B4AFC7EAEF9E5742 /* Pods_AdjustAdobeExtension_Tests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E7673858F0A064B3F3A307817D85AA84 /* Pods-AdjustAdobeExtension_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A537A8C1A3BD3A69D54F64D4383C35AE /* Build configuration list for PBXNativeTarget "Pods-AdjustAdobeExtension_Example" */;
+			buildPhases = (
+				6FD74363BE8F941EDA183E2B3FEB049A /* Headers */,
+				30B2F6D1CC14672AFBDB1BD3AB28BB4E /* Sources */,
+				7E23B0C56D4E46FCB3A9F8CE6F9B1032 /* Frameworks */,
+				FC0F11AC2DADB3C245580290C0430A6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82E62080CEEB3A93A8D11CA6885AD2CB /* PBXTargetDependency */,
+				362710BB635868EFFECA90C19DB8D80A /* PBXTargetDependency */,
+				C1B08203F5C336DA4256C8D785E6756E /* PBXTargetDependency */,
+				0B5734897D935FD33000F729E8085FD0 /* PBXTargetDependency */,
+				EC39294CC1E9C6C9CB84BA87C43576FD /* PBXTargetDependency */,
+			);
+			name = "Pods-AdjustAdobeExtension_Example";
+			productName = "Pods-AdjustAdobeExtension_Example";
+			productReference = 64C5073694518FF35740404ABB9E3FDB /* Pods_AdjustAdobeExtension_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F324573329120F52BFD49392D78B4464 /* ACPCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C092B59DFED286CFCF56F3B5C482BFC6 /* Build configuration list for PBXNativeTarget "ACPCore" */;
+			buildPhases = (
+				A06BF90B97F8E713F3B501E713B0A966 /* Headers */,
+				06A870BB84646EAD043D2BF793B98306 /* Sources */,
+				41DD9DBE78FB4836D72081A7F8556AC1 /* Frameworks */,
+				9285551B8875DB7D97314931CEB580C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ACPCore;
+			productName = ACPCore;
+			productReference = 165E3A681B5DAE24C47B2B834D67ADC2 /* ACPCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = D2E6C358FCB55B790CA1AFABCE22374B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F324573329120F52BFD49392D78B4464 /* ACPCore */,
+				08A9EDC37A53E5D39F64F6B61A7D5E5C /* ACPGriffon */,
+				4CAB23789210D705E4F2F59BF4CC77B2 /* ACPUserProfile */,
+				7111F362EA0D14BECD8B96EA1EAA5F79 /* Adjust */,
+				7F0A8DE2B5E182AABB40DABA316E2C9C /* AdjustAdobeExtension */,
+				E7673858F0A064B3F3A307817D85AA84 /* Pods-AdjustAdobeExtension_Example */,
+				8A51FB46F8CFEBF42BBF1942DACE1890 /* Pods-AdjustAdobeExtension_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		022FCE3E62AA15161149A7D97FF96A7D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27FCF788D5DCE61439B8CDDDF3099DB4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29772EBCDE17D0E20BE2183181B05BA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9285551B8875DB7D97314931CEB580C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B904B2F434CD527B3B9334DBA3D70B0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE30102FA858C6607ECD1E42B7E6A34F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FC0F11AC2DADB3C245580290C0430A6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		019BD56121A0F31617A97DC37C572CD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179CF12637B2C02EE75121A54D4E8000 /* ACPGriffon-dummy.m in Sources */,
+				7A79668004CD3D1FBC6C81B2526639ED /* Empty.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06A870BB84646EAD043D2BF793B98306 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88A8FEE8E171D89C144723D5DE15F219 /* ACPCore-dummy.m in Sources */,
+				6E621CD992DFDE928EF81CE17C2D8B34 /* Empty.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27B6A33A2CEA9B992E694C1E94055EBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA3B88E8D9576D9C9A7E663DC75B581A /* ADJActivityHandler.m in Sources */,
+				AB92B8CD08904C3E5F4B8304FD9E70E2 /* ADJActivityKind.m in Sources */,
+				CF788AFA040C0C8CB428FC4C85C2EBE4 /* ADJActivityPackage.m in Sources */,
+				20F9654F540A0F772A08CE0C60D0D1C7 /* ADJActivityState.m in Sources */,
+				72B00F4E46EE033B53448E5A75B9C200 /* ADJAdjustFactory.m in Sources */,
+				3598F6A2E0B65DF6A6168B9DF130B8B7 /* ADJAttribution.m in Sources */,
+				7F05046FF7FC8160B07EDDD866165B2B /* ADJAttributionHandler.m in Sources */,
+				35FF730DFA3BEC0F1C317F982E962B0B /* ADJBackoffStrategy.m in Sources */,
+				80E7A71B41CEF0903AB981E30205AE01 /* ADJConfig.m in Sources */,
+				C57A016E7E2AB174407CAA9C981DC9D7 /* ADJDeviceInfo.m in Sources */,
+				19F47CFF6559E99B95101EA686590B91 /* ADJEvent.m in Sources */,
+				6C7116967BAFA626B2BF9B686403825A /* ADJEventFailure.m in Sources */,
+				E83115DCF27BA07EA3F5F2EE12111A2C /* ADJEventSuccess.m in Sources */,
+				B636DB87C47D2F4F11B1C693EBF74168 /* ADJKeychain.m in Sources */,
+				6BF79A85F67E3F050F192B7114CE1244 /* ADJLogger.m in Sources */,
+				82ADFB5708C8F3DCD35026FAA4FAF05E /* ADJPackageBuilder.m in Sources */,
+				A243A09AC6328119EC35D6BEAFAC305E /* ADJPackageHandler.m in Sources */,
+				96C8D3D16427BB265AE7AF23804C4736 /* ADJReachability.m in Sources */,
+				A4AEF0E2F00E6D344E06CF1AD02E07BC /* ADJRequestHandler.m in Sources */,
+				CAD7B6381557D3C122FB81049F8AC2F9 /* ADJResponseData.m in Sources */,
+				91A0851027DD2F0A4F63E64CEA4D51DB /* ADJSdkClickHandler.m in Sources */,
+				C918F37CE9D3F547DAA206F4126A3040 /* ADJSessionFailure.m in Sources */,
+				52FA88B77735D83D8D1639C38B722E9D /* ADJSessionParameters.m in Sources */,
+				60F94A109A8753B9ED39182D919E68B4 /* ADJSessionSuccess.m in Sources */,
+				1238EC6279FCE37891598248EA122F65 /* ADJSubscription.m in Sources */,
+				A8FD9B00ABA0AA61F45D6406E265FA61 /* ADJSystemProfile.m in Sources */,
+				87711A07652FF18E6CA4550CBD4AE344 /* ADJTimerCycle.m in Sources */,
+				935B60429DF86F8AE4A04150AE15C32D /* ADJTimerOnce.m in Sources */,
+				D8D847DEBFC6FFFC33172243E1B78FEE /* ADJUrlStrategy.m in Sources */,
+				0417720FF1431900606EF232EF160F71 /* ADJUserDefaults.m in Sources */,
+				65D52E8E702FB1D0D466739C69DB3BA7 /* Adjust-dummy.m in Sources */,
+				538D97C42A89BAE29284EDF318C830FE /* Adjust.m in Sources */,
+				F72DD76321B490A47EF9D18A86E29FD3 /* ADJUtil.m in Sources */,
+				8CBA9E5B6289CFAE29AAE2B732271C63 /* NSData+ADJAdditions.m in Sources */,
+				A85118E625CC1E9E0C0D402213DD7E27 /* NSString+ADJAdditions.m in Sources */,
+				CA6E660838AB0D84534CF9742C7110F4 /* UIDevice+ADJAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30B2F6D1CC14672AFBDB1BD3AB28BB4E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4F427036C2F0C149A97B74C8068302A /* Pods-AdjustAdobeExtension_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		623E06E8EB0E9660BF880A93BFD07BA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				167D65947EC994CEBA90DC115B3DF167 /* Pods-AdjustAdobeExtension_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		684F4C96E87F3CB75730065ADB78CCA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F462FFACD1D861579F3CD1DBE4978C0B /* ACPUserProfile-dummy.m in Sources */,
+				80AEF952ACB93DF0AC2EC3E3B6F4E718 /* Empty.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72AF1608CC0444B3C04DAF7FF93906E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A7F17A77382A89B0CE54D5E9AC02197 /* AdjustAdobeExtension-dummy.m in Sources */,
+				D78686AB25220D7F00CA185D /* AdjustAdobeExtensionEventListener.m in Sources */,
+				4C5CA2A460EF6BE168BC36AE5DE76967 /* AdjustAdobeExtension.m in Sources */,
+				04664B5975BFB6B2DE1268FFD8FA5E14 /* AdjustAdobeExtensionSharedStateListener.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B5734897D935FD33000F729E8085FD0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Adjust;
+			target = 7111F362EA0D14BECD8B96EA1EAA5F79 /* Adjust */;
+			targetProxy = 928CE25231FF2AD0ACBB11098BA6CCF0 /* PBXContainerItemProxy */;
+		};
+		35A3CFFF2330C408F366288FD9614719 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPCore;
+			target = F324573329120F52BFD49392D78B4464 /* ACPCore */;
+			targetProxy = 3D2E8B9205F9EED511AD32EA770273FD /* PBXContainerItemProxy */;
+		};
+		362710BB635868EFFECA90C19DB8D80A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPGriffon;
+			target = 08A9EDC37A53E5D39F64F6B61A7D5E5C /* ACPGriffon */;
+			targetProxy = 514C0452F7E4CD9A9BBDE36937FAC8A3 /* PBXContainerItemProxy */;
+		};
+		6E2E6671F3B8A41327C722460F72B3FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Adjust;
+			target = 7111F362EA0D14BECD8B96EA1EAA5F79 /* Adjust */;
+			targetProxy = AB2E81DD0330D5E1CDAA64D7261715D9 /* PBXContainerItemProxy */;
+		};
+		82E62080CEEB3A93A8D11CA6885AD2CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPCore;
+			target = F324573329120F52BFD49392D78B4464 /* ACPCore */;
+			targetProxy = 182B45078AB40081F0825C277C4ADE97 /* PBXContainerItemProxy */;
+		};
+		8C8346EECDBA5B8DAD6E6D5C9832A56E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPCore;
+			target = F324573329120F52BFD49392D78B4464 /* ACPCore */;
+			targetProxy = EB83038DD91F4639341E627200266C26 /* PBXContainerItemProxy */;
+		};
+		C1B08203F5C336DA4256C8D785E6756E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPUserProfile;
+			target = 4CAB23789210D705E4F2F59BF4CC77B2 /* ACPUserProfile */;
+			targetProxy = F65E97A11469F4BE40142AE99CBC92C4 /* PBXContainerItemProxy */;
+		};
+		CE91EEAFDADA801C02BCF61028FA15A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ACPCore;
+			target = F324573329120F52BFD49392D78B4464 /* ACPCore */;
+			targetProxy = FE023CB3AB40007E8E12CB0A6EC88BA0 /* PBXContainerItemProxy */;
+		};
+		EC39294CC1E9C6C9CB84BA87C43576FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AdjustAdobeExtension;
+			target = 7F0A8DE2B5E182AABB40DABA316E2C9C /* AdjustAdobeExtension */;
+			targetProxy = 1B1ED3CF4008C1A28BE35F0E9089DF3F /* PBXContainerItemProxy */;
+		};
+		F20C3E24CFC075D05F7CC67962566086 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-AdjustAdobeExtension_Example";
+			target = E7673858F0A064B3F3A307817D85AA84 /* Pods-AdjustAdobeExtension_Example */;
+			targetProxy = C5B057BA91CDB548DCC8D1BE9F548ADA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		196DFA3E4A09A28224918543529A1885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		3D4D19021CF033A39B51CC86536F2962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B27C38BF5C369496CA1ED21A6E5E0E2A /* ACPUserProfile.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPUserProfile/ACPUserProfile-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPUserProfile/ACPUserProfile-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/ACPUserProfile/ACPUserProfile.modulemap";
+				PRODUCT_MODULE_NAME = ACPUserProfile;
+				PRODUCT_NAME = ACPUserProfile;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4F9B255105FA7F1A028BE9C9AABE55EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1C97C8A5D4647201090C371B721BCAC /* ACPUserProfile.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPUserProfile/ACPUserProfile-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPUserProfile/ACPUserProfile-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/ACPUserProfile/ACPUserProfile.modulemap";
+				PRODUCT_MODULE_NAME = ACPUserProfile;
+				PRODUCT_NAME = ACPUserProfile;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		83BC25CC737BF8B6D6C210E78B55CAC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC244FC4B30E1B4C27D3344CFA49D361 /* AdjustAdobeExtension.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AdjustAdobeExtension/AdjustAdobeExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/AdjustAdobeExtension/AdjustAdobeExtension.modulemap";
+				PRODUCT_MODULE_NAME = AdjustAdobeExtension;
+				PRODUCT_NAME = AdjustAdobeExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		848D8D6511A94B66E683307B14B4BCD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A2AEC745DDAC229156D795611CC0E0 /* ACPCore.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPCore/ACPCore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPCore/ACPCore-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/ACPCore/ACPCore.modulemap";
+				PRODUCT_MODULE_NAME = ACPCore;
+				PRODUCT_NAME = ACPCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B3464B8FAFBA4788942D49FE7A158EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58A16A76FFEF08AF195DF404273608A7 /* Adjust.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Adjust/Adjust-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Adjust/Adjust-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Adjust/Adjust.modulemap";
+				PRODUCT_MODULE_NAME = Adjust;
+				PRODUCT_NAME = Adjust;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		901942D23DE30CF41A3FC76E602C1EEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CAA12DC1876F32A2E888A580CD3B391 /* AdjustAdobeExtension.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AdjustAdobeExtension/AdjustAdobeExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/AdjustAdobeExtension/AdjustAdobeExtension.modulemap";
+				PRODUCT_MODULE_NAME = AdjustAdobeExtension;
+				PRODUCT_NAME = AdjustAdobeExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9DDBE924E9F5BDA408441FE3FB9B6030 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 374A229F66C069C357C20C72B6247053 /* Adjust.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Adjust/Adjust-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Adjust/Adjust-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Adjust/Adjust.modulemap";
+				PRODUCT_MODULE_NAME = Adjust;
+				PRODUCT_NAME = Adjust;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A4A29A6159121EEE4DF0CD2058BE78B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDCBDC11C29A229199DE7B64F42BE941 /* Pods-AdjustAdobeExtension_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Example/Pods-AdjustAdobeExtension_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Example/Pods-AdjustAdobeExtension_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		B47AFCDF902B0429A604D11D4C34E128 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD7F23DEF996E4BAA5E5A4B022FE4257 /* ACPGriffon.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPGriffon/ACPGriffon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPGriffon/ACPGriffon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/ACPGriffon/ACPGriffon.modulemap";
+				PRODUCT_MODULE_NAME = ACPGriffon;
+				PRODUCT_NAME = ACPGriffon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C090D3D145719505CF073855EC487062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AFA756DF9D2A8EE5594F871A220B58E /* ACPCore.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPCore/ACPCore-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPCore/ACPCore-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/ACPCore/ACPCore.modulemap";
+				PRODUCT_MODULE_NAME = ACPCore;
+				PRODUCT_NAME = ACPCore;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C1A9745085E45A1AC528B25F96ADA398 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B21BD66E7164EA3FE36A20C82B8578AB /* Pods-AdjustAdobeExtension_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Example/Pods-AdjustAdobeExtension_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Example/Pods-AdjustAdobeExtension_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D30F549DF575F3F3F56EFEBD1A0B92FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E3B2B6CB8837468EE94FB791368ABB7 /* ACPGriffon.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/ACPGriffon/ACPGriffon-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ACPGriffon/ACPGriffon-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/ACPGriffon/ACPGriffon.modulemap";
+				PRODUCT_MODULE_NAME = ACPGriffon;
+				PRODUCT_NAME = ACPGriffon;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D45A78907712FA654905A5551E20C612 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A465D6476E671F7AFE81AA42BD3EE4DC /* Pods-AdjustAdobeExtension_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Tests/Pods-AdjustAdobeExtension_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Tests/Pods-AdjustAdobeExtension_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D737E82961ED8E6611D48634C41AE3C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92B86F9198C82C361029F87330B4901 /* Pods-AdjustAdobeExtension_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Tests/Pods-AdjustAdobeExtension_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AdjustAdobeExtension_Tests/Pods-AdjustAdobeExtension_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A1A31E7B90E92C161721DACB02B4DE1 /* Build configuration list for PBXNativeTarget "Adjust" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B3464B8FAFBA4788942D49FE7A158EF /* Debug */,
+				9DDBE924E9F5BDA408441FE3FB9B6030 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				196DFA3E4A09A28224918543529A1885 /* Debug */,
+				B01D14FDC83DCF9D4BE53066BEA96D05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		516E7EC249B5DDBADA26C62F1BCF8E63 /* Build configuration list for PBXNativeTarget "AdjustAdobeExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				901942D23DE30CF41A3FC76E602C1EEC /* Debug */,
+				83BC25CC737BF8B6D6C210E78B55CAC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53D963AD70B95435CB15920A50F25866 /* Build configuration list for PBXNativeTarget "ACPUserProfile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D4D19021CF033A39B51CC86536F2962 /* Debug */,
+				4F9B255105FA7F1A028BE9C9AABE55EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A282FA69BE4D5010EF6E12E2276C43F6 /* Build configuration list for PBXNativeTarget "ACPGriffon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D30F549DF575F3F3F56EFEBD1A0B92FA /* Debug */,
+				B47AFCDF902B0429A604D11D4C34E128 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A537A8C1A3BD3A69D54F64D4383C35AE /* Build configuration list for PBXNativeTarget "Pods-AdjustAdobeExtension_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1A9745085E45A1AC528B25F96ADA398 /* Debug */,
+				A4A29A6159121EEE4DF0CD2058BE78B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B2838C41ECB8A14D65F7739A797F0DAE /* Build configuration list for PBXNativeTarget "Pods-AdjustAdobeExtension_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D45A78907712FA654905A5551E20C612 /* Debug */,
+				D737E82961ED8E6611D48634C41AE3C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C092B59DFED286CFCF56F3B5C482BFC6 /* Build configuration list for PBXNativeTarget "ACPCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C090D3D145719505CF073855EC487062 /* Debug */,
+				848D8D6511A94B66E683307B14B4BCD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
