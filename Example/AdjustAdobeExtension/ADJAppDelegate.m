@@ -24,7 +24,8 @@
     [ACPCore setLogLevel:ACPMobileLogLevelDebug];
     [ACPCore configureWithAppId:@"89645c501ce0/540de252943f/launch-f8d889dd15b6-development"];
     
-    [AdjustAdobeExtension registerExtension];
+    AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvironment:ADJEnvironmentSandbox];
+    [AdjustAdobeExtension registerExtensionWithConfig:config];
     
     [ACPGriffon registerExtension];
     [ACPIdentity registerExtension];

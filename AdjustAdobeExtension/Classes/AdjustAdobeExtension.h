@@ -9,18 +9,21 @@
 #import <ACPCore/ACPCore.h>
 #import <ACPCore/ACPExtension.h>
 #import <Adjust/Adjust.h>
+#import "AdjustAdobeExtensionConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 extern NSString * const ADJAdobeAdjustEventToken;
 extern NSString * const ADJAdobeAdjustEventCurrency;
 extern NSString * const ADJAdobeAdjustEventRevenue;
+extern NSString * const ADJAdobeExtensionLogTag;
 
 @interface AdjustAdobeExtension : ACPExtension
 
-+ (void)registerExtension;
++ (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config;
 
 - (void)handleEventData:(nullable NSDictionary *)eventData;
+- (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution;
 
 /// Adobe methods
 - (nullable NSString*) name;

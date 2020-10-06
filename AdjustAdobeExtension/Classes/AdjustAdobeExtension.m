@@ -9,9 +9,13 @@
 #import "AdjustAdobeExtensionSharedStateListener.h"
 #import "AdjustAdobeExtensionEventListener.h"
 
+NSString *const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
+
 NSString *const ADJAdobeAdjustEventToken = @"adj.eventToken";
 NSString *const ADJAdobeAdjustEventCurrency = @"currency";
 NSString *const ADJAdobeAdjustEventRevenue = @"revenue";
+
+static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 @implementation AdjustAdobeExtension
 
@@ -27,19 +31,24 @@ NSString *const ADJAdobeAdjustEventRevenue = @"revenue";
                              eventType:@"com.adobe.eventType.hub"
                            eventSource:@"com.adobe.eventSource.sharedState"
                                  error:&error]) {
-            NSLog(@"AdjustAdobeExtensionSharedStateListener successfully registered for Event Hub Shared State events");
+            [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
+                 message:@"successfully registered for Event Hub Shared State events"];
         } else if (error) {
-            NSLog(@"An error occured while registering AdjustAdobeExtensionSharedStateListener, error code: %ld", [error code]);
+            [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
+                 message:[NSString stringWithFormat:@"An error occured while registering AdjustAdobeExtensionSharedStateListener, error code: %ld",
+                            [error code]]];
         }
         
         if ([self.api registerListener:[AdjustAdobeExtensionEventListener class]
                              eventType:@"com.adobe.eventType.generic.track"
                            eventSource:@"com.adobe.eventSource.requestContent"
                                  error:&error]) {
-            NSLog(@"AdjustAdobeExtensionSharedStateListener Analytics Events listener was registered");
-        }
-        else if (error) {
-            NSLog(@"AdjustAdobeExtensionSharedStateListener Error while registering Analytics Events listener!!\n%@ %d", [error domain], (int)[error code]);
+            [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
+                 message:@"Successfully registered for Extension Request Content events"];
+        } else if (error) {
+            [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
+                 message:[NSString stringWithFormat:@"There was an error registering ExtensionListener for Extension Request Content events: %@",
+                          error.localizedDescription ?: @"unknown"]];
         }
         
     }
@@ -68,12 +77,30 @@ NSString *const ADJAdobeAdjustEventRevenue = @"revenue";
     }
 }
 
-+ (void)registerExtension {
+- (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution {
+    
+    if (!_configInstance) {
+        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag message:@"Extension should be registered first"];
+    }
+    
+    _configInstance.shouldTrackAttribution = trackAttribution;
+    
+    ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
+                                                environment:_configInstance.environment];
+
+    [Adjust appDidLaunch:adjustConfig];
+}
+
++ (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config {
     NSError *error = nil;
     if ([ACPCore registerExtension:[AdjustAdobeExtension class] error:&error]) {
-        NSLog(@"AdjustExtension was registered");
+        [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
+             message:@"Successfully registered AdjustExtension"];
+        _configInstance = config;
     } else {
-        NSLog(@"Error registering AdjustExtension: %@ %d", [error domain], (int)[error code]);
+        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:@"Error registering AdjustExtension: %@ %d",
+                      [error domain], (int)[error code]]];
     }
 }
 

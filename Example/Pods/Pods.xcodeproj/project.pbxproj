@@ -107,6 +107,8 @@
 		D5D586D80D78CA8DEA0815671B88B15D /* ADJActivityPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F5F8985D77361E6AB8F97044E3218A3 /* ADJActivityPackage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D78686AA25220D7F00CA185D /* AdjustAdobeExtensionEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = D78686A825220D7F00CA185D /* AdjustAdobeExtensionEventListener.h */; };
 		D78686AB25220D7F00CA185D /* AdjustAdobeExtensionEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = D78686A925220D7F00CA185D /* AdjustAdobeExtensionEventListener.m */; };
+		D78686C72525DFA800CA185D /* AdjustAdobeExtensionConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D78686C52525DFA800CA185D /* AdjustAdobeExtensionConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D78686C82525DFA800CA185D /* AdjustAdobeExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D78686C62525DFA800CA185D /* AdjustAdobeExtensionConfig.m */; };
 		D8D847DEBFC6FFFC33172243E1B78FEE /* ADJUrlStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC33F78F2AA2A54842946277749EB7B4 /* ADJUrlStrategy.m */; };
 		D9C550924CD7CA89A6531DE43C04DB75 /* Adjust-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CF56C2DCE3F126F0F53598B1AE7057F0 /* Adjust-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD211CE0E9D34E5FF18716EC76085F2F /* UIDevice+ADJAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D27A101A0B2D2F1BD379E143010BCF0 /* UIDevice+ADJAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,6 +340,8 @@
 		D60C33C6F35F084F239F5DE13FFA0737 /* Pods-AdjustAdobeExtension_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AdjustAdobeExtension_Tests.modulemap"; sourceTree = "<group>"; };
 		D78686A825220D7F00CA185D /* AdjustAdobeExtensionEventListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AdjustAdobeExtensionEventListener.h; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionEventListener.h; sourceTree = "<group>"; };
 		D78686A925220D7F00CA185D /* AdjustAdobeExtensionEventListener.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AdjustAdobeExtensionEventListener.m; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionEventListener.m; sourceTree = "<group>"; };
+		D78686C52525DFA800CA185D /* AdjustAdobeExtensionConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AdjustAdobeExtensionConfig.h; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionConfig.h; sourceTree = "<group>"; };
+		D78686C62525DFA800CA185D /* AdjustAdobeExtensionConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AdjustAdobeExtensionConfig.m; path = AdjustAdobeExtension/Classes/AdjustAdobeExtensionConfig.m; sourceTree = "<group>"; };
 		DA26566345330B40483431229C365177 /* ACPExtensionError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ACPExtensionError.h; path = include/ACPExtensionError.h; sourceTree = "<group>"; };
 		DB6E9D150D42B391B3603D8B6F7BFE5D /* ACPGriffon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ACPGriffon-dummy.m"; sourceTree = "<group>"; };
 		DC244FC4B30E1B4C27D3344CFA49D361 /* AdjustAdobeExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AdjustAdobeExtension.release.xcconfig; sourceTree = "<group>"; };
@@ -809,6 +813,8 @@
 				D78686A925220D7F00CA185D /* AdjustAdobeExtensionEventListener.m */,
 				F39325032973BF6B8905D11101B0176B /* Pod */,
 				B0E803EDF5DF4E441B8EAE5BC62BE976 /* Support Files */,
+				D78686C52525DFA800CA185D /* AdjustAdobeExtensionConfig.h */,
+				D78686C62525DFA800CA185D /* AdjustAdobeExtensionConfig.m */,
 			);
 			name = AdjustAdobeExtension;
 			path = ../..;
@@ -830,6 +836,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78686C72525DFA800CA185D /* AdjustAdobeExtensionConfig.h in Headers */,
 				D78686AA25220D7F00CA185D /* AdjustAdobeExtensionEventListener.h in Headers */,
 				D268EC49F22F3F830550868522B7C8FB /* AdjustAdobeExtension-umbrella.h in Headers */,
 				43EE2CA8BBB22E3BC776697263E8EFA0 /* AdjustAdobeExtension.h in Headers */,
@@ -1241,6 +1248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78686C82525DFA800CA185D /* AdjustAdobeExtensionConfig.m in Sources */,
 				8A7F17A77382A89B0CE54D5E9AC02197 /* AdjustAdobeExtension-dummy.m in Sources */,
 				D78686AB25220D7F00CA185D /* AdjustAdobeExtensionEventListener.m in Sources */,
 				4C5CA2A460EF6BE168BC36AE5DE76967 /* AdjustAdobeExtension.m in Sources */,
