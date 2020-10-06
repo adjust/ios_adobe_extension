@@ -1,6 +1,0 @@
-framework module AdjustAdobeExtension {
-  umbrella header "AdjustAdobeExtension-umbrella.h"
-
-  export *
-  module * { export * }
-}
