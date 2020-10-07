@@ -13,7 +13,7 @@ typedef void (^CallbackEventTrackingSucceededBlock)(ADJEventSuccess * _Nullable 
 typedef void (^CallbackEventTrackingFailedBlock)(ADJEventFailure * _Nullable eventFailureResponseData);
 typedef void (^CallbackSessionTrackingSucceededBlock)(ADJSessionSuccess * _Nullable sessionSuccessResponseData);
 typedef void (^CallbackSessionTrackingFailedBlock)(ADJSessionFailure * _Nullable sessionFailureResponseData);
-typedef void (^CallbackDeeplinkResponseBlock)(NSURL * _Nullable deeplink);
+typedef BOOL (^CallbackDeeplinkResponseBlock)(NSURL * _Nullable deeplink);
 
 NS_ASSUME_NONNULL_BEGIN
 

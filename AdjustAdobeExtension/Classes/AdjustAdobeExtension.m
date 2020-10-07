@@ -81,12 +81,14 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     
     if (!_configInstance) {
         [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag message:@"Extension should be registered first"];
+        return;
     }
     
     _configInstance.shouldTrackAttribution = trackAttribution;
     
     ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
                                                 environment:_configInstance.environment];
+    [adjustConfig setDelegate:self];
 
     [Adjust appDidLaunch:adjustConfig];
 }
@@ -110,6 +112,50 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 - (nullable NSString*) version {
     return [NSString stringWithFormat:@"Adjust SDK version %ld", (long)[Adjust version]];
+}
+
+#pragma mark - Adjust delegate
+
+- (void)adjustAttributionChanged:(nullable ADJAttribution *)attribution {
+    if (_configInstance.shouldTrackAttribution) {
+        NSDictionary *attrDict = [attribution dictionary];
+        NSMutableDictionary *attrDictPrefix = [NSMutableDictionary dictionary];
+        
+        for (id key in attrDict) {
+            NSString *keyPrefix = [NSString stringWithFormat:@"%@%@", @"adjust.", key];
+            attrDictPrefix[keyPrefix] = attrDict[key];
+        }
+        
+        [ACPCore trackAction:@"Adjust Attribution Data"
+                        data:attrDictPrefix];
+    }
+    
+    _configInstance.attributionChangedBlock(attribution);
+}
+
+- (void)adjustEventTrackingSucceeded:(nullable ADJEventSuccess *)eventSuccessResponseData {
+    _configInstance.eventTrackingSucceededBlock(eventSuccessResponseData);
+}
+
+- (void)adjustEventTrackingFailed:(nullable ADJEventFailure *)eventFailureResponseData {
+    _configInstance.eventTrackingFailedBlock(eventFailureResponseData);
+}
+
+- (void)adjustSessionTrackingSucceeded:(nullable ADJSessionSuccess *)sessionSuccessResponseData {
+    _configInstance.sessionTrackingSucceededBlock(sessionSuccessResponseData);
+}
+
+- (void)adjustSessionTrackingFailed:(nullable ADJSessionFailure *)sessionFailureResponseData {
+    _configInstance.sessionTrackingFailedBlock(sessionFailureResponseData);
+}
+
+- (BOOL)adjustDeeplinkResponse:(nullable NSURL *)deeplink {
+    if (_configInstance.deeplinkResponseBlock) {
+        return _configInstance.deeplinkResponseBlock(deeplink);
+    }
+    
+    return NO;
+    
 }
 
 @end
