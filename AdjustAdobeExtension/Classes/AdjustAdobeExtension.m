@@ -17,12 +17,22 @@ NSString *const ADJAdobeAdjustEventRevenue = @"revenue";
 
 static AdjustAdobeExtensionConfig *_configInstance = nil;
 
+@interface AdjustAdobeExtension()
+
+@property (nonatomic, assign) BOOL sdkInitialized;
+@property (nonatomic, strong) NSMutableArray<NSDictionary *> *receivedEvents;
+
+@end
+
 @implementation AdjustAdobeExtension
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
+        
+        self.sdkInitialized = NO;
+        self.receivedEvents = [NSMutableArray array];
         
         NSError* error = nil;
         
@@ -60,6 +70,11 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
     
+    if (!self.sdkInitialized) {
+        [self.receivedEvents addObject:eventData];
+        return;
+    }
+    
     NSDictionary *contextdata = eventData[@"contextdata"];
     NSString *adjEventToken = contextdata[ADJAdobeAdjustEventToken];
     
@@ -84,13 +99,30 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
     
-    _configInstance.shouldTrackAttribution = trackAttribution;
-    
-    ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
-                                                environment:_configInstance.environment];
-    [adjustConfig setDelegate:self];
+    if (!self.sdkInitialized) {
+        _configInstance.shouldTrackAttribution = trackAttribution;
+        
+        ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
+                                                    environment:_configInstance.environment];
+        [adjustConfig setDelegate:self];
+        
+        [Adjust appDidLaunch:adjustConfig];
+        
+        self.sdkInitialized = YES;
+        [self dumpReceivedEvents];
+    }
+}
 
-    [Adjust appDidLaunch:adjustConfig];
+- (void)dumpReceivedEvents {
+    if (self.receivedEvents.count > 0) {
+        // dump events received before initialization
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            for (NSDictionary *event in self.receivedEvents) {
+                [self handleEventData:event];
+            }
+            [self.receivedEvents removeAllObjects];
+        });
+    }
 }
 
 + (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config {
@@ -130,23 +162,33 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                         data:attrDictPrefix];
     }
     
-    _configInstance.attributionChangedBlock(attribution);
+    if (_configInstance.attributionChangedBlock) {
+        _configInstance.attributionChangedBlock(attribution);
+    }
 }
 
 - (void)adjustEventTrackingSucceeded:(nullable ADJEventSuccess *)eventSuccessResponseData {
-    _configInstance.eventTrackingSucceededBlock(eventSuccessResponseData);
+    if (_configInstance.eventTrackingSucceededBlock) {
+        _configInstance.eventTrackingSucceededBlock(eventSuccessResponseData);
+    }
 }
 
 - (void)adjustEventTrackingFailed:(nullable ADJEventFailure *)eventFailureResponseData {
-    _configInstance.eventTrackingFailedBlock(eventFailureResponseData);
+    if (_configInstance.eventTrackingFailedBlock) {
+        _configInstance.eventTrackingFailedBlock(eventFailureResponseData);
+    }
 }
 
 - (void)adjustSessionTrackingSucceeded:(nullable ADJSessionSuccess *)sessionSuccessResponseData {
-    _configInstance.sessionTrackingSucceededBlock(sessionSuccessResponseData);
+    if (_configInstance.sessionTrackingSucceededBlock) {
+        _configInstance.sessionTrackingSucceededBlock(sessionSuccessResponseData);
+    }
 }
 
 - (void)adjustSessionTrackingFailed:(nullable ADJSessionFailure *)sessionFailureResponseData {
-    _configInstance.sessionTrackingFailedBlock(sessionFailureResponseData);
+    if (_configInstance.sessionTrackingFailedBlock) {
+        _configInstance.sessionTrackingFailedBlock(sessionFailureResponseData);
+    }
 }
 
 - (BOOL)adjustDeeplinkResponse:(nullable NSURL *)deeplink {

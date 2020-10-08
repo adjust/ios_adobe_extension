@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 	
-    [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"123abc"}];
+    [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"g3mfiw"}];
     [ACPCore trackState:@"TestState" data:@{@"a": @"b"}];
     
 }

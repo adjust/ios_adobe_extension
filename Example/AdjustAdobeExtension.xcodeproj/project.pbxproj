@@ -498,7 +498,7 @@
 				GCC_PREFIX_HEADER = "AdjustAdobeExtension/AdjustAdobeExtension-Prefix.pch";
 				INFOPLIST_FILE = "AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.demo.adobe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -514,7 +514,7 @@
 				GCC_PREFIX_HEADER = "AdjustAdobeExtension/AdjustAdobeExtension-Prefix.pch";
 				INFOPLIST_FILE = "AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.demo.adobe.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
