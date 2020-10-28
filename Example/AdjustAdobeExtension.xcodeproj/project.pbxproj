@@ -66,6 +66,7 @@
 		AD6418977B7A30D4CB4365B3 /* Pods_AdjustAdobeExtension_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdjustAdobeExtension_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB513ED41AE8008A08DDD29 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C11450EF9B65E9C58BFBFC01 /* AdjustAdobeExtension.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AdjustAdobeExtension.podspec; path = ../AdjustAdobeExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D795AAFD2539A0D30004E214 /* AdjustAdobeExtension_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AdjustAdobeExtension_Example.entitlements; sourceTree = "<group>"; };
 		ED4933370D76B1741EF4A777 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +99,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				D795AAFD2539A0D30004E214 /* AdjustAdobeExtension_Example.entitlements */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for AdjustAdobeExtension */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -494,6 +496,7 @@
 			baseConfigurationReference = 82B4F456CA3BD9B3DF05BFB3 /* Pods-AdjustAdobeExtension_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AdjustAdobeExtension_Example.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AdjustAdobeExtension/AdjustAdobeExtension-Prefix.pch";
 				INFOPLIST_FILE = "AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
@@ -510,6 +513,7 @@
 			baseConfigurationReference = 293587B12108C6B8B2B42DAE /* Pods-AdjustAdobeExtension_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AdjustAdobeExtension_Example.entitlements;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AdjustAdobeExtension/AdjustAdobeExtension-Prefix.pch";
 				INFOPLIST_FILE = "AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";

@@ -25,6 +25,9 @@
     [ACPCore configureWithAppId:@"89645c501ce0/540de252943f/launch-f8d889dd15b6-development"];
     
     AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvironment:ADJEnvironmentSandbox];
+    [config callbackEventTrackingSucceeded:^(ADJEventSuccess * _Nullable eventSuccessResponseData) {
+        // event tracked
+    }];
     [AdjustAdobeExtension registerExtensionWithConfig:config];
     
     [ACPGriffon registerExtension];
@@ -36,6 +39,11 @@
         [ACPCore lifecycleStart:nil];
     }];
     
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    [ACPGriffon startSession:url];
     return YES;
 }
 
