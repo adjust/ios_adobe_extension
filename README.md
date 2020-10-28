@@ -58,7 +58,7 @@ If the event contains the `revenue` and `currency` keys, the event is tracked wi
 
 ### Attribution
 
-If you turn on the option to share attribution with Adobe in the extension configuration, Adjust tracks the action name `Adjust Attribution Data` with attribution information from Adjust for keys prefixed with `adjust.`
+The option to share attribution data with Adobe is under Extensions and is on by default. Adjust tracks the action name `Adjust Attribution Data` with attribution information from Adjust for keys prefixed with `adjust`.
 
 
 
