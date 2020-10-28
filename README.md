@@ -10,7 +10,7 @@ pod 'AdjustAdobeExtension'
 
 ### <a id="sdk-integrate"></a>Integrate the SDK into your app
 
-If you added the Adjust SDK via a Pod repository, add the following import statements:
+If you added the Adjust SDK via a Pod repository, add the following import statement:
 
 ```objc
 #import "AdjustAdobeExtension.h"
@@ -18,7 +18,7 @@ If you added the Adjust SDK via a Pod repository, add the following import state
 
 ### <a id="basic-setup"></a>Basic setup
 
-You don't need to start the Adjust SDK manually. After setting the configurations in [Launch dashboard](https://launch.adobe.com/) and initializing `ACPCore`, register the Adjust SDK Extension:
+You don't need to start the Adjust SDK manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust SDK Extension:
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -35,9 +35,9 @@ You don't need to start the Adjust SDK manually. After setting the configuration
 }
 ```
 
-#### Delegates callback
+#### Delegate callback
 
-If you want to receive any of the delegates callbacks, you can optionally register for the callbacks in `AdjustAdobeExtensionConfig`:
+Optional: If you want to receive any of the delegate callbacks, you can register for the callbacks in `AdjustAdobeExtensionConfig`:
 
 ```objc
 [config callbackEventTrackingSucceeded:^(ADJEventSuccess * _Nullable eventSuccessResponseData) {
@@ -47,18 +47,18 @@ If you want to receive any of the delegates callbacks, you can optionally regist
 
 ### Tracking events
 
-Any events (action or state) tracked using `ACPCore` is tracked by Adjust if it contains the key `adj.eventToken`:
+Any event (action or state) tracked using `ACPCore` is tracked by Adjust if it contains the `adj.eventToken` key:
 
 ```objc
 [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"abc123"}];
 [ACPCore trackState:@"TestState" data:@{@"a": @"b"}]; // will *not* be tracked by Adjust
 ```
 
-If it contains the keys `revenue` and `currency`, the event is tracked with this information as well.
+If the event contains the `revenue` and `currency` keys, the event is tracked with this information as well.
 
 ### Attribution
 
-In case the option to share attribution to Adobe is enabled in the extension configuration, Adjust will track an action name `Adjust Attribution Data` with the attribution information from Adjust where the keys will be prefixed with `adjust.`
+If you turn on the option to share attribution with Adobe in the extension configuration, Adjust tracks the action name `Adjust Attribution Data` with attribution information from Adjust for keys prefixed with `adjust.`
 
 
 
