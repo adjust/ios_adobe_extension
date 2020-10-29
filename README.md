@@ -1,8 +1,8 @@
-# AdjustAdobeExtension
+# Adjust SDK Extension
 
 ## <a id="sdk-add"></a>Add the SDK to your project
 
-If you're using [CocoaPods][cocoapods], add the following line to your `Podfile` and continue from [this step](#sdk-integrate):
+If you're using [CocoaPods][http://cocoapods.org], add the following line to your `Podfile` and continue from [this step](#sdk-integrate):
 
 ```ruby
 pod 'AdjustAdobeExtension'
