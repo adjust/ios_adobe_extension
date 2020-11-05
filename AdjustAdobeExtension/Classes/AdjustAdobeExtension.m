@@ -99,6 +99,13 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
     
+    if (_configInstance.environment != ADJEnvironmentProduction && _configInstance.environment != ADJEnvironmentSandbox) {
+        [ACPCore log:ACPMobileLogLevelError
+                 tag:ADJAdobeExtensionLogTag
+             message:@"Environment should be production or sandbox"];
+        return;
+    }
+    
     if (!self.sdkInitialized) {
         _configInstance.shouldTrackAttribution = trackAttribution;
         
