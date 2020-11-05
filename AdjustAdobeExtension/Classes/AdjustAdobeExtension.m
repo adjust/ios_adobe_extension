@@ -106,7 +106,20 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                                                     environment:_configInstance.environment];
         [adjustConfig setDelegate:self];
         
-        
+        switch ([ACPCore logLevel]) {
+            case ACPMobileLogLevelError:
+                [adjustConfig setLogLevel:ADJLogLevelError];
+                break;
+            case ACPMobileLogLevelWarning:
+                [adjustConfig setLogLevel:ADJLogLevelWarn];
+                break;
+            case ACPMobileLogLevelDebug:
+                [adjustConfig setLogLevel:ADJLogLevelDebug];
+                break;
+            default:
+                [adjustConfig setLogLevel:ADJLogLevelVerbose];
+                break;
+        }
         
         [Adjust appDidLaunch:adjustConfig];
         
