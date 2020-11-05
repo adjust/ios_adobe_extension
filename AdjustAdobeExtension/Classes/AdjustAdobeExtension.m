@@ -106,6 +106,8 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                                                     environment:_configInstance.environment];
         [adjustConfig setDelegate:self];
         
+        
+        
         [Adjust appDidLaunch:adjustConfig];
         
         self.sdkInitialized = YES;
@@ -139,7 +141,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (nullable NSString*) name {
-    return @"com.adjust.extension.adobe";
+    return @"com.adjust.adobeextension";
 }
 
 - (nullable NSString*) version {
