@@ -249,6 +249,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = rabc;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = QGUGW9AUMK;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -497,11 +500,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AdjustAdobeExtension_Example.entitlements;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AdjustAdobeExtension/AdjustAdobeExtension-Prefix.pch";
 				INFOPLIST_FILE = "AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.demo.adobe.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
@@ -514,11 +518,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = AdjustAdobeExtension_Example.entitlements;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AdjustAdobeExtension/AdjustAdobeExtension-Prefix.pch";
 				INFOPLIST_FILE = "AdjustAdobeExtension/AdjustAdobeExtension-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.demo.adobe.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.examples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				WRAPPER_EXTENSION = app;
