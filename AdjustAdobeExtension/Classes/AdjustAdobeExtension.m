@@ -93,75 +93,75 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }
     
     NSDictionary *contextdata = eventData[@"contextdata"];
-    NSString *adjEventToken = contextdata[ADJAdobeAdjustEventToken];
-    
-    if (adjEventToken) {
-        ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
-        
-        NSString *currency = contextdata[ADJAdobeAdjustEventCurrency];
-        NSNumber *revenue = contextdata[ADJAdobeAdjustEventRevenue];
-        
-        if (currency && revenue) {
-            [event setRevenue:[revenue doubleValue] currency:currency];
-        }
-        
-        [Adjust trackEvent:event];
+    if (contextdata == nil) {
+        return;
     }
+
+    NSString *adjEventToken = contextdata[ADJAdobeAdjustEventToken];
+
+    ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
+
+    NSString *currency = contextdata[ADJAdobeAdjustEventCurrency];
+    NSNumber *revenue = contextdata[ADJAdobeAdjustEventRevenue];
+
+    if (currency && revenue) {
+        [event setRevenue:[revenue doubleValue] currency:currency];
+    }
+
+    [Adjust trackEvent:event];
 }
 
 - (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution {
-    
     if (!_configInstance) {
-        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag message:@"Extension should be registered first"];
-        return;
-    }
-    
-    if (_configInstance.environment != ADJEnvironmentProduction && _configInstance.environment != ADJEnvironmentSandbox) {
         [ACPCore log:ACPMobileLogLevelError
                  tag:ADJAdobeExtensionLogTag
-             message:@"Environment should be production or sandbox"];
+             message:@"Extension should be registered first"];
         return;
     }
-    
-    if (!self.sdkInitialized) {
-        _configInstance.shouldTrackAttribution = trackAttribution;
-        
-        ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
-                                                    environment:_configInstance.environment];
-        [adjustConfig setDelegate:self];
-        
-        switch ([ACPCore logLevel]) {
-            case ACPMobileLogLevelError:
-                [adjustConfig setLogLevel:ADJLogLevelError];
-                break;
-            case ACPMobileLogLevelWarning:
-                [adjustConfig setLogLevel:ADJLogLevelWarn];
-                break;
-            case ACPMobileLogLevelDebug:
-                [adjustConfig setLogLevel:ADJLogLevelDebug];
-                break;
-            default:
-                [adjustConfig setLogLevel:ADJLogLevelVerbose];
-                break;
-        }
-        
-        [Adjust appDidLaunch:adjustConfig];
-        
-        self.sdkInitialized = YES;
-        [self dumpReceivedEvents];
+
+    if (self.sdkInitialized) {
+        return;
     }
+
+    _configInstance.shouldTrackAttribution = trackAttribution;
+
+    ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
+                                                environment:_configInstance.environment];
+    [adjustConfig setDelegate:self];
+
+    switch ([ACPCore logLevel]) {
+        case ACPMobileLogLevelError:
+            [adjustConfig setLogLevel:ADJLogLevelError];
+            break;
+        case ACPMobileLogLevelWarning:
+            [adjustConfig setLogLevel:ADJLogLevelWarn];
+            break;
+        case ACPMobileLogLevelDebug:
+            [adjustConfig setLogLevel:ADJLogLevelDebug];
+            break;
+        case ACPMobileLogLevelVerbose:
+            [adjustConfig setLogLevel:ADJLogLevelVerbose];
+            break;
+    }
+
+    [Adjust appDidLaunch:adjustConfig];
+
+    self.sdkInitialized = YES;
+    [self dumpReceivedEvents];
 }
 
 - (void)dumpReceivedEvents {
-    if (self.receivedEvents.count > 0) {
-        // dump events received before initialization
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            for (NSDictionary *event in self.receivedEvents) {
-                [self handleEventData:event];
-            }
-            [self.receivedEvents removeAllObjects];
-        });
+    if (self.receivedEvents.count <= 0) {
+        return;
     }
+
+    // dump events received before initialization
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        for (NSDictionary *event in self.receivedEvents) {
+            [self handleEventData:event];
+        }
+        [self.receivedEvents removeAllObjects];
+    });
 }
 
 + (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config {

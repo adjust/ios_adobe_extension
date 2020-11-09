@@ -14,10 +14,11 @@ NSString *const ADJAdobeEventSourceRequestContent = @"com.adobe.eventSource.requ
 @implementation AdjustAdobeExtensionEventListener
 
 - (void)hear:(nonnull ACPExtensionEvent*)event {
-    AdjustAdobeExtension *adjExt = nil;
-    if ([self.extension isKindOfClass:[AdjustAdobeExtension class]]) {
-        adjExt = (AdjustAdobeExtension*) [self extension];
+    if (![self.extension isKindOfClass:[AdjustAdobeExtension class]]) {
+        return;
     }
+
+    AdjustAdobeExtension *adjExt = (AdjustAdobeExtension*) [self extension];
 
     [adjExt handleEventData:event.eventData];
 }
