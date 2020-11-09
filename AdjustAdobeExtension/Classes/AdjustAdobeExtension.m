@@ -29,39 +29,56 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 - (instancetype)init
 {
     self = [super init];
-    if (self) {
+    if (self == nil) { return nil; }
         
-        self.sdkInitialized = NO;
-        self.receivedEvents = [NSMutableArray array];
-        
-        NSError* error = nil;
-        
-        // Shared State listener
-        if ([self.api registerListener:[AdjustAdobeExtensionSharedStateListener class]
-                             eventType:@"com.adobe.eventType.hub"
-                           eventSource:@"com.adobe.eventSource.sharedState"
-                                 error:&error]) {
-            [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
-                 message:@"successfully registered for Event Hub Shared State events"];
-        } else if (error) {
-            [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
-                 message:[NSString stringWithFormat:@"An error occured while registering AdjustAdobeExtensionSharedStateListener, error code: %ld",
-                            [error code]]];
-        }
-        
-        if ([self.api registerListener:[AdjustAdobeExtensionEventListener class]
-                             eventType:@"com.adobe.eventType.generic.track"
-                           eventSource:@"com.adobe.eventSource.requestContent"
-                                 error:&error]) {
-            [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
-                 message:@"Successfully registered for Extension Request Content events"];
-        } else if (error) {
-            [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
-                 message:[NSString stringWithFormat:@"There was an error registering ExtensionListener for Extension Request Content events: %@",
-                          error.localizedDescription ?: @"unknown"]];
-        }
-        
+    _sdkInitialized = NO;
+    _receivedEvents = [NSMutableArray array];
+
+    NSError* error = nil;
+
+    // Shared State listener
+    if ([self.api registerListener:[AdjustAdobeExtensionSharedStateListener class]
+                         eventType:@"com.adobe.eventType.hub"
+                       eventSource:@"com.adobe.eventSource.sharedState"
+                             error:&error])
+    {
+        [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
+             message:@"successfully registered for Event Hub Shared State events"];
+    } else if (error) {
+        [ACPCore log:ACPMobileLogLevelError
+                 tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:
+                      @"An error occured while"
+                      " registering AdjustAdobeExtensionSharedStateListener, error code: %ld",
+                      [error code]]];
+    } else {
+        [ACPCore log:ACPMobileLogLevelError
+                 tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:
+                      @"An error occured while"
+                      " registering AdjustAdobeExtensionSharedStateListener, without error code"]];
     }
+
+    if ([self.api registerListener:[AdjustAdobeExtensionEventListener class]
+                         eventType:@"com.adobe.eventType.generic.track"
+                       eventSource:@"com.adobe.eventSource.requestContent"
+                             error:&error])
+    {
+        [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
+             message:@"Successfully registered for Extension Request Content events"];
+    } else if (error) {
+        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:
+                      @"There was an error registering ExtensionListener"
+                      " for Extension Request Content events: %@",
+                      error.localizedDescription ?: @"unknown"]];
+    } else {
+        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:
+                      @"There was an error registering ExtensionListener"
+                      " for Extension Request Content events, without error code"]];
+    }
+
     return self;
 }
 
@@ -153,10 +170,13 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
              message:@"Successfully registered AdjustExtension"];
         _configInstance = config;
-    } else {
+    } else if (error) {
         [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
              message:[NSString stringWithFormat:@"Error registering AdjustExtension: %@ %d",
                       [error domain], (int)[error code]]];
+    } else {
+        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:@"Error registering AdjustExtension, without error code"]];
     }
 }
 
