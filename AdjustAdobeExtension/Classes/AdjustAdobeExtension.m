@@ -209,30 +209,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }
 }
 
-- (void)adjustEventTrackingSucceeded:(nullable ADJEventSuccess *)eventSuccessResponseData {
-    if (_configInstance.eventTrackingSucceededBlock) {
-        _configInstance.eventTrackingSucceededBlock(eventSuccessResponseData);
-    }
-}
-
-- (void)adjustEventTrackingFailed:(nullable ADJEventFailure *)eventFailureResponseData {
-    if (_configInstance.eventTrackingFailedBlock) {
-        _configInstance.eventTrackingFailedBlock(eventFailureResponseData);
-    }
-}
-
-- (void)adjustSessionTrackingSucceeded:(nullable ADJSessionSuccess *)sessionSuccessResponseData {
-    if (_configInstance.sessionTrackingSucceededBlock) {
-        _configInstance.sessionTrackingSucceededBlock(sessionSuccessResponseData);
-    }
-}
-
-- (void)adjustSessionTrackingFailed:(nullable ADJSessionFailure *)sessionFailureResponseData {
-    if (_configInstance.sessionTrackingFailedBlock) {
-        _configInstance.sessionTrackingFailedBlock(sessionFailureResponseData);
-    }
-}
-
 - (BOOL)adjustDeeplinkResponse:(nullable NSURL *)deeplink {
     if (_configInstance.deeplinkResponseBlock) {
         return _configInstance.deeplinkResponseBlock(deeplink);

@@ -29,18 +29,6 @@
 - (void)callbackAttributionChanged:(CallbackAttributionChangedBlock)attributionChangedBlock {
     _attributionChangedBlock = attributionChangedBlock;
 }
-- (void)callbackEventTrackingSucceeded:(CallbackEventTrackingSucceededBlock)eventTrackingSucceededBlock {
-    _eventTrackingSucceededBlock = eventTrackingSucceededBlock;
-}
-- (void)callbackEventTrackingFailed:(CallbackEventTrackingFailedBlock)eventTrackingFailedBlock {
-    _eventTrackingFailedBlock = eventTrackingFailedBlock;
-}
-- (void)callbackSessionTrackingSucceeded:(CallbackSessionTrackingSucceededBlock)sessionTrackingSucceededBlock {
-    _sessionTrackingSucceededBlock = sessionTrackingSucceededBlock;
-}
-- (void)callbackSessionTrackingFailed:(CallbackSessionTrackingFailedBlock)sessionTrackingFailedBlock {
-    _sessionTrackingFailedBlock = sessionTrackingFailedBlock;
-}
 - (void)callbackDeeplinkResponse:(CallbackDeeplinkResponseBlock)deeplinkResponseBlock {
     _deeplinkResponseBlock = deeplinkResponseBlock;
 }
