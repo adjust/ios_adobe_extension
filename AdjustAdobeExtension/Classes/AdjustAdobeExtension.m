@@ -214,8 +214,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return _configInstance.deeplinkResponseBlock(deeplink);
     }
     
-    return NO;
-    
+    return YES;
 }
 
 @end
