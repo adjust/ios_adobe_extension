@@ -99,6 +99,10 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
     NSString *adjEventToken = contextdata[ADJAdobeAdjustEventToken];
 
+    if (adjEventToken == nil) {
+        return;
+    }
+
     ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
 
     NSString *currency = contextdata[ADJAdobeAdjustEventCurrency];
