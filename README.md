@@ -35,13 +35,17 @@ You don't need to start the Adjust SDK manually. First, set the configuration in
 }
 ```
 
-#### Delegate callback
+#### Delegates callback
 
-Optional: If you want to receive any of the delegate callbacks, you can register for the callbacks in `AdjustAdobeExtensionConfig`:
+Optional: If you want to receive the attribution and deep link delegates callback, you can register for it in `AdjustAdobeExtensionConfig`:
 
 ```objc
-[config callbackEventTrackingSucceeded:^(ADJEventSuccess * _Nullable eventSuccessResponseData) {
-    // event tracked
+[config callbackDeeplinkResponse:^(ADJEventSuccess * _Nullable eventSuccessResponseData) {
+    // deep link response received
+}];
+
+[config callbackAttributionChanged:^(ADJAttribution * _Nullable attribution) {
+    // attribution response received
 }];
 ```
 
@@ -58,7 +62,12 @@ If the event contains the `revenue` and `currency` keys, the event is tracked wi
 
 ### Attribution
 
-The option to share attribution data with Adobe is under Extensions and is on by default. Adjust tracks the action name `Adjust Attribution Data` with attribution information from Adjust for keys prefixed with `adjust`.
+The option to share attribution data with Adobe is in the extensions configuration in the Launch dashboard and is on by default. Adjust tracks the action name `Adjust Campaign Data Received` with the following attribution information from Adjust:
+
+* `Adjust Network`
+* `Adjust Campaign`
+* `Adjust AdGroup`
+* `Adjust Creative`
 
 
 
