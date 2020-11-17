@@ -62,7 +62,7 @@ If the event contains the `revenue` and `currency` keys, the event is tracked wi
 
 ### Attribution
 
-The option to share attribution data with Adobe is in the extensions configuration in the Launch dashboard and is on by default. Adjust tracks the action name `Adjust Campaign Data Received` with the following attribution information from Adjust:
+The option to share attribution data with Adobe is in the Launch dashboard under the extensions configuration and is on by default. Adjust tracks the action name `Adjust Campaign Data Received` with the following attribution information from Adjust:
 
 * `Adjust Network`
 * `Adjust Campaign`
