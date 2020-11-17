@@ -196,16 +196,24 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 - (void)adjustAttributionChanged:(nullable ADJAttribution *)attribution {
     if (_configInstance.shouldTrackAttribution) {
-        NSDictionary *attrDict = [attribution dictionary];
-        NSMutableDictionary *attrDictPrefix = [NSMutableDictionary dictionary];
         
-        for (id key in attrDict) {
-            NSString *keyPrefix = [NSString stringWithFormat:@"%@%@", @"adjust.", key];
-            attrDictPrefix[keyPrefix] = attrDict[key];
+        NSMutableDictionary *adjustData = [NSMutableDictionary dictionary];
+
+        if (attribution.network != nil) {
+            [adjustData setObject:attribution.network forKey:@"Adjust Network"];
+        }
+        if (attribution.campaign != nil) {
+            [adjustData setObject:attribution.campaign forKey:@"Adjust Campaign"];
+        }
+        if (attribution.adgroup != nil) {
+            [adjustData setObject:attribution.adgroup forKey:@"Adjust AdGroup"];
+        }
+        if (attribution.creative != nil) {
+            [adjustData setObject:attribution.creative forKey:@"Adjust Creative"];
         }
         
-        [ACPCore trackAction:@"Adjust Attribution Data"
-                        data:attrDictPrefix];
+        [ACPCore trackAction:@"Adjust Campaign Data Received"
+                        data:adjustData];
     }
     
     if (_configInstance.attributionChangedBlock) {
