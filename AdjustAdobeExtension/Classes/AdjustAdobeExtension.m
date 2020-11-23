@@ -11,6 +11,7 @@
 #import "AdjustAdobeExtensionEventListener.h"
 
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.0.0";
 
 NSString * const ADJAdobeAdjustEventToken = @"adj.eventToken";
 NSString * const ADJAdobeAdjustEventCurrency = @"currency";
@@ -130,6 +131,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
     ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
                                                 environment:_configInstance.environment];
+    [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
     [adjustConfig setDelegate:self];
 
     switch ([ACPCore logLevel]) {
@@ -188,7 +190,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (nullable NSString *)version {
-    return [NSString stringWithFormat:@"Adjust SDK version %ld", (long)[Adjust version]];
+    return [NSString stringWithFormat:@"%@%@", ADJAdobeExtensionSdkPrefix, [Adjust sdkVersion]];
 }
 
 #pragma mark - Adjust delegate

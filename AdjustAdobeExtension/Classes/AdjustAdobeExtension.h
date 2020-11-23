@@ -18,6 +18,7 @@ extern NSString * const ADJAdobeAdjustEventToken;
 extern NSString * const ADJAdobeAdjustEventCurrency;
 extern NSString * const ADJAdobeAdjustEventRevenue;
 extern NSString * const ADJAdobeExtensionLogTag;
+extern NSString * const ADJAdobeExtensionSdkPrefix;
 
 @interface AdjustAdobeExtension : ACPExtension <AdjustDelegate>
 
