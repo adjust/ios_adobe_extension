@@ -1,9 +1,9 @@
 //
-//  ADJViewController.m
+//  ADJViewController.h
 //  AdjustAdobeExtension
 //
-//  Created by rabc on 09/04/2020.
-//  Copyright (c) 2020 rabc. All rights reserved.
+//  Created by Ricardo Carvalho (@rabc) on 09/04/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import "ADJViewController.h"
@@ -15,17 +15,15 @@
 
 @implementation ADJViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	
+
     [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"g3mfiw"}];
     [ACPCore trackState:@"TestState" data:@{@"a": @"b"}];
     
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

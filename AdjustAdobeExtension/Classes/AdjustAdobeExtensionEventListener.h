@@ -2,7 +2,8 @@
 //  AdjustAdobeExtensionEventListener.h
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 28/09/2020.
+//  Created by Ricardo Carvalho (@rabc) on 28/09/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -13,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AdjustAdobeExtensionEventListener : ACPExtensionListener
 
-- (void)hear:(nonnull ACPExtensionEvent*)event;
+- (void)hear:(nonnull ACPExtensionEvent *)event;
 
 @end
 

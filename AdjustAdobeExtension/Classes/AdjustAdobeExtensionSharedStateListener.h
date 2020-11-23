@@ -1,8 +1,9 @@
 //
-//  AdjustAdobeExtensionEventListener.h
+//  AdjustAdobeExtensionSharedStateListener.h
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 04/09/2020.
+//  Created by Ricardo Carvalho (@rabc) on 04/09/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import <ACPCore/ACPCore.h>

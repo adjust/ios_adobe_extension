@@ -1,18 +1,19 @@
 //
-//  AdjustAdobeExtensionEventListener.m
+//  AdjustAdobeExtensionSharedStateListener.m
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 04/09/2020.
+//  Created by Ricardo Carvalho (@rabc) on 04/09/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtensionSharedStateListener.h"
 #import "AdjustAdobeExtension.h"
 #import <ACPCore/ACPExtension.h>
 
-NSString *const ADJAdobeModuleConfiguration = @"com.adobe.module.configuration";
+NSString * const ADJAdobeModuleConfiguration = @"com.adobe.module.configuration";
 
-NSString *const ADJConfigurationAppToken = @"adjustAppToken";
-NSString *const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
+NSString * const ADJConfigurationAppToken = @"adjustAppToken";
+NSString * const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
 
 @implementation AdjustAdobeExtensionSharedStateListener
 
@@ -22,7 +23,6 @@ NSString *const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
     if (!eventData) {
         return;
     }
-
     if (![eventData[@"stateowner"] isEqualToString:ADJAdobeModuleConfiguration]) {
         return;
     }
@@ -49,7 +49,7 @@ NSString *const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
         return;
     }
 
-    AdjustAdobeExtension *adjExt = (AdjustAdobeExtension*) [self extension];
+    AdjustAdobeExtension *adjExt = (AdjustAdobeExtension *)[self extension];
 
     BOOL shouldTrackAttribution =
         [adjustTrackAttribution isKindOfClass:[NSNumber class]]

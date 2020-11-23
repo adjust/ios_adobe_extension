@@ -101,7 +101,7 @@
 			children = (
 				D795AAFD2539A0D30004E214 /* AdjustAdobeExtension_Example.entitlements */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for AdjustAdobeExtension */,
+				6003F593195388D20070C39A /* Example App for AdjustAdobeExtension */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -131,19 +131,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* Example for AdjustAdobeExtension */ = {
+		6003F593195388D20070C39A /* Example App for AdjustAdobeExtension */ = {
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* ADJAppDelegate.h */,
 				6003F59D195388D20070C39A /* ADJAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* ADJViewController.h */,
 				6003F5A6195388D20070C39A /* ADJViewController.m */,
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
-			name = "Example for AdjustAdobeExtension";
+			name = "Example App for AdjustAdobeExtension";
 			path = AdjustAdobeExtension;
 			sourceTree = "<group>";
 		};

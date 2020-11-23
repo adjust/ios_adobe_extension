@@ -2,18 +2,19 @@
 //  AdjustAdobeExtension.m
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 04/09/2020.
+//  Created by Ricardo Carvalho (@rabc) on 09/04/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtension.h"
 #import "AdjustAdobeExtensionSharedStateListener.h"
 #import "AdjustAdobeExtensionEventListener.h"
 
-NSString *const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
+NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
 
-NSString *const ADJAdobeAdjustEventToken = @"adj.eventToken";
-NSString *const ADJAdobeAdjustEventCurrency = @"currency";
-NSString *const ADJAdobeAdjustEventRevenue = @"revenue";
+NSString * const ADJAdobeAdjustEventToken = @"adj.eventToken";
+NSString * const ADJAdobeAdjustEventCurrency = @"currency";
+NSString * const ADJAdobeAdjustEventRevenue = @"revenue";
 
 static AdjustAdobeExtensionConfig *_configInstance = nil;
 
@@ -26,22 +27,22 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 @implementation AdjustAdobeExtension
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
-    if (self == nil) { return nil; }
+    if (self == nil) {
+        return nil;
+    }
         
     _sdkInitialized = NO;
     _receivedEvents = [NSMutableArray array];
 
-    NSError* error = nil;
+    NSError *error = nil;
 
     // Shared State listener
     if ([self.api registerListener:[AdjustAdobeExtensionSharedStateListener class]
                          eventType:@"com.adobe.eventType.hub"
                        eventSource:@"com.adobe.eventSource.sharedState"
-                             error:&error])
-    {
+                             error:&error]) {
         [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
              message:@"successfully registered for Event Hub Shared State events"];
     } else if (error) {
@@ -62,8 +63,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     if ([self.api registerListener:[AdjustAdobeExtensionEventListener class]
                          eventType:@"com.adobe.eventType.generic.track"
                        eventSource:@"com.adobe.eventSource.requestContent"
-                             error:&error])
-    {
+                             error:&error]) {
         [ACPCore log:ACPMobileLogLevelDebug tag:ADJAdobeExtensionLogTag
              message:@"Successfully registered for Extension Request Content events"];
     } else if (error) {
@@ -104,7 +104,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }
 
     ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
-
     NSString *currency = contextdata[ADJAdobeAdjustEventCurrency];
     NSNumber *revenue = contextdata[ADJAdobeAdjustEventRevenue];
 
@@ -184,11 +183,11 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }
 }
 
-- (nullable NSString*) name {
+- (nullable NSString *)name {
     return @"com.adjust.adobeextension";
 }
 
-- (nullable NSString*) version {
+- (nullable NSString *)version {
     return [NSString stringWithFormat:@"Adjust SDK version %ld", (long)[Adjust version]];
 }
 
@@ -196,7 +195,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 - (void)adjustAttributionChanged:(nullable ADJAttribution *)attribution {
     if (_configInstance.shouldTrackAttribution) {
-        
         NSMutableDictionary *adjustData = [NSMutableDictionary dictionary];
 
         if (attribution.network != nil) {
@@ -211,11 +209,11 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         if (attribution.creative != nil) {
             [adjustData setObject:attribution.creative forKey:@"Adjust Creative"];
         }
-        
+
         [ACPCore trackAction:@"Adjust Campaign Data Received"
                         data:adjustData];
     }
-    
+
     if (_configInstance.attributionChangedBlock) {
         _configInstance.attributionChangedBlock(attribution);
     }
@@ -225,7 +223,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     if (_configInstance.deeplinkResponseBlock) {
         return _configInstance.deeplinkResponseBlock(deeplink);
     }
-    
+
     return YES;
 }
 

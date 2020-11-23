@@ -2,7 +2,8 @@
 //  AdjustAdobeExtensionConfig.h
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 01/10/2020.
+//  Created by Ricardo Carvalho (@rabc) on 01/10/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
