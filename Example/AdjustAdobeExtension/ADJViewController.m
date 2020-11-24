@@ -20,6 +20,9 @@
     [super viewDidLoad];
 
     [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", ADJAdobeAdjustEventToken: @"g3mfiw"}];
+    [ACPCore trackAction:@"TestActionRevenue" data:@{@"a": @"b", ADJAdobeAdjustEventToken: @"a4fd35",
+                                                     ADJAdobeAdjustEventRevenue: @"1.0",
+                                                     ADJAdobeAdjustEventCurrency: @"EUR"}];
     [ACPCore trackState:@"TestState" data:@{@"a": @"b"}];
     
 }
