@@ -8,6 +8,7 @@
 
 #import "ADJViewController.h"
 #import "ACPCore.h"
+#import <AdjustAdobeExtension/AdjustAdobeExtension.h>
 
 @interface ADJViewController ()
 
@@ -18,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"g3mfiw"}];
+    [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", ADJAdobeAdjustEventToken: @"g3mfiw"}];
     [ACPCore trackState:@"TestState" data:@{@"a": @"b"}];
     
 }
