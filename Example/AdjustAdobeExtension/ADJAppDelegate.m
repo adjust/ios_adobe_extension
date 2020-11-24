@@ -7,14 +7,10 @@
 //
 
 #import "ADJAppDelegate.h"
-#import "AdjustAdobeExtension.h"
-#import "ACPCore.h"
-#import "ACPGriffon.h"
-#import "ACPIdentity.h"
-#import "ACPLifecycle.h"
-#import "ACPSignal.h"
-#import "ACPUserProfile.h"
 
+#import <ACPCore/ACPCore.h>
+#import <ACPGriffon/ACPGriffon.h>
+#import <AdjustAdobeExtension/AdjustAdobeExtension.h>
 
 @implementation ADJAppDelegate
 
@@ -26,10 +22,6 @@
     [AdjustAdobeExtension registerExtensionWithConfig:config];
 
     [ACPGriffon registerExtension];
-    [ACPIdentity registerExtension];
-    [ACPLifecycle registerExtension];
-    [ACPSignal registerExtension];
-    [ACPUserProfile registerExtension];
     [ACPCore start:^{
         [ACPCore lifecycleStart:nil];
     }];

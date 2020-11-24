@@ -13,7 +13,7 @@ pod 'AdjustAdobeExtension'
 If you added the Adjust SDK via a Pod repository, add the following import statement:
 
 ```objc
-#import "AdjustAdobeExtension.h"
+#import <AdjustAdobeExtension/AdjustAdobeExtension.h>
 ```
 
 ### <a id="basic-setup"></a>Basic setup
@@ -51,14 +51,14 @@ Optional: If you want to receive the attribution and deep link delegates callbac
 
 ### Tracking events
 
-Any event (action or state) tracked using `ACPCore` is tracked by Adjust if it contains the `adj.eventToken` key:
+Any event (action or state) tracked using `ACPCore` is tracked by Adjust if it contains the `ADJAdobeAdjustEventCurrency` constant as a key:
 
 ```objc
-[ACPCore trackAction:@"TestAction" data:@{@"a": @"b", @"adj.eventToken": @"abc123"}];
+[ACPCore trackAction:@"TestAction" data:@{@"a": @"b", ADJAdobeAdjustEventToken: @"abc123"}];
 [ACPCore trackState:@"TestState" data:@{@"a": @"b"}]; // will *not* be tracked by Adjust
 ```
 
-If the event contains the `revenue` and `currency` keys, the event is tracked with this information as well.
+If the event contains the constants `ADJAdobeAdjustEventCurrency` and `ADJAdobeAdjustEventRevenue` as keys, the event is tracked with this information as well.
 
 ### Attribution
 
