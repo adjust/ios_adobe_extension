@@ -18,6 +18,6 @@ Adjust SDK extension for Adobe Experience Platform.
   s.static_framework = true
 
 #  s.public_header_files = 'AdjustAdobeExtension/Classes/**/*.h'
-  s.dependency 'Adjust'
+  s.dependency 'Adjust', '4.23.2'
   s.dependency 'ACPCore'
 end
