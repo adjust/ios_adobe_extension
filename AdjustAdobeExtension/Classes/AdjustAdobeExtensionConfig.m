@@ -2,7 +2,8 @@
 //  AdjustAdobeExtensionConfig.m
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 01/10/2020.
+//  Created by Ricardo Carvalho (@rabc) on 01/10/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtensionConfig.h"
@@ -15,10 +16,12 @@
 
 - (nullable id)initWithEnvironment:(NSString *)environment {
     self = [super init];
-    if (self == nil) return nil;
-    
+    if (self == nil) {
+        return nil;
+    }
+
     _environment = environment;
-    
+
     return self;
 }
 
@@ -29,18 +32,7 @@
 - (void)callbackAttributionChanged:(CallbackAttributionChangedBlock)attributionChangedBlock {
     _attributionChangedBlock = attributionChangedBlock;
 }
-- (void)callbackEventTrackingSucceeded:(CallbackEventTrackingSucceededBlock)eventTrackingSucceededBlock {
-    _eventTrackingSucceededBlock = eventTrackingSucceededBlock;
-}
-- (void)callbackEventTrackingFailed:(CallbackEventTrackingFailedBlock)eventTrackingFailedBlock {
-    _eventTrackingFailedBlock = eventTrackingFailedBlock;
-}
-- (void)callbackSessionTrackingSucceeded:(CallbackSessionTrackingSucceededBlock)sessionTrackingSucceededBlock {
-    _sessionTrackingSucceededBlock = sessionTrackingSucceededBlock;
-}
-- (void)callbackSessionTrackingFailed:(CallbackSessionTrackingFailedBlock)sessionTrackingFailedBlock {
-    _sessionTrackingFailedBlock = sessionTrackingFailedBlock;
-}
+
 - (void)callbackDeeplinkResponse:(CallbackDeeplinkResponseBlock)deeplinkResponseBlock {
     _deeplinkResponseBlock = deeplinkResponseBlock;
 }

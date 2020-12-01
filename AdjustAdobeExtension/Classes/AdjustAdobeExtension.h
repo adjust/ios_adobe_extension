@@ -2,7 +2,8 @@
 //  AdjustAdobeExtension.h
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho on 04/09/2020.
+//  Created by Ricardo Carvalho (@rabc) on 09/04/2020.
+//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -17,6 +18,7 @@ extern NSString * const ADJAdobeAdjustEventToken;
 extern NSString * const ADJAdobeAdjustEventCurrency;
 extern NSString * const ADJAdobeAdjustEventRevenue;
 extern NSString * const ADJAdobeExtensionLogTag;
+extern NSString * const ADJAdobeExtensionSdkPrefix;
 
 @interface AdjustAdobeExtension : ACPExtension <AdjustDelegate>
 
@@ -26,8 +28,8 @@ extern NSString * const ADJAdobeExtensionLogTag;
 - (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution;
 
 /// Adobe methods
-- (nullable NSString*) name;
-- (nullable NSString*) version;
+- (nullable NSString *)name;
+- (nullable NSString *)version;
 
 @end
 
