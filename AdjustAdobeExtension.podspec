@@ -7,10 +7,10 @@ Pod::Spec.new do |s|
 Adjust SDK extension for Adobe Experience Platform.
                        DESC
 
-  s.homepage         = 'https://github.com/adjust/AdjustAdobeExtension'
+  s.homepage         = 'https://github.com/adjust/ios_adobe_extension'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Adjust SDK Team' => 'sdk@adjust.com' }
-  s.source           = { :git => 'https://github.com/adjust/AdjustAdobeExtension.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/adjust/ios_adobe_extension.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '10.0'
 
