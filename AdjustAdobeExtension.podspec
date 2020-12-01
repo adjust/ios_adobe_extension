@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-  s.name             = 'Adjust SDK Extension'
+  s.name             = 'AdjustAdobeExtension'
   s.version          = '0.0.1'
   s.summary          = 'Adjust SDK extension for Adobe Experience Platform.'
   s.description      = <<-DESC
