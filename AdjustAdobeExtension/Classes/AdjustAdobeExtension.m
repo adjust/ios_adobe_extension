@@ -52,7 +52,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
              message:[NSString stringWithFormat:
                       @"An error occured while"
                       " registering AdjustAdobeExtensionSharedStateListener, error code: %ld",
-                      [error code]]];
+                      (long)[error code]]];
     } else {
         [ACPCore log:ACPMobileLogLevelError
                  tag:ADJAdobeExtensionLogTag

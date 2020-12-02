@@ -17,6 +17,9 @@ Adjust SDK extension for Adobe Experience Platform.
   s.source_files = 'AdjustAdobeExtension/Classes/**/*'
   s.static_framework = true
 
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
+
   s.dependency 'Adjust', '4.23.2'
   s.dependency 'ACPCore'
 end
