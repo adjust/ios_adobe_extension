@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.version          = '0.0.1'
   s.summary          = 'Adjust SDK extension for Adobe Experience Platform.'
   s.description      = <<-DESC
-Adjust SDK extension for Adobe Experience Platform.
+A leading attribution solution that brings the full power of mobile ad measurement to your campaigns.
                        DESC
 
   s.homepage         = 'https://github.com/adjust/ios_adobe_extension'
