@@ -1,4 +1,4 @@
-### Version 1.0.0 (xxth November 2020)
+### Version 0.0.1 (03th December 2020)
 #### Added
 - Initial release of the Adjust iOS SDK Adobe Extension.
 
