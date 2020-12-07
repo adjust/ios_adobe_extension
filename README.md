@@ -1,4 +1,4 @@
-# Adjust SDK Extension
+# Adjust Extension for Adobe Experience SDK
 
 ## <a id="sdk-add"></a>Add the SDK to your project
 
