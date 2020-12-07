@@ -1,6 +1,6 @@
 # Adjust Extension for Adobe Experience SDK
 
-## <a id="sdk-add"></a>Add the SDK to your project
+## <a id="sdk-add"></a>Add the Adjust Extension to your project
 
 If you're using [CocoaPods](http://cocoapods.org), add the following line to your `Podfile` and continue from [this step](#sdk-integrate):
 
@@ -8,7 +8,7 @@ If you're using [CocoaPods](http://cocoapods.org), add the following line to you
 pod 'AdjustAdobeExtension'
 ```
 
-### <a id="sdk-integrate"></a>Integrate the SDK into your app
+### <a id="sdk-integrate"></a>Integrate the Adjust Extension into your app
 
 If you added the Adjust SDK via a Pod repository, add the following import statement:
 
@@ -18,12 +18,10 @@ If you added the Adjust SDK via a Pod repository, add the following import state
 
 ### <a id="basic-setup"></a>Basic setup
 
-You don't need to start the Adjust SDK manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust Extension:
+You don't need to start the Adjust Adjust Extension manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust Extension:
 
 ```objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [ACPCore configureWithAppId:@"..."];
     
     // ...
@@ -68,8 +66,3 @@ The option to share attribution data with Adobe is in the Launch dashboard under
 * `Adjust Campaign`
 * `Adjust AdGroup`
 * `Adjust Creative`
-
-
-
-
-
