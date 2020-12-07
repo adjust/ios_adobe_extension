@@ -10,7 +10,7 @@ pod 'AdjustAdobeExtension'
 
 ### <a id="sdk-integrate"></a>Integrate the SDK into your app
 
-If you added the Adjust SDK via a Pod repository, add the following import statement:
+If you added the Adjust Extension via a Pod repository, add the following import statement:
 
 ```objc
 #import <AdjustAdobeExtension/AdjustAdobeExtension.h>
@@ -18,7 +18,7 @@ If you added the Adjust SDK via a Pod repository, add the following import state
 
 ### <a id="basic-setup"></a>Basic setup
 
-You don't need to start the Adjust SDK manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust SDK Extension:
+You don't need to start the Adjust Extension manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust Extension:
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
