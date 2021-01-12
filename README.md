@@ -38,8 +38,13 @@ You don't need to start the Adjust Adjust Extension manually. First, set the con
 Optional: If you want to receive the attribution and deep link delegates callback, you can register for it in `AdjustAdobeExtensionConfig`:
 
 ```objc
-[config callbackDeeplinkResponse:^(ADJEventSuccess * _Nullable eventSuccessResponseData) {
+[config callbackDeeplinkResponse:^BOOL(NSURL * _Nullable deeplink) {
     // deep link response received
+
+    // Apply your logic to determine whether the Adjust SDK should try to open the deep link
+    return YES;
+    // or
+    // return NO;
 }];
 
 [config callbackAttributionChanged:^(ADJAttribution * _Nullable attribution) {
