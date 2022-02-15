@@ -246,7 +246,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = ADJ;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = rabc;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
