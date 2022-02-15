@@ -32,9 +32,11 @@ NSString * const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
         [self.extension.api getSharedEventState:ADJAdobeModuleConfiguration event:event error:&error];
 
     if (error) {
-        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
-             message:[NSString stringWithFormat:@"Error on getSharedEventState %@:%ld.",
-                      [error domain], [error code]]];
+        [ACPCore log:ACPMobileLogLevelError
+                 tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:@"Error on getSharedEventState %@:%zd.",
+                      [error domain],
+                      [error code]]];
         return;
     }
 
