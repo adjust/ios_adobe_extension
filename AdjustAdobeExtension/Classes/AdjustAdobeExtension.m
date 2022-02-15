@@ -3,7 +3,7 @@
 //  AdjustAdobeExtension
 //
 //  Created by Ricardo Carvalho (@rabc) on 09/04/2020.
-//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
+//  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtension.h"
@@ -11,7 +11,7 @@
 #import "AdjustAdobeExtensionEventListener.h"
 
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
-NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.0.0";
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.0.3";
 
 NSString * const ADJAdobeAdjustEventToken = @"adj.eventToken";
 NSString * const ADJAdobeAdjustEventCurrency = @"adj.currency";
