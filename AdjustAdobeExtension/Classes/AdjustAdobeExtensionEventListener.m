@@ -3,7 +3,7 @@
 //  AdjustAdobeExtension
 //
 //  Created by Ricardo Carvalho (@rabc) on 28/09/2020.
-//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
+//  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtensionEventListener.h"

@@ -10,7 +10,5 @@ target 'AdjustAdobeExtension_Example' do
 
   target 'AdjustAdobeExtension_Tests' do
     inherit! :search_paths
-
-    
   end
 end

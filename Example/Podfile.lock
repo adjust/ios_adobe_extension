@@ -1,23 +1,23 @@
 PODS:
-  - ACPCore (2.7.5):
-    - ACPCore/main (= 2.7.5)
-  - ACPCore/main (2.7.5)
-  - ACPGriffon (1.2.0):
+  - ACPCore (2.9.5):
+    - ACPCore/main (= 2.9.5)
+  - ACPCore/main (2.9.5)
+  - ACPGriffon (1.2.1):
     - ACPCore
-    - ACPGriffon/iOS (= 1.2.0)
-  - ACPGriffon/iOS (1.2.0):
+    - ACPGriffon/iOS (= 1.2.1)
+  - ACPGriffon/iOS (1.2.1):
     - ACPCore
-  - ACPUserProfile (2.1.0):
-    - ACPCore (~> 2.0)
-    - ACPUserProfile/iOS (= 2.1.0)
-  - ACPUserProfile/iOS (2.1.0):
-    - ACPCore (~> 2.0)
-  - Adjust (4.23.1):
-    - Adjust/Core (= 4.23.1)
-  - Adjust/Core (4.23.1)
-  - AdjustAdobeExtension (0.1.0):
+  - ACPUserProfile (2.2.0):
+    - ACPCore (>= 2.9.0)
+    - ACPUserProfile/xcframeworks (= 2.2.0)
+  - ACPUserProfile/xcframeworks (2.2.0):
+    - ACPCore (>= 2.9.0)
+  - Adjust (4.29.7):
+    - Adjust/Core (= 4.29.7)
+  - Adjust/Core (4.29.7)
+  - AdjustAdobeExtension (1.0.3):
     - ACPCore
-    - Adjust
+    - Adjust (= 4.29.7)
 
 DEPENDENCIES:
   - ACPCore (~> 2.0)
@@ -37,12 +37,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ACPCore: 5608edce9d9bdef01da9a19201993fdb144dccf8
-  ACPGriffon: 53b524a9366c34968cce9b4eba50cbf72d0221d8
-  ACPUserProfile: 934b0d8136dc8b4c71e95c347ae733c4482d5b9d
-  Adjust: 0dc7b2815625e391897a31ab9e1e41dcc4cd99a2
-  AdjustAdobeExtension: 12388164e07dab450333ef6069c9bcfc216be53a
+  ACPCore: f6c5ec32fe162e61a18bec2ae79c8c5a48362a46
+  ACPGriffon: 5b46aa44e9667b1ff5d35aa37a84992b58d2aadf
+  ACPUserProfile: 34bd51d00a2ae1add3d04eab0a313b73cb01b904
+  Adjust: 91a06a01e4bb35b432e26b5d5bb8995b95fc381c
+  AdjustAdobeExtension: 97a4e60f2aab26c4c0093bca6588e4992286d44e
 
-PODFILE CHECKSUM: e374d4d0cc30b86d1419d237e233decc9ed70c1d
+PODFILE CHECKSUM: 9d0e231ac981dcf17cb67e756778f0a8f6f6332c
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.2

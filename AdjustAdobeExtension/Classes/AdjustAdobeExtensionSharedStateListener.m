@@ -3,7 +3,7 @@
 //  AdjustAdobeExtension
 //
 //  Created by Ricardo Carvalho (@rabc) on 04/09/2020.
-//  Copyright (c) 2020 Adjust GmbH. All rights reserved.
+//  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtensionSharedStateListener.h"
@@ -32,9 +32,11 @@ NSString * const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
         [self.extension.api getSharedEventState:ADJAdobeModuleConfiguration event:event error:&error];
 
     if (error) {
-        [ACPCore log:ACPMobileLogLevelError tag:ADJAdobeExtensionLogTag
-             message:[NSString stringWithFormat:@"Error on getSharedEventState %@:%ld.",
-                      [error domain], [error code]]];
+        [ACPCore log:ACPMobileLogLevelError
+                 tag:ADJAdobeExtensionLogTag
+             message:[NSString stringWithFormat:@"Error on getSharedEventState %@:%zd.",
+                      [error domain],
+                      [error code]]];
         return;
     }
 
