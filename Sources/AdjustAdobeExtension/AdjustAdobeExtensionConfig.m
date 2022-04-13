@@ -1,0 +1,1 @@
+../../AdjustAdobeExtension/Classes/AdjustAdobeExtensionConfig.m

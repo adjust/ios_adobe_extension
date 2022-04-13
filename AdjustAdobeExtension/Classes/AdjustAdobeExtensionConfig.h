@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Adjust/Adjust.h>
+#import <Adjust.h>
 
 typedef void (^CallbackAttributionChangedBlock)(ADJAttribution * _Nullable attribution);
 typedef BOOL (^CallbackDeeplinkResponseBlock)(NSURL * _Nullable deeplink);

@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <ACPCore/ACPCore.h>
 #import <ACPCore/ACPExtension.h>
-#import <Adjust/Adjust.h>
+#import <Adjust.h>
 #import "AdjustAdobeExtensionConfig.h"
+#import "AdjustAdobeExtensionEventListener.h"
+#import "AdjustAdobeExtensionSharedStateListener.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
