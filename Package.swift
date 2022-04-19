@@ -12,27 +12,16 @@ let package = Package(
             targets: ["AdjustAdobeExtension"])
     ],
     dependencies: [
-//        .package(
-//            name: "Adjust",
-//            url: "https://github.com/adjust/ios_sdk.git",
-//            from: "4.29.7"
-//        ),
         .package(
-            url: "https://github.com/adjust/ios_sdk_dev.git",
-            .branch("spm_support_new")
-        )
+            name: "Adjust",
+            url: "https://github.com/adjust/ios_sdk.git",
+            from: "4.29.7"
+        ),
     ],
     targets: [
         .target(
             name: "AdjustAdobeExtension",
-            dependencies: [
-                .product(name: "Adjust", package: "ios_sdk_dev"),
-                "ACPCore",
-                "ACPIdentity",
-                "ACPLifecycle",
-                "ACPSignal"
-            ],
-//            dependencies: ["Adjust","ACPCore","ACPIdentity","ACPLifecycle","ACPSignal"],
+            dependencies: ["Adjust","ACPCore","ACPIdentity","ACPLifecycle","ACPSignal"],
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include/AdjustAdobeExtension")

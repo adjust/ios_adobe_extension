@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#if defined(__has_include) && __has_include(<Adjust/Adjust.h>)
 #import <Adjust/Adjust.h>
+#else
+#import <Adjust.h>
+#endif
+
 
 typedef void (^CallbackAttributionChangedBlock)(ADJAttribution * _Nullable attribution);
 typedef BOOL (^CallbackDeeplinkResponseBlock)(NSURL * _Nullable deeplink);

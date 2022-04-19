@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <ACPCore/ACPCore.h>
 #import <ACPCore/ACPExtension.h>
+#if defined(__has_include) && __has_include(<Adjust/Adjust.h>)
 #import <Adjust/Adjust.h>
+#else
+#import <Adjust.h>
+#endif
 #import "AdjustAdobeExtensionConfig.h"
 #import "AdjustAdobeExtensionEventListener.h"
 #import "AdjustAdobeExtensionSharedStateListener.h"
