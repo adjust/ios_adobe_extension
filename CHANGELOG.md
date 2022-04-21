@@ -1,3 +1,7 @@
+### Version 1.0.4 (25th April 2022)
+#### Added
+- Swift Package Manager support
+
 ### Version 1.0.3 (25th February 2022)
 #### Added
 - Added Xcode 13 compatibility.
