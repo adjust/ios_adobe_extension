@@ -19,6 +19,6 @@ A leading attribution solution that brings the full power of mobile ad measureme
   s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
 
-  s.dependency 'Adjust', '4.29.7'
+  s.dependency 'Adjust', '4.30.0'
   s.dependency 'ACPCore'
 end
