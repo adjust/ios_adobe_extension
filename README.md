@@ -21,7 +21,7 @@ https://github.com/adjust/ios_adobe_extension.git
 Currently, Adjust Extension uses the latest version of Adobe Experience Platform SDKs [ACP SDKs](https://github.com/Adobe-Marketing-Cloud/acp-sdks).
 Due to a missing SPM support in Adobe ACP SDKs, all required Adobe frameworks are part of Adjust Extension release.
 
-In the Frameworks, Libraries, and Embedded Content section of your App target's General tab, add the following frameworks and libraries required for Adobe frameworks: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
+In the `Frameworks, Libraries, and Embedded Content` section of your App target's `General` tab, add the following frameworks and libraries required for Adobe frameworks: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
 
 ## <a id="sdk-frameworks"></a>Add iOS frameworks
 
@@ -30,7 +30,6 @@ Adjust SDK is able to get additional information in case you link additional iOS
 - `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and (prior to iOS 14) LAT information.
 - `iAd.framework` - This framework is needed so that SDK can automatically handle attribution for ASA campaigns you might be running.
 - `AdServices.framework` - For devices running iOS 14.3 or higher, this framework allows the SDK to automatically handle attribution for ASA campaigns. It is required when leveraging the Apple Ads Attribution API.
-- `CoreTelephony.framework` - This framework is needed so that SDK can determine current radio access technology.
 - `StoreKit.framework` - This framework is needed for access to `SKAdNetwork` framework and for Adjust SDK to handle communication with it automatically in iOS 14 or later.
 - `AppTrackingTransparency.framework` - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
 
@@ -38,13 +37,13 @@ Adjust SDK is able to get additional information in case you link additional iOS
 
 Add the following import statement:
 
-Objective-C:
 ```objc
+// Objective-C
 #import <AdjustAdobeExtension/AdjustAdobeExtension.h>
 ```
 
-Swift:
 ```swift
+// Swift
 import AdjustAdobeExtension
 ```
 
@@ -52,8 +51,8 @@ import AdjustAdobeExtension
 
 You don't need to start the Adjust Adjust Extension manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust Extension:
 
-Objective-C:
 ```objc
+// Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [ACPCore configureWithAppId:@"..."];
     
@@ -66,8 +65,8 @@ Objective-C:
 }
 ```
 
-Swift:
 ```swift
+// Swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
     ACPCore.configure(withAppId: "...")
@@ -82,13 +81,12 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-
 ### <a id="delegates-callback"></a>Delegates callback
 
 Optional: If you want to receive the attribution and deep link delegates callback, you can register for it in `AdjustAdobeExtensionConfig`:
 
-Objective-C:
 ```objc
+// Objective-C
 [config callbackDeeplinkResponse:^BOOL(NSURL * _Nullable deeplink) {
     // deep link response received
 
@@ -103,8 +101,8 @@ Objective-C:
 }];
 ```
 
-Swift:
 ```swift
+// Swift
 config.callbackDeeplinkResponse { (deeplink : URL?) in
     // deep link response received
 
@@ -117,25 +115,22 @@ config.callbackDeeplinkResponse { (deeplink : URL?) in
 config.callbackAttributionChanged { (attribution : ADJAttribution?) in
     // attribution response received
 }
-
-
 ```
 
 ## <a id="tracking-events"></a>Tracking events
 
 Any event (action or state) tracked using `ACPCore` is tracked by Adjust if it contains the `ADJAdobeAdjustEventCurrency` constant as a key:
 
-Objective-C"
 ```objc
+// Objective-C
 [ACPCore trackAction:@"TestAction" data:@{@"a": @"b", ADJAdobeAdjustEventToken: @"abc123"}];
 [ACPCore trackState:@"TestState" data:@{@"a": @"b"}]; // will *not* be tracked by Adjust
 ```
 
-Swift:
 ```swift
+// Swift
 ACPCore.trackAction("TestAction", data: ["a": "b", ADJAdobeAdjustEventToken: "abc123"])
 ACPCore.trackState("TestState", data: ["a": "b"])  // will *not* be tracked by Adjust
-
 ```
 
 If the event contains the constants `ADJAdobeAdjustEventCurrency` and `ADJAdobeAdjustEventRevenue` as keys, the event is tracked with this information as well.
