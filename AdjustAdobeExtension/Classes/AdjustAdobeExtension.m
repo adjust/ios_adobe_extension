@@ -11,7 +11,7 @@
 #import "AdjustAdobeExtensionEventListener.h"
 
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
-NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.0.3";
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.0.4";
 
 NSString * const ADJAdobeAdjustEventToken = @"adj.eventToken";
 NSString * const ADJAdobeAdjustEventCurrency = @"adj.currency";

@@ -1,3 +1,12 @@
+### Version 1.0.4 (6th May 2022)
+#### Added
+- Added Swift Package Manager support.
+
+#### Native iOS SDK
+- [iOS@v4.30.0](https://github.com/adjust/ios_sdk/tree/v4.30.0)
+
+---
+
 ### Version 1.0.3 (25th February 2022)
 #### Added
 - Added Xcode 13 compatibility.
