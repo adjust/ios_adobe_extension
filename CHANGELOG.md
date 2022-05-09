@@ -1,4 +1,4 @@
-### Version 1.0.4 (6th May 2022)
+### Version 1.0.4 (9th May 2022)
 #### Added
 - Added Swift Package Manager support.
 
