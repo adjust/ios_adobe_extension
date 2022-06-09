@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const ADJAdobeEventTypeHub;
+extern NSString * const ADJAdobeEventSourceSharedState;
+
 @interface AdjustAdobeExtensionSharedStateListener : ACPExtensionListener
 
 - (void)hear:(ACPExtensionEvent *)event;
