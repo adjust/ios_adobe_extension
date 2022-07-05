@@ -13,11 +13,24 @@
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
 NSString * const ADJAdobeExtensionName = @"com.adjust.adobeextension";
 NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.0.4";
+NSString * const ADJAdobeEventDataKeyAction = @"action";
+NSString * const ADJAdobeEventDataKeyContextData = @"contextdata";
+
+// Action types
+NSString * const ADJAdobeAdjustActionTrackEvent = @"adj.trackEvent";
+NSString * const ADJAdobeAdjustActionSetPushToken = @"adj.setPushToken";
+
+// Adjust Event
 NSString * const ADJAdobeAdjustEventToken = @"adj.eventToken";
 NSString * const ADJAdobeAdjustEventCurrency = @"adj.currency";
 NSString * const ADJAdobeAdjustEventRevenue = @"adj.revenue";
-char * const kQUEUE_ID_SYNC = "com.adjust.AdjustAdobeExtension.sync_queue";
+NSString * const ADJAdobeAdjustEventCallbackParamPrefix = @"adj.event.callback.";
+NSString * const ADJAdobeAdjustEventPartnerParamPrefix = @"adj.event.partner.";
 
+// Push token
+NSString * const ADJAdobeAdjustPushToken = @"adj.pushToken";
+
+char * const kQUEUE_ID_SYNC = "com.adjust.AdjustAdobeExtension.sync_queue";
 static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 @interface AdjustAdobeExtension()
@@ -25,6 +38,9 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 @property (nonatomic, assign) BOOL sdkInitialized;
 @property (nonatomic, strong) NSMutableArray<NSDictionary *> *receivedEvents;
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
+@property (nonatomic,strong)  NSNumber *numNan;
+@property (nonatomic,strong)  NSNumber *numPlusInf;
+@property (nonatomic,strong)  NSNumber *numMinusInf;
 
 @end
 
@@ -72,8 +88,14 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     _receivedEvents = [NSMutableArray array];
     _syncQueue = dispatch_queue_create(kQUEUE_ID_SYNC, DISPATCH_QUEUE_SERIAL);
 
-    NSError *error = nil;
+    double dblZero = 0.0;
+    double dblPlusOne = 1.0;
+    double dblMinusOne = -1.0;
+    _numPlusInf = [NSNumber numberWithDouble:dblPlusOne/dblZero];
+    _numMinusInf = [NSNumber numberWithDouble:dblMinusOne/dblZero];
+    _numNan = [NSNumber numberWithDouble:sqrt(dblMinusOne)];
 
+    NSError *error = nil;
     // Shared State listener
     if ([self.api registerListener:[AdjustAdobeExtensionSharedStateListener class]
                          eventType:ADJAdobeEventTypeHub
@@ -179,7 +201,8 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
 
-    NSDictionary *contextdata = eventData[@"contextdata"];
+    NSString *action = eventData[ADJAdobeEventDataKeyAction];
+    NSDictionary *contextdata = eventData[ADJAdobeEventDataKeyContextData];
     if (contextdata == nil) {
         [ACPCore log:ACPMobileLogLevelError
                  tag:ADJAdobeExtensionLogTag
@@ -187,18 +210,63 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
 
-    NSString *adjEventToken = contextdata[ADJAdobeAdjustEventToken];
+    if (action.length > 0 &&
+        [action compare:ADJAdobeAdjustActionSetPushToken options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self setPushToken:contextdata];
+    } else {
+        [self trackEvent:contextdata];
+    }
+}
+
+- (void)setPushToken:(NSDictionary<NSString *, NSString *> *)contextData {
+    NSString *pushToken = contextData[ADJAdobeAdjustPushToken];
+    if (pushToken != nil && pushToken.length > 0) {
+        [Adjust setPushToken:pushToken];
+    } else {
+        [ACPCore log:ACPMobileLogLevelError
+                 tag:ADJAdobeExtensionLogTag
+             message:@"PushToken is nil or zero-length!"];
+    }
+}
+
+- (void)trackEvent:(NSDictionary<NSString *, NSString *> *)contextData {
+
+    NSString *adjEventToken = contextData[ADJAdobeAdjustEventToken];
     if (adjEventToken == nil) {
         return;
     }
 
     ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
-    NSString *currency = contextdata[ADJAdobeAdjustEventCurrency];
-    NSNumber *revenue = contextdata[ADJAdobeAdjustEventRevenue];
+    NSString *currency = contextData[ADJAdobeAdjustEventCurrency];
+    NSString *revenue = contextData[ADJAdobeAdjustEventRevenue];
 
-    if (currency && revenue) {
-        [event setRevenue:[revenue doubleValue] currency:currency];
+    // Revenue data
+    if (currency != nil && currency.length > 0 && revenue != nil && revenue.length > 0) {
+        NSNumber *numRevenue = [NSNumber numberWithDouble:[revenue doubleValue]];
+        if ([numRevenue isEqualToNumber:self.numNan] ||
+            [numRevenue isEqualToNumber:self.numPlusInf] ||
+            [numRevenue isEqualToNumber:self.numMinusInf]) {
+            [ACPCore log:ACPMobileLogLevelError
+                     tag:ADJAdobeExtensionLogTag
+                 message:@"Revenue number is malformed!"];
+            return;
+        } else {
+            [event setRevenue:[numRevenue doubleValue] currency:currency];
+        }
     }
+
+    // Callback / Partner Params
+    NSArray *allKeys = contextData.allKeys;
+    for (NSString *key in allKeys) {
+        if ([key hasPrefix:ADJAdobeAdjustEventCallbackParamPrefix] == YES) {
+            NSString *adjKey = [key substringFromIndex:ADJAdobeAdjustEventCallbackParamPrefix.length];
+            [event addCallbackParameter:adjKey value:[contextData valueForKey:key]];
+        } else if ([key hasPrefix:ADJAdobeAdjustEventPartnerParamPrefix] == YES) {
+            NSString *adjKey = [key substringFromIndex:ADJAdobeAdjustEventPartnerParamPrefix.length];
+            [event addPartnerParameter:adjKey value:[contextData valueForKey:key]];
+        }
+    }
+
     [Adjust trackEvent:event];
 }
 
