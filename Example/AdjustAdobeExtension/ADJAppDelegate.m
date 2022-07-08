@@ -25,7 +25,7 @@
     [ACPCore start:^{
         [ACPCore lifecycleStart:nil];
     }];
-    
+
     return YES;
 }
 
