@@ -38,16 +38,15 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 @property (nonatomic, assign) BOOL sdkInitialized;
 @property (nonatomic, strong) NSMutableArray<NSDictionary *> *receivedEvents;
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
-@property (nonatomic,strong)  NSNumber *numNan;
-@property (nonatomic,strong)  NSNumber *numPlusInf;
-@property (nonatomic,strong)  NSNumber *numMinusInf;
+@property (nonatomic,strong) NSNumber *numNan;
+@property (nonatomic,strong) NSNumber *numPlusInf;
+@property (nonatomic,strong) NSNumber *numMinusInf;
 
 @end
 
 @implementation AdjustAdobeExtension
 
 + (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config {
-
     if (config == nil) {
         [ACPCore log:ACPMobileLogLevelError
                  tag:ADJAdobeExtensionLogTag
@@ -136,9 +135,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution {
-
     dispatch_async(self.syncQueue, ^{
-
         if (!_configInstance) {
             [ACPCore log:ACPMobileLogLevelError
                      tag:ADJAdobeExtensionLogTag
@@ -193,7 +190,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (void)processEvent:(nullable NSDictionary *)eventData {
-
     if (eventData == nil) {
         [ACPCore log:ACPMobileLogLevelError
                  tag:ADJAdobeExtensionLogTag
@@ -230,7 +226,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (void)trackEvent:(NSDictionary<NSString *, NSString *> *)contextData {
-
     NSString *adjEventToken = contextData[ADJAdobeAdjustEventToken];
     if (adjEventToken == nil) {
         return;
