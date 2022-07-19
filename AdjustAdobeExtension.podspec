@@ -8,7 +8,7 @@ A leading attribution solution that brings the full power of mobile ad measureme
                        DESC
   s.homepage         = 'https://github.com/adjust/ios_adobe_extension'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Adjust SDK Team' => 'sdk@adjust.com' }
+  s.author           = { 'Adjust' => 'sdk@adjust.com' }
   s.source           = { :git => 'https://github.com/adjust/ios_adobe_extension.git', :tag => "v1.1.0" }
 
   s.ios.deployment_target = '10.0'
