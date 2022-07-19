@@ -13,7 +13,6 @@
 #import <Adjust.h>
 #endif
 
-
 typedef void (^CallbackAttributionChangedBlock)(ADJAttribution * _Nullable attribution);
 typedef BOOL (^CallbackDeeplinkResponseBlock)(NSURL * _Nullable deeplink);
 

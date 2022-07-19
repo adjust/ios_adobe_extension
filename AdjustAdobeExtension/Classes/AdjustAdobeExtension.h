@@ -23,19 +23,19 @@ NS_ASSUME_NONNULL_BEGIN
 extern NSString * const ADJAdobeExtensionLogTag;
 extern NSString * const ADJAdobeExtensionSdkPrefix;
 
+// Action types
 extern NSString * const ADJAdobeAdjustActionTrackEvent;
 extern NSString * const ADJAdobeAdjustActionSetPushToken;
 
+// Adjust Event
 extern NSString * const ADJAdobeAdjustEventToken;
 extern NSString * const ADJAdobeAdjustEventCurrency;
 extern NSString * const ADJAdobeAdjustEventRevenue;
 extern NSString * const ADJAdobeAdjustEventCallbackParamPrefix;
 extern NSString * const ADJAdobeAdjustEventPartnerParamPrefix;
 
+// Push token
 extern NSString * const ADJAdobeAdjustPushToken;
-
-
-
 
 @interface AdjustAdobeExtension : ACPExtension <AdjustDelegate>
 
