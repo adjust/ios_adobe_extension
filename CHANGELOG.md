@@ -1,4 +1,4 @@
-### Version 1.1.0 (20th July 2022)
+### Version 1.1.0 (21st July 2022)
 #### Added
 - Added ability to send event callback and partner parameters.
 - Added ability to send push token.
