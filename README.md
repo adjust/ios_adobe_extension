@@ -9,21 +9,16 @@ This is the iOS Adobe Mobile Extension of Adjust™. You can read more about Adj
    * [Add the Adjust Extension to your project](#iae-sdk-add)
       * [Cocoapods integration](#iae-sdk-add-cocoapods)
       * [Swift Package Manager integration](#iae-sdk-add-spm)
+   * [Add iOS frameworks](#iae-sdk-frameworks)
    * [Integrate the Adjust Extension into your app](#iae-sdk-integrate)
    * [Basic setup](#iae-basic-setup)
-   * [Session tracking](#iae-session-tracking)
    * [Attribution](#iae-attribution)
-   * [Add iOS frameworks](#iae-sdk-frameworks)
 
 ### [Events tracking](#iae-tracking)
    * [Track event](#iae-track-event)
    * [Track revenue](#iae-track-event-revenue)
-
-### [Custom parameters](#iae-custom-parameters)
-   * [Custom parameters overview](#iae-custom-parameters-overview)
-   * [Event parameters](#iae-event-parameters)
-      * [Event callback parameters](#iae-event-callback-parameters)
-      * [Event partner parameters](#iae-event-partner-parameters)
+   * [Callback parameters](#iae-event-callback-parameters)
+   * [Partner parameters](#iae-event-partner-parameters)
 
 ### [Additional features](#iae-additional-features)
    * [Attribution callback](#iae-attribution-callback)
@@ -34,7 +29,7 @@ This is the iOS Adobe Mobile Extension of Adjust™. You can read more about Adj
 
 ### <a id="iae-example-app"></a>Example app
 
-There is an example app inside the [Example][example-app] directory.
+There is an example app inside the [Example](Example/) directory.
 Please run `pod install` in this folder to build the example application dependencies and then open `AdjustAdobeExtension.xcworkspace` to test the example application.
 
 ## <a id="iae-sdk-add"></a>Add the Adjust Extension to your project
@@ -60,6 +55,16 @@ Due to a missing SPM support in Adobe ACP SDKs, all required Adobe frameworks ar
 
 In the `Frameworks, Libraries, and Embedded Content` section of your App target's `General` tab, add the following frameworks and libraries required for Adobe frameworks: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
 
+## <a id="iae-sdk-frameworks"></a>Add iOS frameworks
+
+Adjust SDK is able to get additional information in case you link additional iOS frameworks to your app. Please, add following frameworks in case you want to enable Adjust SDK features based on their presence in your app and mark them as optional:
+
+- `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and (prior to iOS 14) LAT information.
+- `iAd.framework` - This framework is needed so that SDK can automatically handle attribution for ASA campaigns you might be running.
+- `AdServices.framework` - For devices running iOS 14.3 or higher, this framework allows the SDK to automatically handle attribution for ASA campaigns. It is required when leveraging the Apple Ads Attribution API.
+- `StoreKit.framework` - This framework is needed for access to `SKAdNetwork` framework and for Adjust SDK to handle communication with it automatically in iOS 14 or later.
+- `AppTrackingTransparency.framework` - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
+
 ## <a id="iae-sdk-integrate"></a>Integrate the Adjust Extension into your app
 
 Add the following import statement:
@@ -81,7 +86,6 @@ You don't need to start the Adjust Extension manually. First, set the configurat
 ```objc
 // Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
     [ACPCore setLogLevel:ACPMobileLogLevelVerbose];
     [ACPCore configureWithAppId:@"{your_adobe_app_id}"];
     
@@ -98,7 +102,6 @@ You don't need to start the Adjust Extension manually. First, set the configurat
 ```swift
 // Swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
     ACPCore.setLogLevel(ACPMobileLogLevel.verbose)
     ACPCore.configure(withAppId: "{your_adobe_app_id}")
 
@@ -126,10 +129,6 @@ ADJEnvironmentProduction
 
 We use this environment to distinguish between real traffic and test traffic from test devices. Keeping the environment updated according to your current status is very important!
 
-## <a id="iae-session-tracking"></a>Session tracking
-
-Adjust SDK can track sessions in your app based on Activity lifecycle.
-
 ## <a id="iae-attribution"></a>Attribution
 
 The option to share attribution data with Adobe is in the Launch dashboard under the extensions configuration and is on by default. Adjust tracks the action name `Adjust Campaign Data Received` with the following attribution information from Adjust:
@@ -139,21 +138,11 @@ The option to share attribution data with Adobe is in the Launch dashboard under
 * `Adjust AdGroup`
 * `Adjust Creative`
 
-## <a id="iae-sdk-frameworks"></a>Add iOS frameworks
-
-Adjust SDK is able to get additional information in case you link additional iOS frameworks to your app. Please, add following frameworks in case you want to enable Adjust SDK features based on their presence in your app and mark them as optional:
-
-- `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and (prior to iOS 14) LAT information.
-- `iAd.framework` - This framework is needed so that SDK can automatically handle attribution for ASA campaigns you might be running.
-- `AdServices.framework` - For devices running iOS 14.3 or higher, this framework allows the SDK to automatically handle attribution for ASA campaigns. It is required when leveraging the Apple Ads Attribution API.
-- `StoreKit.framework` - This framework is needed for access to `SKAdNetwork` framework and for Adjust SDK to handle communication with it automatically in iOS 14 or later.
-- `AppTrackingTransparency.framework` - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
-
 ## <a id="iae-tracking"></a>Events tracking
 
 ### <a id="iae-track-event"></a>Track event
 
-You can use Adobe `[ACPCore trackAction:]` API for [`event tracking`][event-tracking]. Suppose you want to track every tap on a button. To do so, you'll create a new event token in your [dashboard]. Let's say that the event token is `abc123`. In your button's press handling method, add the following lines to track the click:
+You can use Adobe `[ACPCore trackAction:]` API for [`event tracking`](https://docs.adjust.com/en/event-tracking). Suppose you want to track every tap on a button. To do so, you'll create a new event token in your [dashboard](https://dash.adjust.com/). Let's say that the event token is `abc123`. In your button's press handling method, add the following lines to track the click:
 
 ```objc
 // Objective-C
@@ -191,22 +180,11 @@ dataDict[ADJAdobeAdjustEventCurrency] = "EUR"
 ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
-## <a id="iae-custom-parameters"></a>Custom parameters
+### <a id="iae-event-callback-parameters"></a>Callback parameters
 
-### <a id="iae-custom-parameters-overview"></a>Custom parameters overview
+You can register a callback URL for your events in your [dashboard](https://dash.adjust.com/). We will send a GET request to that URL whenever the event is tracked. You can add callback parameters to that event by adding them as key value pair to the context data map before tracking it. We will then append these parameters to your callback URL.
 
-In addition to the data points the Adjust SDK collects by default, you can use the extension to track and add as many custom values as you need (user IDs, product IDs, etc.) to the event or session. Custom parameters are only available as raw data and will **not** appear in your Adjust dashboard.
-
-You should use **callback parameters** for the values you collect for your own internal use, and **partner parameters** for those you share with external partners. If a value (e.g. product ID) is tracked both for internal use and external partner use, we recommend you track it with both callback and partner parameters.
-
-
-### <a id="iae-event-parameters"></a>Event parameters
-
-### <a id="iae-event-callback-parameters"></a>Event callback parameters
-
-You can register a callback URL for your events in your [dashboard]. We will send a GET request to that URL whenever the event is tracked. You can add callback parameters to that event by adding them as key value pair to the context data map before tracking it. We will then append these parameters to your callback URL.
-
-For example, if you've registered the URL `http://www.example.com/callback`, then you would track an event like this:
+For example, suppose you have registered the URL `https://www.mydomain.com/callback` then track an event like this:
 
 ```objc
 // Objective-C
@@ -226,23 +204,21 @@ dataDict[ADJAdobeAdjustEventCallbackParamPrefix.appending("key2")] = "value2"
 ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
-
-In this case we would track the event and send a request to:
+In that case we would track the event and send a request to:
 
 ```
-http://www.example.com/callback?key1=value1&key2=value2
+http://www.mydomain.com/callback?key=value&foo=bar
 ```
 
-Adjust supports a variety of placeholders, which can be used as parameter values. In the resulting callback, we would replace the placeholder with an appropriate value. Please note that we don't store any of your custom parameters. We **only** append them to your callbacks. If you haven't registered a callback for an event, we will not even read these parameters.
+It should be mentioned that we support a variety of placeholders like `{idfa}` that can be used as parameter values. In the resulting callback this placeholder would be replaced with the ID for Advertisers of the current device. Also note that we don't store any of your custom parameters, but only append them to your callbacks, thus without a callback they will not be saved nor sent to you.
 
-You can read more about URL callbacks (including a full list of available values) in our [callbacks guide][callbacks-guide].
+You can read more about using URL callbacks, including a full list of available values, in our [callbacks guide](https://docs.adjust.com/en/callbacks).
 
-### <a id="iae-event-partner-parameters"></a>Event partner parameters
+### <a id="iae-event-partner-parameters"></a>Partner parameters
 
-When your parameters are activated in the Adjust dashboard, you have the option to transmit them to your network partners.
+You can also add parameters to be transmitted to network partners, which have been activated in your Adjust dashboard.
 
-This works similarly to the callback parameters mentioned above;
-
+You can add partner parameters to that event by adding them as key value pair to the context data map before tracking it.
 
 ```objc
 // Objective-C
@@ -262,7 +238,7 @@ dataDict[ADJAdobeAdjustEventPartnerParamPrefix.appending("key2")] = "value2"
 ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
-You can read more about special partners and these integrations in our [guide to special partners][special-partners].
+You can read more about special partners and these integrations in our [guide to special partners](https://docs.adjust.com/en/special-partners).
 
 ## <a id="iae-additional-features"></a>Additional features
 
@@ -272,7 +248,7 @@ Once you have integrated the Adjust Extension for Adobe Experience SDK into your
 
 You can register a callback code block to be notified of tracker attribution changes. Due to the different sources we consider for attribution, we cannot provide this information synchronously.
 
-Please see our [attribution data policies][attribution-data] for more information.
+Please see our [attribution data policies](https://github.com/adjust/sdks/blob/master/doc/attribution-data.md) for more information.
 
 With the extension config instance, add the attribution callback before you start the SDK:
 
@@ -330,13 +306,13 @@ if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandb
 }
 ```
 
-After the Adjust SDK receives the deep link information from our backend, the SDK will deliver you its content via the callback block and expect the boolean return value from you. This return value represents your decision on whether or not the Adjust SDK should launch the activity to which you have assigned the scheme name from the deeplink.
+After the Adjust SDK receives the deep link information from our backend, the SDK will deliver you its content via the callback block and expect the boolean return value from you. This return value represents your decision on whether or not the Adjust SDK should open the deep link or not.
 
 ### <a id="iae-push-token"></a>Push token (uninstall tracking)
 
 Push tokens are used for Audience Builder and client callbacks; they are also required for uninstall and reinstall tracking.
 
-To send us the push notification token, add the following call to Adjust once you have obtained your token (or whenever its value changes):
+To send us the APNs push notification token, add the following call to Adjust once you have obtained your token (or whenever its value changes):
 
 ```objc
 // Objective-C
@@ -351,10 +327,3 @@ var dataDict: Dictionary = [String : String]()
 dataDict[ADJAdobeAdjustPushToken] = "your_app_push_token"
 ACPCore.trackAction(ADJAdobeAdjustActionSetPushToken, data: dataDict)
 ```
-
-[example-app]:          Example/
-[event-tracking]:       https://docs.adjust.com/en/event-tracking
-[dashboard]:            http://dash.adjust.com/
-[callbacks-guide]:      https://docs.adjust.com/en/callbacks
-[special-partners]:     https://docs.adjust.com/en/special-partners
-[attribution-data]:     https://github.com/adjust/sdks/blob/master/doc/attribution-data.md
