@@ -12,12 +12,12 @@ PODS:
     - ACPUserProfile/xcframeworks (= 2.2.0)
   - ACPUserProfile/xcframeworks (2.2.0):
     - ACPCore (>= 2.9.0)
-  - Adjust (4.29.7):
-    - Adjust/Core (= 4.29.7)
-  - Adjust/Core (4.29.7)
-  - AdjustAdobeExtension (1.0.3):
+  - Adjust (4.30.0):
+    - Adjust/Core (= 4.30.0)
+  - Adjust/Core (4.30.0)
+  - AdjustAdobeExtension (1.0.4):
     - ACPCore
-    - Adjust (= 4.29.7)
+    - Adjust (= 4.30.0)
 
 DEPENDENCIES:
   - ACPCore (~> 2.0)
@@ -40,8 +40,8 @@ SPEC CHECKSUMS:
   ACPCore: f6c5ec32fe162e61a18bec2ae79c8c5a48362a46
   ACPGriffon: 5b46aa44e9667b1ff5d35aa37a84992b58d2aadf
   ACPUserProfile: 34bd51d00a2ae1add3d04eab0a313b73cb01b904
-  Adjust: 91a06a01e4bb35b432e26b5d5bb8995b95fc381c
-  AdjustAdobeExtension: 97a4e60f2aab26c4c0093bca6588e4992286d44e
+  Adjust: 6ed5493e91e9a77f6515d94f640bb72506a06b9d
+  AdjustAdobeExtension: 809dd9ddd0d8c65f1e0370b15dd21b45c9c708be
 
 PODFILE CHECKSUM: 9d0e231ac981dcf17cb67e756778f0a8f6f6332c
 

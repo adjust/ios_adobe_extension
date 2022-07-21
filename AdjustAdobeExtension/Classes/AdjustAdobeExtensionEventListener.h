@@ -12,6 +12,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * const ADJAdobeEventTypeGenericTrack;
+extern NSString * const ADJAdobeEventSourceRequestContent;
+
 @interface AdjustAdobeExtensionEventListener : ACPExtensionListener
 
 - (void)hear:(nonnull ACPExtensionEvent *)event;

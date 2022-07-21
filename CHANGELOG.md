@@ -1,3 +1,13 @@
+### Version 1.1.0 (21st July 2022)
+#### Added
+- Added ability to send event callback and partner parameters.
+- Added ability to send push token.
+
+#### Native iOS SDK
+- [iOS@v4.31.0](https://github.com/adjust/ios_sdk/tree/v4.31.0)
+
+---
+
 ### Version 1.0.4 (9th May 2022)
 #### Added
 - Added Swift Package Manager support.
