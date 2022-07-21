@@ -15,7 +15,7 @@ let package = Package(
         .package(
             name: "Adjust",
             url: "https://github.com/adjust/ios_sdk.git",
-            from: "4.30.0"
+            from: "4.31.0"
         ),
     ],
     targets: [
