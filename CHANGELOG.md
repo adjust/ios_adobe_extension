@@ -1,3 +1,9 @@
+### Version 1.1.1 (21st July 2022)
+#### Native iOS SDK
+- [iOS@v4.33.5](https://github.com/adjust/ios_sdk/tree/v4.33.5)
+
+---
+
 ### Version 1.1.0 (21st July 2022)
 #### Added
 - Added ability to send event callback and partner parameters.

@@ -12,12 +12,12 @@ PODS:
     - ACPUserProfile/xcframeworks (= 2.2.0)
   - ACPUserProfile/xcframeworks (2.2.0):
     - ACPCore (>= 2.9.0)
-  - Adjust (4.31.0):
-    - Adjust/Core (= 4.31.0)
-  - Adjust/Core (4.31.0)
-  - AdjustAdobeExtension (1.1.0):
+  - Adjust (4.33.5):
+    - Adjust/Core (= 4.33.5)
+  - Adjust/Core (4.33.5)
+  - AdjustAdobeExtension (1.1.1):
     - ACPCore
-    - Adjust (= 4.31.0)
+    - Adjust (= 4.33.5)
 
 DEPENDENCIES:
   - ACPCore (~> 2.0)
