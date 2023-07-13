@@ -1,4 +1,4 @@
-### Version 1.1.1 (13th July 2023)
+### Version 1.1.1 (14th July 2023)
 ### Changed
 - Updated native iOS SDK dependency to v4.33.5.
 
