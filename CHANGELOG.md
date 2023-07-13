@@ -1,4 +1,7 @@
-### Version 1.1.1 (21st July 2022)
+### Version 1.1.1 (13th July 2023)
+### Changed
+- Updated native iOS SDK dependency to v4.33.5.
+
 #### Native iOS SDK
 - [iOS@v4.33.5](https://github.com/adjust/ios_sdk/tree/v4.33.5)
 
