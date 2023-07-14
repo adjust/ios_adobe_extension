@@ -12,7 +12,7 @@
 
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
 NSString * const ADJAdobeExtensionName = @"com.adjust.adobeextension";
-NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.1.0";
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.1.1";
 NSString * const ADJAdobeEventDataKeyAction = @"action";
 NSString * const ADJAdobeEventDataKeyContextData = @"contextdata";
 
