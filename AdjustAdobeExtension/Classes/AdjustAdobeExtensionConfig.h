@@ -2,7 +2,7 @@
 //  AdjustAdobeExtensionConfig.h
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho (@rabc) on 01/10/2020.
+//  Created by Adjust SDK Team on 01/10/2020.
 //  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
@@ -20,15 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AdjustAdobeExtensionConfig : NSObject
 
-@property (nonatomic, copy, readonly, nullable) CallbackAttributionChangedBlock attributionChangedBlock;
-@property (nonatomic, copy, readonly, nullable) CallbackDeeplinkResponseBlock deeplinkResponseBlock;
+@property (nonatomic, strong, readonly, nullable) CallbackAttributionChangedBlock attributionChangedBlock;
+@property (nonatomic, strong, readonly, nullable) CallbackDeeplinkResponseBlock deeplinkResponseBlock;
 @property (nonatomic, copy, readonly, nonnull) NSString *environment;
 @property (nonatomic, assign) BOOL shouldTrackAttribution;
 
 + (nullable AdjustAdobeExtensionConfig *)configWithEnvironment:(nonnull NSString *)environment;
 
-- (void)callbackAttributionChanged:(CallbackAttributionChangedBlock)attributionChangedBlock;
-- (void)callbackDeeplinkResponse:(CallbackDeeplinkResponseBlock)deeplinkResponseBlock;
+- (void)setAttributionChangedBlock:(CallbackAttributionChangedBlock _Nullable)attributionChangedBlock;
+- (void)setDeeplinkResponseBlock:(CallbackDeeplinkResponseBlock _Nullable)deeplinkResponseBlock;
 
 @end
 

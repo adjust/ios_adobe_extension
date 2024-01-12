@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0A60715E2B0D0FA9009A18DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A60715D2B0D0FA9009A18DA /* AppDelegate.m */; };
+		0A6071612B0D0FA9009A18DA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6071602B0D0FA9009A18DA /* SceneDelegate.m */; };
+		0A6071642B0D0FA9009A18DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6071632B0D0FA9009A18DA /* ViewController.m */; };
+		0A6071672B0D0FA9009A18DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A6071652B0D0FA9009A18DA /* Main.storyboard */; };
+		0A6071692B0D0FAA009A18DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A6071682B0D0FAA009A18DA /* Assets.xcassets */; };
+		0A60716C2B0D0FAA009A18DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A60716A2B0D0FAA009A18DA /* LaunchScreen.storyboard */; };
+		0A60716F2B0D0FAA009A18DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A60716E2B0D0FAA009A18DA /* main.m */; };
+		0A6071BD2B0FCA60009A18DA /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6071BC2B0FCA60009A18DA /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0A840D6D2B2B1552007AD8BA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A840D6C2B2B1552007AD8BA /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0A840D6F2B2B1BF2007AD8BA /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A840D6E2B2B1BF2007AD8BA /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0A840D712B2B1C02007AD8BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A840D702B2B1C02007AD8BA /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7DCB243F3500736EACFFE711 /* Pods_AdjustAdobeExtensionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7239C2B05D2B82F8CEB2AE85 /* Pods_AdjustAdobeExtensionApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0A6071592B0D0FA9009A18DA /* AdjustAdobeExtensionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdjustAdobeExtensionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A60715C2B0D0FA9009A18DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0A60715D2B0D0FA9009A18DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0A60715F2B0D0FA9009A18DA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		0A6071602B0D0FA9009A18DA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		0A6071622B0D0FA9009A18DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0A6071632B0D0FA9009A18DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0A6071662B0D0FA9009A18DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0A6071682B0D0FAA009A18DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0A60716B2B0D0FAA009A18DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0A60716D2B0D0FAA009A18DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A60716E2B0D0FAA009A18DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0A6071BC2B0FCA60009A18DA /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		0A840D6C2B2B1552007AD8BA /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		0A840D6E2B2B1BF2007AD8BA /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		0A840D702B2B1C02007AD8BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		3F6136A90E7CFF3DF4119E5F /* Pods-AdjustAdobeExtensionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjustAdobeExtensionApp.debug.xcconfig"; path = "Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp.debug.xcconfig"; sourceTree = "<group>"; };
+		6F137153222A387C263E41F8 /* Pods-AdjustAdobeExtensionApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjustAdobeExtensionApp.release.xcconfig"; path = "Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp.release.xcconfig"; sourceTree = "<group>"; };
+		7239C2B05D2B82F8CEB2AE85 /* Pods_AdjustAdobeExtensionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdjustAdobeExtensionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0A6071562B0D0FA9009A18DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A840D712B2B1C02007AD8BA /* StoreKit.framework in Frameworks */,
+				0A840D6F2B2B1BF2007AD8BA /* AppTrackingTransparency.framework in Frameworks */,
+				0A840D6D2B2B1552007AD8BA /* AdSupport.framework in Frameworks */,
+				0A6071BD2B0FCA60009A18DA /* AdServices.framework in Frameworks */,
+				7DCB243F3500736EACFFE711 /* Pods_AdjustAdobeExtensionApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A6071502B0D0FA9009A18DA = {
+			isa = PBXGroup;
+			children = (
+				0A60715B2B0D0FA9009A18DA /* AdjustAdobeExtensionApp */,
+				0A60715A2B0D0FA9009A18DA /* Products */,
+				A1326AF4B6351E88DB71DD42 /* Pods */,
+				42996F7AD18DA1D01E1B9D65 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		0A60715A2B0D0FA9009A18DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0A6071592B0D0FA9009A18DA /* AdjustAdobeExtensionApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0A60715B2B0D0FA9009A18DA /* AdjustAdobeExtensionApp */ = {
+			isa = PBXGroup;
+			children = (
+				0A60715C2B0D0FA9009A18DA /* AppDelegate.h */,
+				0A60715D2B0D0FA9009A18DA /* AppDelegate.m */,
+				0A60715F2B0D0FA9009A18DA /* SceneDelegate.h */,
+				0A6071602B0D0FA9009A18DA /* SceneDelegate.m */,
+				0A6071622B0D0FA9009A18DA /* ViewController.h */,
+				0A6071632B0D0FA9009A18DA /* ViewController.m */,
+				0A6071652B0D0FA9009A18DA /* Main.storyboard */,
+				0A6071682B0D0FAA009A18DA /* Assets.xcassets */,
+				0A60716A2B0D0FAA009A18DA /* LaunchScreen.storyboard */,
+				0A60716D2B0D0FAA009A18DA /* Info.plist */,
+				0A60716E2B0D0FAA009A18DA /* main.m */,
+			);
+			path = AdjustAdobeExtensionApp;
+			sourceTree = "<group>";
+		};
+		42996F7AD18DA1D01E1B9D65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0A840D702B2B1C02007AD8BA /* StoreKit.framework */,
+				0A840D6E2B2B1BF2007AD8BA /* AppTrackingTransparency.framework */,
+				0A840D6C2B2B1552007AD8BA /* AdSupport.framework */,
+				0A6071BC2B0FCA60009A18DA /* AdServices.framework */,
+				7239C2B05D2B82F8CEB2AE85 /* Pods_AdjustAdobeExtensionApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1326AF4B6351E88DB71DD42 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3F6136A90E7CFF3DF4119E5F /* Pods-AdjustAdobeExtensionApp.debug.xcconfig */,
+				6F137153222A387C263E41F8 /* Pods-AdjustAdobeExtensionApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0A6071582B0D0FA9009A18DA /* AdjustAdobeExtensionApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0A6071722B0D0FAA009A18DA /* Build configuration list for PBXNativeTarget "AdjustAdobeExtensionApp" */;
+			buildPhases = (
+				835581F3EB439788821BE6F7 /* [CP] Check Pods Manifest.lock */,
+				0A6071552B0D0FA9009A18DA /* Sources */,
+				0A6071562B0D0FA9009A18DA /* Frameworks */,
+				0A6071572B0D0FA9009A18DA /* Resources */,
+				66E824A1BAA3F895CF5E6098 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdjustAdobeExtensionApp;
+			productName = AdjustAdobeExtensionApp;
+			productReference = 0A6071592B0D0FA9009A18DA /* AdjustAdobeExtensionApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0A6071512B0D0FA9009A18DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0A6071582B0D0FA9009A18DA = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 0A6071542B0D0FA9009A18DA /* Build configuration list for PBXProject "AdjustAdobeExtensionApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0A6071502B0D0FA9009A18DA;
+			productRefGroup = 0A60715A2B0D0FA9009A18DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0A6071582B0D0FA9009A18DA /* AdjustAdobeExtensionApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0A6071572B0D0FA9009A18DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A60716C2B0D0FAA009A18DA /* LaunchScreen.storyboard in Resources */,
+				0A6071692B0D0FAA009A18DA /* Assets.xcassets in Resources */,
+				0A6071672B0D0FA9009A18DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66E824A1BAA3F895CF5E6098 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		835581F3EB439788821BE6F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AdjustAdobeExtensionApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0A6071552B0D0FA9009A18DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0A6071642B0D0FA9009A18DA /* ViewController.m in Sources */,
+				0A60715E2B0D0FA9009A18DA /* AppDelegate.m in Sources */,
+				0A60716F2B0D0FAA009A18DA /* main.m in Sources */,
+				0A6071612B0D0FA9009A18DA /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0A6071652B0D0FA9009A18DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A6071662B0D0FA9009A18DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0A60716A2B0D0FAA009A18DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0A60716B2B0D0FAA009A18DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0A6071702B0D0FAA009A18DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0A6071712B0D0FAA009A18DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0A6071732B0D0FAA009A18DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3F6136A90E7CFF3DF4119E5F /* Pods-AdjustAdobeExtensionApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AdjustAdobeExtensionApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.examples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0A6071742B0D0FAA009A18DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F137153222A387C263E41F8 /* Pods-AdjustAdobeExtensionApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QGUGW9AUMK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AdjustAdobeExtensionApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adjust.examples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0A6071542B0D0FA9009A18DA /* Build configuration list for PBXProject "AdjustAdobeExtensionApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A6071702B0D0FAA009A18DA /* Debug */,
+				0A6071712B0D0FAA009A18DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0A6071722B0D0FAA009A18DA /* Build configuration list for PBXNativeTarget "AdjustAdobeExtensionApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0A6071732B0D0FAA009A18DA /* Debug */,
+				0A6071742B0D0FAA009A18DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0A6071512B0D0FA9009A18DA /* Project object */;
+}

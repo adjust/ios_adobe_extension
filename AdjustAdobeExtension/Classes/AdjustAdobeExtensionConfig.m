@@ -2,15 +2,11 @@
 //  AdjustAdobeExtensionConfig.m
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho (@rabc) on 01/10/2020.
+//  Created by Adjust SDK Team on 01/10/2020.
 //  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtensionConfig.h"
-
-@interface AdjustAdobeExtensionConfig()
-
-@end
 
 @implementation AdjustAdobeExtensionConfig
 
@@ -19,9 +15,7 @@
     if (self == nil) {
         return nil;
     }
-
     _environment = environment;
-
     return self;
 }
 
@@ -29,11 +23,11 @@
     return [[AdjustAdobeExtensionConfig alloc] initWithEnvironment:environment];
 }
 
-- (void)callbackAttributionChanged:(CallbackAttributionChangedBlock)attributionChangedBlock {
+- (void)setAttributionChangedBlock:(CallbackAttributionChangedBlock _Nullable)attributionChangedBlock{
     _attributionChangedBlock = attributionChangedBlock;
 }
 
-- (void)callbackDeeplinkResponse:(CallbackDeeplinkResponseBlock)deeplinkResponseBlock {
+- (void)setDeeplinkResponseBlock:(CallbackDeeplinkResponseBlock _Nullable)deeplinkResponseBlock {
     _deeplinkResponseBlock = deeplinkResponseBlock;
 }
 

@@ -2,87 +2,124 @@
 //  AdjustAdobeExtension.m
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho (@rabc) on 09/04/2020.
+//  Created by Adjust SDK Team on 09/04/2020.
 //  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
 #import "AdjustAdobeExtension.h"
-#import "AdjustAdobeExtensionSharedStateListener.h"
-#import "AdjustAdobeExtensionEventListener.h"
+@import AEPCore;
+@import AEPServices;
 
-NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
-NSString * const ADJAdobeExtensionName = @"com.adjust.adobeextension";
-NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext1.1.1";
-NSString * const ADJAdobeEventDataKeyAction = @"action";
-NSString * const ADJAdobeEventDataKeyContextData = @"contextdata";
+#pragma mark Public Constants
 
-// Action types
+// Adjust 'Track Event' action type
 NSString * const ADJAdobeAdjustActionTrackEvent = @"adj.trackEvent";
+// Adjust 'Set Push Token' action type
 NSString * const ADJAdobeAdjustActionSetPushToken = @"adj.setPushToken";
 
-// Adjust Event
+// Adjust 'Track Event' action fields keys
 NSString * const ADJAdobeAdjustEventToken = @"adj.eventToken";
 NSString * const ADJAdobeAdjustEventCurrency = @"adj.currency";
 NSString * const ADJAdobeAdjustEventRevenue = @"adj.revenue";
 NSString * const ADJAdobeAdjustEventCallbackParamPrefix = @"adj.event.callback.";
 NSString * const ADJAdobeAdjustEventPartnerParamPrefix = @"adj.event.partner.";
 
-// Push token
+// Adjust 'Set Push Token' action field key
 NSString * const ADJAdobeAdjustPushToken = @"adj.pushToken";
 
+#pragma mark Internal Constants
+
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext2.0.0";
+NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
+NSString * const ADJAdobeExtensionName = @"com.adjust.adobeextension";
+NSString * const ADJAdobeEventDataKeyAction = @"action";
+NSString * const ADJAdobeEventDataKeyContextData = @"contextdata";
+
+// Adjust Adobe extension listeners
+// EVENT LISTENER related Adobe keys
+NSString * const ADJAdobeEventTypeGenericTrack = @"com.adobe.eventType.generic.track";
+NSString * const ADJAdobeEventSourceRequestContent = @"com.adobe.eventSource.requestContent";
+
+// SHARED STATE LISTENER related Adobe keys
+NSString * const ADJAdobeEventTypeHub = @"com.adobe.eventType.hub";
+NSString * const ADJAdobeEventSourceSharedState = @"com.adobe.eventSource.sharedState";
+NSString * const ADJAdobeModuleConfiguration = @"com.adobe.module.configuration";
+NSString * const ADJAdobeSharedStateOwnerKey = @"stateowner";
+
+// Adjust Configuration keys
+NSString * const ADJConfigurationAppToken = @"adjustAppToken";
+NSString * const ADJConfigurationTrackAttribution = @"adjustTrackAttribution";
+
+// Internal synchronization queue identifier
 char * const kQUEUE_ID_SYNC = "com.adjust.AdjustAdobeExtension.sync_queue";
+
+// Adjust Static Adobe Configuration
 static AdjustAdobeExtensionConfig *_configInstance = nil;
 
-@interface AdjustAdobeExtension()
-
+@interface AdjustAdobeExtension () <AEPExtension>
 @property (nonatomic, assign) BOOL sdkInitialized;
 @property (nonatomic, strong) NSMutableArray<NSDictionary *> *receivedEvents;
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
 @property (nonatomic,strong) NSNumber *numNan;
 @property (nonatomic,strong) NSNumber *numPlusInf;
 @property (nonatomic,strong) NSNumber *numMinusInf;
-
+@property (nonatomic, strong) id<AEPExtensionRuntime> extensionRuntime;
 @end
 
 @implementation AdjustAdobeExtension
 
-+ (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config {
-    if (config == nil) {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:@"AdjustExtension registration error: config is nil!"];
-        return;
-    }
+#pragma mark Public Class methods
 
-    if (config.environment == nil || config.environment.length == 0) {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:@"AdjustExtension registration error: Environment is empty! Use ADJEnvironmentSandbox or ADJEnvironmentProduction."];
-        return;
-    }
-
-    NSError *error = nil;
-    if ([ACPCore registerExtension:[AdjustAdobeExtension class] error:&error]) {
-        [ACPCore log:ACPMobileLogLevelDebug
-                 tag:ADJAdobeExtensionLogTag
-             message:@"Successfully registered Adjust Extension"];
-        _configInstance = config;
-    } else {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:[NSString stringWithFormat:
-                      @"An error occured while registering Adjust Extension: %@",
-                      (error) ? [NSString stringWithFormat:@"Code: %ld, Domain: %@, Description: %@.", (long)error.code, error.domain, error.localizedDescription ] :
-                      @"Unknown error."]];
-    }
++ (void)setConfiguration:(AdjustAdobeExtensionConfig *)config {
+    _configInstance = config;
 }
 
-- (instancetype)init {
++ (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity {
+    if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        // Pass deep link to Adjust in order to potentially reattribute user.
+        [Adjust appWillOpenUrl:[userActivity webpageURL]];
+    }
+    return YES;
+}
+
++ (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary *)options {
+    // Pass deep link to Adjust in order to potentially reattribute user.
+    [Adjust appWillOpenUrl:url];
+    return YES;
+}
+
+#pragma mark AEPExtension interface implementation
+
++ (NSString * _Nonnull)extensionVersion {
+    return [NSString stringWithFormat:@"%@@%@",
+            ADJAdobeExtensionSdkPrefix,
+            [Adjust sdkVersion]];
+}
+
+- (nonnull NSString *)name {
+    return ADJAdobeExtensionName;
+}
+
+- (NSString *)friendlyName {
+    return ADJAdobeExtensionLogTag;
+}
+
+- (NSDictionary<NSString *,NSString *> *)metadata {
+    return nil;
+}
+
+- (id<AEPExtensionRuntime>)runtime {
+    return self.extensionRuntime;
+}
+
+- (nullable instancetype)initWithRuntime:(id<AEPExtensionRuntime> _Nonnull)runtime {
+
     self = [super init];
     if (self == nil) {
         return nil;
     }
-        
+
+    _extensionRuntime = runtime;
     _sdkInitialized = NO;
     _receivedEvents = [NSMutableArray array];
     _syncQueue = dispatch_queue_create(kQUEUE_ID_SYNC, DISPATCH_QUEUE_SERIAL);
@@ -94,56 +131,139 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     _numMinusInf = [NSNumber numberWithDouble:dblMinusOne/dblZero];
     _numNan = [NSNumber numberWithDouble:sqrt(dblMinusOne)];
 
-    NSError *error = nil;
-    // Shared State listener
-    if ([self.api registerListener:[AdjustAdobeExtensionSharedStateListener class]
-                         eventType:ADJAdobeEventTypeHub
-                       eventSource:ADJAdobeEventSourceSharedState
-                             error:&error]) {
-        [ACPCore log:ACPMobileLogLevelDebug
-                 tag:ADJAdobeExtensionLogTag
-             message:@"Successfully registered Extension Listener for Event Hub Shared State events."];
-    } else {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:[NSString stringWithFormat:
-                      @"An error occured while registering Extension Listener"
-                      " for Event Hub Shared State events. %@",
-                      (error) ? [NSString stringWithFormat:@"Code: %ld, Domain: %@, Description: %@.", (long)error.code, error.domain, error.localizedDescription ] :
-                      @"Unknown error."]];
-    }
-
-    // Events listener
-    if ([self.api registerListener:[AdjustAdobeExtensionEventListener class]
-                         eventType:ADJAdobeEventTypeGenericTrack
-                       eventSource:ADJAdobeEventSourceRequestContent
-                             error:&error]) {
-        [ACPCore log:ACPMobileLogLevelDebug
-                 tag:ADJAdobeExtensionLogTag
-             message:@"Successfully registered Extension Listener for Extension Request Content events"];
-    } else {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:[NSString stringWithFormat:
-                      @"An error occured while registering Extension Listener"
-                      " for Extension Request Content events: %@",
-                      (error) ? [NSString stringWithFormat:@"Code: %ld, Domain: %@, Description: %@.", (long)error.code, error.domain, error.localizedDescription ] :
-                      @"Unknown error."]];
-    }
-
     return self;
 }
 
-- (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution {
+- (void)onRegistered {
+
+    [self.extensionRuntime registerListenerWithType:ADJAdobeEventTypeHub
+                                             source:ADJAdobeEventSourceSharedState
+                                           listener:^(AEPEvent * _Nonnull sharedStateEvent) {
+
+        if (sharedStateEvent.data == nil) {
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping Shared State handling. Shared State Event Data is nil."];
+            return;
+        }
+
+        if (![sharedStateEvent.data[ADJAdobeSharedStateOwnerKey] isEqualToString:ADJAdobeModuleConfiguration]) {
+            return;
+        }
+
+        AEPSharedStateResult *result = [self.extensionRuntime getSharedStateWithExtensionName:ADJAdobeModuleConfiguration
+                                                                                        event:sharedStateEvent
+                                                                                      barrier:NO];
+        if (result.status != AEPSharedStateStatusSet) {
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping Shared State handling. Configuration Shared State is still not set."];
+            return;
+        }
+
+        [self configurationDictionaryDidReceive:result.value];
+    }];
+
+
+
+    [self.extensionRuntime registerListenerWithType:ADJAdobeEventTypeGenericTrack
+                                             source:ADJAdobeEventSourceRequestContent
+                                           listener:^(AEPEvent * _Nonnull genericTrack) {
+        if (genericTrack.data == nil) {
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping generic track event. Event's Data is nil."];
+            return;
+        }
+        
+        NSString *action = genericTrack.data[ADJAdobeEventDataKeyAction];
+        if (action == nil || action.length == 0) {
+            [AEPLog debugWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping generic track event. Event's Adjust Action is nil or empty."];
+            return;
+        }
+
+        if (![self isAdjustActionSupported:action]) {
+            NSString *message = [NSString stringWithFormat:@"Skipping generic track event. [%@] type is not supported by Adjust.",
+                                 action];
+            [AEPLog debugWithLabel:ADJAdobeExtensionLogTag message:message];
+
+            return;
+        }
+
+        NSDictionary *contextDataDict = genericTrack.data[ADJAdobeEventDataKeyContextData];
+        if (contextDataDict == nil) {
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping generic track event. Event's Adjust Context Data is nil."];
+            return;
+        }
+
+        if (![contextDataDict isKindOfClass:[NSDictionary class]]) {
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping generic track event. Event's Adjust Context Data is not a dictionary."];
+            return;
+        }
+
+        if (contextDataDict.count == 0) {
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping generic track event. Event's Adjust Context Data is empty."];
+            return;
+        }
+
+        [self trackEventDictionaryDidReceive:genericTrack.data];
+    }];
+}
+
+- (void)onUnregistered {
+}
+
+- (BOOL)readyForEvent:(AEPEvent * _Nonnull)event {
+    AEPSharedStateResult *result = [self.extensionRuntime getSharedStateWithExtensionName:ADJAdobeModuleConfiguration
+                                                                                    event:event
+                                                                                  barrier:NO];
+    return (result.status == AEPSharedStateStatusSet);
+}
+
+#pragma mark Internal logic
+
+- (void)configurationDictionaryDidReceive:(nullable NSDictionary<NSString *, id> *)configDict {
+
+    if (configDict == nil) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Adjust setup. Configuration Shared State Data is nil."];
+        return;
+    }
+
+    NSString *adjustAppToken = [configDict objectForKey:ADJConfigurationAppToken];
+    if (adjustAppToken == nil) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Adjust setup. Adoby configuration module error: Adjust App Token is nil."];
+        return;
+    }
+
+    id adjustTrackAttribution = [configDict objectForKey:ADJConfigurationTrackAttribution];
+    if (adjustTrackAttribution == nil) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Adjust setup. Adoby configuration module error: Adjust Trak Attribution is nil."];
+        return;
+    }
+
+    BOOL shouldTrackAttribution = ([adjustTrackAttribution isKindOfClass:[NSNumber class]] &&
+                                   [adjustTrackAttribution integerValue] == 1);
+
+    [self setupAdjustSdkWithAppToken:adjustAppToken trackAttribution:shouldTrackAttribution];
+}
+
+- (void)setupAdjustSdkWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution {
+
     dispatch_async(self.syncQueue, ^{
+
         if (!_configInstance) {
-            [ACPCore log:ACPMobileLogLevelError
-                     tag:ADJAdobeExtensionLogTag
-                 message:@"Extension should be registered first!"];
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping Adjust SDK initialization. Adjust Extension Configuration should be set first!"];
             return;
         }
 
         if (self.sdkInitialized == YES) {
+            [AEPLog traceWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping Adjust SDK initialization. Already Initialized."];
             return;
         }
 
@@ -155,17 +275,17 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
         [adjustConfig setDelegate:self];
 
-        switch ([ACPCore logLevel]) {
-            case ACPMobileLogLevelError:
+        switch ([AEPLog logFilter]) {
+            case AEPLogLevelError:
                 [adjustConfig setLogLevel:ADJLogLevelError];
                 break;
-            case ACPMobileLogLevelWarning:
+            case AEPLogLevelWarning:
                 [adjustConfig setLogLevel:ADJLogLevelWarn];
                 break;
-            case ACPMobileLogLevelDebug:
+            case AEPLogLevelDebug:
                 [adjustConfig setLogLevel:ADJLogLevelDebug];
                 break;
-            case ACPMobileLogLevelVerbose:
+            case AEPLogLevelTrace:
                 [adjustConfig setLogLevel:ADJLogLevelVerbose];
                 break;
         }
@@ -179,7 +299,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     });
 }
 
-- (void)handleEventData:(nullable NSDictionary *)eventData {
+- (void)trackEventDictionaryDidReceive:(nonnull NSDictionary *)eventData {
     dispatch_async(self.syncQueue, ^{
         if (!self.sdkInitialized) {
             [self.receivedEvents addObject:eventData];
@@ -189,45 +309,40 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     });
 }
 
-- (void)processEvent:(nullable NSDictionary *)eventData {
-    if (eventData == nil) {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:@"Extension event error: eventData is nil!"];
-        return;
-    }
-
+- (void)processEvent:(nonnull NSDictionary *)eventData {
     NSString *action = eventData[ADJAdobeEventDataKeyAction];
     NSDictionary *contextdata = eventData[ADJAdobeEventDataKeyContextData];
-    if (contextdata == nil) {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:@"Extension event error: contextdata is nil!"];
-        return;
-    }
 
-    if (action.length > 0 &&
-        [action compare:ADJAdobeAdjustActionSetPushToken options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+    if ([action compare:ADJAdobeAdjustActionSetPushToken
+                options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [self setPushToken:contextdata];
-    } else {
+    } else if ([action compare:ADJAdobeAdjustActionTrackEvent
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [self trackEvent:contextdata];
+    } else {
+        NSString *message = [NSString stringWithFormat:@"Missing implementation of [%@] handling.",
+                             action];
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag message:message];
     }
 }
 
 - (void)setPushToken:(NSDictionary<NSString *, NSString *> *)contextData {
     NSString *pushToken = contextData[ADJAdobeAdjustPushToken];
-    if (pushToken != nil && pushToken.length > 0) {
-        [Adjust setPushToken:pushToken];
-    } else {
-        [ACPCore log:ACPMobileLogLevelError
-                 tag:ADJAdobeExtensionLogTag
-             message:@"PushToken is nil or zero-length!"];
+    if (pushToken == nil || pushToken.length == 0) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Set Push Token action. Push Token is nil or empty."];
+        return;
     }
+    [Adjust setPushToken:pushToken];
 }
 
 - (void)trackEvent:(NSDictionary<NSString *, NSString *> *)contextData {
     NSString *adjEventToken = contextData[ADJAdobeAdjustEventToken];
-    if (adjEventToken == nil) {
+    if (adjEventToken == nil ||
+        ![adjEventToken isKindOfClass:[NSString class]] ||
+        adjEventToken.length == 0) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Track Event action. Event Token is nil or empty."];
         return;
     }
 
@@ -236,14 +351,14 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     NSString *revenue = contextData[ADJAdobeAdjustEventRevenue];
 
     // Revenue data
-    if (currency != nil && currency.length > 0 && revenue != nil && revenue.length > 0) {
+    if (currency != nil && [currency isMemberOfClass:[NSString class]] && currency.length > 0 &&
+        revenue != nil && [revenue isMemberOfClass:[NSString class]] && revenue.length > 0) {
         NSNumber *numRevenue = [NSNumber numberWithDouble:[revenue doubleValue]];
         if ([numRevenue isEqualToNumber:self.numNan] ||
             [numRevenue isEqualToNumber:self.numPlusInf] ||
             [numRevenue isEqualToNumber:self.numMinusInf]) {
-            [ACPCore log:ACPMobileLogLevelError
-                     tag:ADJAdobeExtensionLogTag
-                 message:@"Revenue number is malformed!"];
+            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                           message:@"Skipping Track Event action. Revenue number is malformed."];
             return;
         } else {
             [event setRevenue:[numRevenue doubleValue] currency:currency];
@@ -265,12 +380,15 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     [Adjust trackEvent:event];
 }
 
-- (nullable NSString *)name {
-    return ADJAdobeExtensionName;
-}
 
-- (nullable NSString *)version {
-    return [NSString stringWithFormat:@"%@%@", ADJAdobeExtensionSdkPrefix, [Adjust sdkVersion]];
+- (BOOL)isAdjustActionSupported:(nonnull NSString *)action {
+    if ([action compare:ADJAdobeAdjustActionSetPushToken
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustActionTrackEvent
+                           options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark - Adjust delegate
@@ -292,8 +410,8 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
             [adjustData setObject:attribution.creative forKey:@"Adjust Creative"];
         }
 
-        [ACPCore trackAction:@"Adjust Campaign Data Received"
-                        data:adjustData];
+        [AEPMobileCore trackAction:@"Adjust Campaign Data Received"
+                              data:adjustData];
     }
 
     if (_configInstance.attributionChangedBlock) {
