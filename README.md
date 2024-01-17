@@ -158,7 +158,7 @@ The option to share attribution data with Adobe is in the Launch dashboard under
 
 ### <a id="iae-track-event"></a>Track event
 
-You can use Adobe `[AEPMobileCore trackAction:]` API for [`event tracking`](https://docs.adjust.com/en/event-tracking). Suppose you want to track every tap on a button. To do so, you'll create a new event token in your [Adjust dashboard](https://dash.adjust.com/). Let's say that the event token is `abc123`. In your button's press handling method, add the following lines to track the click:
+You can use Adobe `[AEPMobileCore trackAction:]` API for [`event tracking`](https://help.adjust.com/en/article/record-events-ios-sdk). Suppose you want to track every tap on a button. To do so, you'll create a new event token in your [Adjust dashboard](https://dash.adjust.com/). Let's say that the event token is `abc123`. In your button's press handling method, add the following lines to track the click:
 
 ```objc
 // Objective-C
@@ -228,7 +228,7 @@ http://www.mydomain.com/callback?key1=value1&key2=value2
 
 It should be mentioned that we support a variety of placeholders like `{idfa}` that can be used as parameter values. In the resulting callback this placeholder would be replaced with the ID for Advertisers of the current device. Also note that we don't store any of your custom parameters, but only append them to your callbacks, thus without a callback they will not be saved nor sent to you.
 
-You can read more about using URL callbacks, including a full list of available values, in our [callbacks guide](https://docs.adjust.com/en/callbacks).
+You can read more about using URL callbacks, including a full list of available values, in our [callbacks guide](https://help.adjust.com/en/article/callbacks-partner).
 
 ### <a id="iae-event-partner-parameters"></a>Partner parameters
 
@@ -254,7 +254,7 @@ dataDict[ADJAdobeAdjustEventPartnerParamPrefix.appending("key2")] = "value2"
 MobileCore.track(action: ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
-You can read more about special partners and these integrations in our [guide to special partners](https://docs.adjust.com/en/special-partners).
+You can read more about special partners and these integrations in our [guide to special partners](https://help.adjust.com/en/classic/integrated-partners-classic).
 
 ## <a id="iae-additional-features"></a>Additional features
 
@@ -381,11 +381,8 @@ TBD: We have to add a section for forwarding the following Application calls to 
     return [AdjustAdobeExtension application:app openURL:url options:options];
 }
 
-- (BOOL)application:(UIApplication *)application
-continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
-    return [AdjustAdobeExtension application:application
-                        continueUserActivity:userActivity];
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+    return [AdjustAdobeExtension application:application continueUserActivity:userActivity];
 }
 ```
 
