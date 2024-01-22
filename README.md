@@ -24,7 +24,7 @@ This is the Adjust iOS Extension for Adobe Experience Platform SDK (AEP SDK). Yo
    * [Attribution callback](#iae-attribution-callback)
    * [Deferred deep linking callback](#iae-deferred-deep-linking-callback)
    * [Push token (uninstall tracking)](#iae-push-token)
-   * [Deep Linking (reatribbution)](#iae-deep-link)
+   * [Deep linking (reatribbution)](#iae-deep-linking)
 
 ## <a id="iae-quick-start"></a>Quick start
 
@@ -97,7 +97,6 @@ Adjust SDK emits log messages according to Adobe AEPCore `AEPLogLevel` set by th
 ```objc
 // Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     [AEPMobileCore setLogLevel: AEPLogLevelTrace];
     const UIApplicationState appState = application.applicationState;
 
@@ -123,7 +122,6 @@ Adjust SDK emits log messages according to Adobe AEPCore `AEPLogLevel` set by th
 ```swift
 // Swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
     MobileCore.setLogLevel(LogLevel.trace)
     let appState = application.applicationState
 
@@ -143,7 +141,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
-
 
 ### <a id="iae-attribution"></a>Attribution
 
@@ -281,8 +278,6 @@ AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvir
     // Extensions registration completion handler implementation
     // ...
 }];
-
-
 ```
 
 ```swift
@@ -325,8 +320,6 @@ AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvir
     // Extension registration completion handler implementation
     // ...
 }];
-
-
 ```
 
 ```swift
@@ -370,9 +363,9 @@ dataDict = [ADJAdobeAdjustPushToken:"{your_app_push_token}"]
 MobileCore.track(action: ADJAdobeAdjustActionSetPushToken, data: dataDict)
 ```
 
+### <a id="iae-deep-linking"></a>Deep linking (reattribution)
 
-### <a id="iae-deep-link"></a>Deep Linking (reattribution)
-TBD: We have to add a section for forwarding the following Application calls to the Adjust SDK for checking a deep link URL for attribution data and send it to the Adjust backend for reattribution.
+Deep links are URLs that direct users to a specific page in your app without any additional navigation. You can use them throughout your marketing funnel to improve user acquisition, engagement, and retention. You can also re-engage your users via deep links which can potentially change their attribution. In order for Adjust to be able to properly reattribute your users via deep links, you need to make sure to pass the deep link to Adjust Adobe extension like desrcribed below (for scheme based deep links and universal links):
 
 ```objc
 // Objective-C
@@ -396,5 +389,4 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
     return AdjustAdobeExtension.application(application, continue: userActivity)
 }
-
 ```
