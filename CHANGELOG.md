@@ -3,7 +3,7 @@
 - Added support for the latest Adobe Experience Platform Core SDK (`AEPCore`).
 
 ### Removed
-- Removed support for the deprecated Adobe Experience Platform SDKs (`ACPCore`).
+- Removed support for the deprecated Adobe Experience Platform SDK (`ACPCore`).
 
 ### Changed
 - Updated native iOS SDK dependency to v4.37.0.
