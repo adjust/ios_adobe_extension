@@ -16,9 +16,6 @@ A leading attribution solution that brings the full power of mobile ad measureme
   s.source_files = 'AdjustAdobeExtension/Classes/**/*'
   s.static_framework = true
 
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'}
-
   s.dependency 'Adjust', '4.37'
   s.dependency 'AEPCore', '~> 4.2'
 end
