@@ -1,8 +1,8 @@
-# Migrate Adjust iOS Extension for Adobe Experience Platform SDK (from ACPCore to AEPCore)
+# Migrate Adjust iOS Extension for Adobe Experience Platform SDK from v1.1.1 to v2.0.0
 
 ## Adjust iOS Extension for Adobe Experience Platform SDK documentation
-Please refer to the [this document](../README.md) as a general integration information source.
 
+Please refer to the [this document](../README.md) as a general integration information source.
 
 ## Update Adjust Adobe extension dependency
 
@@ -14,9 +14,11 @@ Run this command at the level of your `Podfile`
 ```
 
 ### Swift Package Manager
+
 Go to the Xcode->[File]->[Packages]->[Update to Latest Package Versions]
 
 ## Add iOS Frameworks (if they are missing)
+
 Adjust SDK is able to get additional information in case you link additional iOS frameworks to your app. Please, add following frameworks in case you want to enable Adjust SDK features based on their presence in your app and mark them as optional:
 
 - `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and LAT information (prior to iOS 14) .
@@ -24,13 +26,13 @@ Adjust SDK is able to get additional information in case you link additional iOS
 - `AdServices.framework` - For devices running iOS 14.3 or higher, this framework allows the SDK to automatically handle attribution for ASA campaigns. It is required when leveraging the Apple Ads Attribution API.
 - `StoreKit.framework` - This framework is needed for access to `SKAdNetwork` framework and for Adjust SDK to handle communication with it automatically in iOS 14 or later.
 
-You can remove `iAd.framework` if you haven't dome this before due to its [phased out state](https://developer.apple.com/documentation/iad?language=objc). 
+You can remove `iAd.framework` if you haven't done this already due to its [phased out state](https://developer.apple.com/documentation/iad?language=objc). 
 
-In the `Frameworks, Libraries, and Embedded Content` section of your App target's `General` tab, you can remove the following frameworks and libraries (in case your App is not using any of them) required for the previous (ACPCore) Adobe integration: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
+In the `Frameworks, Libraries, and Embedded Content` section of your App target's `General` tab, you can remove the following frameworks and libraries (in case your App is not using any of them) required for the previous (`ACPCore`) Adobe integration: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
 
 ## Adjust Adobe Extension initialization
 
-Please replace this (OLD) initialization code:
+Please replace this (old) initialization code:
 
 ```objc
 // Objective-C
@@ -65,7 +67,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-by the following (NEW) initialization code:
+by the following (new) initialization code:
 
 ```objc
 // Objective-C
@@ -114,8 +116,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
+
 - Replace `{your_adobe_app_id}` with your `Unique identifier assigned to the app instance by Adobe Launch Portal`.
 - Set the `{environment}` to either sandbox or production mode:
+
 ```objc
 ADJEnvironmentSandbox
 ADJEnvironmentProduction
@@ -129,7 +133,7 @@ Adjust SDK emits log messages according to Adobe AEPCore `AEPLogLevel` set by th
 
 ## Events tracking
 
-Replace all calls to `ACPCore` (OLD Adobe library)
+Replace all calls to `ACPCore` (the old Adobe library)
 
 ```objc
 // Objective-C
@@ -145,7 +149,7 @@ ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data:)
 ACPCore.trackAction(ADJAdobeAdjustActionSetPushToken, data:)
 ``` 
 
-by calls to a `AEPCore` (NEW Adobe library) as following:
+with calls to a `AEPCore` (the new Adobe library) as following:
 
 ```objc
 // Objective-C
@@ -163,7 +167,7 @@ MobileCore.track(action: ADJAdobeAdjustActionSetPushToken, data:)
 
 ### Attribution callback
 
-Please replace the following (OLD) registration code:
+Please replace the following (old) registration code:
 
 ```objc
 // Objective-C
@@ -184,7 +188,7 @@ if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandb
 }
 ```
 
-by the followng (NEW) resgistration code:
+with the followng (new) resgistration code:
 
 ```objc
 // Objective-C
@@ -196,7 +200,7 @@ AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvir
 
 [AEPMobileCore registerExtensions:@[AdjustAdobeExtension.class]
                        completion:^{
-    // Extensions registration completion handler implementation
+    // Extension's registration completion handler implementation
     // ...
 }];
 ```
@@ -211,14 +215,14 @@ if let config = AdjustAdobeExtensionConfig(environment: ADJEnvironmentSandbox) {
 }
 
 MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
-    // Extensions registration completion handler implementation
+    // Extension's registration completion handler implementation
     // ...
 }
 ```
 
 ### Deferred deep linking callback
    
-Please replace the following (OLD) registration code:
+Please replace the following (old) registration code:
 
 ```objc
 // Objective-C
@@ -247,7 +251,7 @@ if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandb
 }
 ```
 
-by the followng (NEW) resgistration code:
+by the followng (new) resgistration code:
 
 ```objc
 // Objective-C
@@ -263,7 +267,7 @@ AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvir
 
 [AEPMobileCore registerExtensions:@[AdjustAdobeExtension.class]
                        completion:^{
-    // Extension registration completion handler implementation
+    // Extension's registration completion handler implementation
     // ...
 }];
 ```
@@ -282,7 +286,7 @@ if let config = AdjustAdobeExtensionConfig(environment: ADJEnvironmentSandbox) {
 }
 
 MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
-    // Extension registration completion handler implementation
+    // Extension's registration completion handler implementation
     // ...
 }
 ```
