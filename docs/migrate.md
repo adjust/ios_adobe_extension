@@ -166,7 +166,7 @@ if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandb
 }
 ```
 
-with the followng (new) resgistration code:
+with the following (new) registration code:
 
 ```objc
 // Objective-C
