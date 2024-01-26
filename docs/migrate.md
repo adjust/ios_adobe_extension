@@ -17,18 +17,9 @@ Run this command at the level of your `Podfile`
 
 Go to the Xcode->[File]->[Packages]->[Update to Latest Package Versions]
 
-## Add iOS Frameworks (if they are missing)
-
-Adjust SDK is able to get additional information in case you link additional iOS frameworks to your app. Please, add following frameworks in case you want to enable Adjust SDK features based on their presence in your app and mark them as optional:
-
-- `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and LAT information (prior to iOS 14) .
-- `AppTrackingTransparency.framework` - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
-- `AdServices.framework` - For devices running iOS 14.3 or higher, this framework allows the SDK to automatically handle attribution for ASA campaigns. It is required when leveraging the Apple Ads Attribution API.
-- `StoreKit.framework` - This framework is needed for access to `SKAdNetwork` framework and for Adjust SDK to handle communication with it automatically in iOS 14 or later.
+## Deprecated iOS Frameworks
 
 You can remove `iAd.framework` if you haven't done this already due to its [phased out state](https://developer.apple.com/documentation/iad?language=objc). 
-
-In the `Frameworks, Libraries, and Embedded Content` section of your App target's `General` tab, you can remove the following frameworks and libraries (in case your App is not using any of them) required for the previous (`ACPCore`) Adobe integration: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
 
 ## Adjust Adobe Extension initialization
 
@@ -293,31 +284,6 @@ MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
 
 ## Deep linking (reattribution)
 
-**Important:** Please add this new functionality as described below.
-
-Deep links are URLs that direct users to a specific page in your app without any additional navigation. You can use them throughout your marketing funnel to improve user acquisition, engagement, and retention. You can also re-engage your users via deep links which can potentially change their attribution. In order for Adjust to be able to properly reattribute your users via deep links, you need to make sure to pass the deep link to Adjust Adobe extension like desrcribed below (for scheme based deep links and universal links):
-
-```objc
-// Objective-C
-
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    return [AdjustAdobeExtension application:app openURL:url options:options];
-}
-
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
-    return [AdjustAdobeExtension application:application continueUserActivity:userActivity];
-}
-```
-
-```swift
-// Swift
-
-func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    return AdjustAdobeExtension.application(app, open: url, options: options)
-}
-
-func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-    return AdjustAdobeExtension.application(application, continue: userActivity)
-}
-```
+Version 2.0.0 introduces a new functionality for reattribution based on deep links and universla links.  
+Please read and integrate this functionality according to the [Deep Linking (reattribution)](../README.md#iae-deep-link) section.
 
