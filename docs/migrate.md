@@ -285,5 +285,5 @@ MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
 ## Deep linking (reattribution)
 
 Version 2.0.0 introduces a new functionality for reattribution based on deep links and universla links.  
-Please read and integrate this functionality according to the [Deep Linking (reattribution)](../README.md#iae-deep-link) section.
+Please read and integrate this functionality according to the [Deep Linking (reattribution)](../README.md#iae-deep-linking) section.
 
