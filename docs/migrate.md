@@ -2,12 +2,13 @@
 
 ## Adjust iOS Extension for Adobe Experience Platform SDK documentation
 
-Please refer to the [this document](../README.md) as a general integration information source.
+Refer to the [this document](../README.md) as a general integration information source.
 
 ## Update Adjust Adobe extension dependency
 
 ### Cocoapods
-Run this command at the level of your `Podfile`
+
+Run this command at the level of your `Podfile`:
 
 ```
 > pod update
@@ -23,7 +24,7 @@ You can remove `iAd.framework` if you haven't done this already due to its [phas
 
 ## Adjust Adobe Extension initialization
 
-Please replace this (old) initialization code:
+Replace this (old) initialization code:
 
 ```objc
 // Objective-C
@@ -108,23 +109,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
-- Replace `{your_adobe_app_id}` with your `Unique identifier assigned to the app instance by Adobe Launch Portal`.
-- Set the `{environment}` to either sandbox or production mode:
-
-```objc
-ADJEnvironmentSandbox
-ADJEnvironmentProduction
-```
-
-**Important:** Set the value to `ADJEnvironmentSandbox` if (and only if) you or someone else is testing your app. Make sure to set the environment to `ADJEnvironmentProduction` before you publish the app. Set it back to `ADJEnvironmentSandbox` if you start developing and testing it again.
-
-We use this environment mode to distinguish between real traffic and test traffic from test devices. Keeping the environment updated according to your current status is very important!
- 
-Adjust SDK emits log messages according to Adobe AEPCore `AEPLogLevel` set by the user. 
-
 ## Events tracking
 
-Replace all calls to `ACPCore` (the old Adobe library)
+Replace all calls to `ACPCore` (the old Adobe library):
 
 ```objc
 // Objective-C
@@ -158,7 +145,7 @@ MobileCore.track(action: ADJAdobeAdjustActionSetPushToken, data:)
 
 ### Attribution callback
 
-Please replace the following (old) registration code:
+Replace the following (old) registration code:
 
 ```objc
 // Objective-C
@@ -213,7 +200,7 @@ MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
 
 ### Deferred deep linking callback
    
-Please replace the following (old) registration code:
+Replace the following (old) registration code:
 
 ```objc
 // Objective-C
@@ -242,7 +229,7 @@ if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandb
 }
 ```
 
-by the followng (new) resgistration code:
+by the following (new) resgistration code:
 
 ```objc
 // Objective-C
@@ -284,6 +271,4 @@ MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
 
 ## Deep linking (reattribution)
 
-Version 2.0.0 introduces a new functionality for reattribution based on deep links and universla links.  
-Please read and integrate this functionality according to the [Deep Linking (reattribution)](../README.md#iae-deep-linking) section.
-
+Version 2.0.0 introduces an ability to pass information about the deep link that has opened your app in order to potentially change the attribution source. Make sure to read and integrate this functionality in accordance to the [Deep Linking (reattribution)](../README.md#iae-deep-linking) section of the README.
