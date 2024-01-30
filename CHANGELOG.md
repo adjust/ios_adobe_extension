@@ -1,4 +1,4 @@
-### Version 2.0.0 (25rd January 2024)
+### Version 2.0.0 (30th January 2024)
 ### Added
 - Added support for the latest Adobe Experience Platform Core SDK (`AEPCore`).
 
