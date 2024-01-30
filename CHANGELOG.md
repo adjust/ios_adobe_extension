@@ -1,3 +1,18 @@
+### Version 2.0.0 (30th January 2024)
+### Added
+- Added support for the latest Adobe Experience Platform Core SDK (`AEPCore`).
+
+### Removed
+- Removed support for the deprecated Adobe Experience Platform SDK (`ACPCore`).
+
+### Changed
+- Updated native iOS SDK dependency to v4.37.0.
+
+#### Native iOS SDK
+- [iOS@v4.37.0](https://github.com/adjust/ios_sdk/tree/v4.37.0)
+
+---
+
 ### Version 1.1.1 (14th July 2023)
 ### Changed
 - Updated native iOS SDK dependency to v4.33.5.

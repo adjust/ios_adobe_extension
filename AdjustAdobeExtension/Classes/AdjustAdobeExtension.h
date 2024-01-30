@@ -2,52 +2,42 @@
 //  AdjustAdobeExtension.h
 //  AdjustAdobeExtension
 //
-//  Created by Ricardo Carvalho (@rabc) on 09/04/2020.
+//  Created by Adjust SDK Team on 09/04/2020.
 //  Copyright (c) 2020-Present Adjust GmbH. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <ACPCore/ACPCore.h>
-#import <ACPCore/ACPExtension.h>
+#import <UIKit/UIKit.h>
+
+// Adjust Native SDK
 #if defined(__has_include) && __has_include(<Adjust/Adjust.h>)
 #import <Adjust/Adjust.h>
 #else
 #import <Adjust.h>
 #endif
+
 #import "AdjustAdobeExtensionConfig.h"
-#import "AdjustAdobeExtensionEventListener.h"
-#import "AdjustAdobeExtensionSharedStateListener.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-extern NSString * const ADJAdobeExtensionLogTag;
-extern NSString * const ADJAdobeExtensionSdkPrefix;
-
-// Action types
+// Adjust 'Track Event' action type
 extern NSString * const ADJAdobeAdjustActionTrackEvent;
+// Adjust 'Set Push Token' action type
 extern NSString * const ADJAdobeAdjustActionSetPushToken;
 
-// Adjust Event
+// Adjust 'Track Event' action fields keys
 extern NSString * const ADJAdobeAdjustEventToken;
 extern NSString * const ADJAdobeAdjustEventCurrency;
 extern NSString * const ADJAdobeAdjustEventRevenue;
 extern NSString * const ADJAdobeAdjustEventCallbackParamPrefix;
 extern NSString * const ADJAdobeAdjustEventPartnerParamPrefix;
 
-// Push token
+// Adjust 'Set Push Token' action field key
 extern NSString * const ADJAdobeAdjustPushToken;
+NS_ASSUME_NONNULL_END
 
-@interface AdjustAdobeExtension : ACPExtension <AdjustDelegate>
-
-+ (void)registerExtensionWithConfig:(AdjustAdobeExtensionConfig *)config;
-
-- (void)handleEventData:(nullable NSDictionary *)eventData;
-- (void)setupAdjustWithAppToken:(NSString *)appToken trackAttribution:(BOOL)trackAttribution;
-
-/// Adobe methods
-- (nullable NSString *)name;
-- (nullable NSString *)version;
-
+@interface AdjustAdobeExtension : NSObject <AdjustDelegate>
++ (void)setConfiguration:(AdjustAdobeExtensionConfig *_Nonnull)config;
++ (BOOL)application:(UIApplication *_Nonnull)application continueUserActivity:(NSUserActivity *_Nonnull)userActivity;
++ (BOOL)application:(UIApplication *_Nonnull)application openURL:(NSURL *_Nonnull)url options:(NSDictionary *_Nonnull)options;
 @end
 
-NS_ASSUME_NONNULL_END

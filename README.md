@@ -1,16 +1,16 @@
-# Adjust Extension for Adobe Experience SDK
+# Adjust iOS Extension for Adobe Experience Platform SDK
 
-This is the iOS Adobe Mobile Extension of Adjust™. You can read more about Adjust™ at [adjust.com].
+This is the Adjust iOS Extension for Adobe Experience Platform SDK (AEP SDK). You can read more about Adjust™ at [ADJUST Web Page](https://www.adjust.com).
 
 ## Table of contents
 
 ### [Quick start](#iae-quick-start)
    * [Example app](#iae-example-app)
-   * [Add the Adjust Extension to your project](#iae-sdk-add)
+   * [Add the Adjust Adobe Extension to your project](#iae-sdk-add)
       * [Cocoapods integration](#iae-sdk-add-cocoapods)
       * [Swift Package Manager integration](#iae-sdk-add-spm)
    * [Add iOS frameworks](#iae-sdk-frameworks)
-   * [Integrate the Adjust Extension into your app](#iae-sdk-integrate)
+   * [Integrate the Adobe Adjust Extension into your app](#iae-sdk-integrate)
    * [Basic setup](#iae-basic-setup)
    * [Attribution](#iae-attribution)
 
@@ -24,48 +24,44 @@ This is the iOS Adobe Mobile Extension of Adjust™. You can read more about Adj
    * [Attribution callback](#iae-attribution-callback)
    * [Deferred deep linking callback](#iae-deferred-deep-linking-callback)
    * [Push token (uninstall tracking)](#iae-push-token)
+   * [Deep linking (reatribbution)](#iae-deep-linking)
 
 ## <a id="iae-quick-start"></a>Quick start
 
-### <a id="iae-example-app"></a>Example app
+### <a id="iae-example-app"></a>Example application
 
-There is an example app inside the [Example](Example/) directory.
-Please run `pod install` in this folder to build the example application dependencies and then open `AdjustAdobeExtension.xcworkspace` to test the example application.
+There is an example application inside the [AdjustAdobeExtensionApp](AdjustAdobeExtensionApp/) directory.
+Please run `pod install` in this folder to build the example application dependencies and then open `AdjustAdobeExtensionApp.xcworkspace` to test the example application.
+Alternatively, you can open `AdjustAdobeExtensionApp.xcodeproj` and integrate an Adjust Adobe Extension using Swift Package Manager as explained [here](#iae-sdk-add-spm)
 
-## <a id="iae-sdk-add"></a>Add the Adjust Extension to your project
+### <a id="iae-sdk-add"></a>Add the Adjust Adobe Extension to your project
 
-### <a id="iae-sdk-add-cocoapods"></a>Cocoapods integration
+#### <a id="iae-sdk-add-cocoapods"></a>Cocoapods integration
 
-If you're using [CocoaPods](http://cocoapods.org), add the following line to your `Podfile` and continue from [this step](#iae-sdk-integrate):
+If you're using [CocoaPods](http://cocoapods.org), add the following line to your `Podfile`:
 
 ```ruby
 pod 'AdjustAdobeExtension'
 ```
 
-### <a id="iae-sdk-add-spm"></a>Swift Package Manager integration
+#### <a id="iae-sdk-add-spm"></a>Swift Package Manager integration
 
-If you are using Swift Package Manager, add Adjust Extension for Adobe Experience SDK using the following Github repo link:
+If you are using Swift Package Manager, add Adjust Extension for Adobe Experience Platform SDK using the following Github repo link:
 
 ```
 https://github.com/adjust/ios_adobe_extension.git
 ```
 
-Currently, Adjust Extension uses the latest version of Adobe Experience Platform SDKs [ACP SDKs](https://github.com/Adobe-Marketing-Cloud/acp-sdks).
-Due to a missing SPM support in Adobe ACP SDKs, all required Adobe frameworks are part of Adjust Extension release.
-
-In the `Frameworks, Libraries, and Embedded Content` section of your App target's `General` tab, add the following frameworks and libraries required for Adobe frameworks: `UIKit`, `SystemConfiguration`, `WebKit`, `UserNotifications`, `libsqlite3.0`, `libc++`, `libz`.
-
-## <a id="iae-sdk-frameworks"></a>Add iOS frameworks
+### <a id="iae-sdk-frameworks"></a>Add iOS frameworks
 
 Adjust SDK is able to get additional information in case you link additional iOS frameworks to your app. Please, add following frameworks in case you want to enable Adjust SDK features based on their presence in your app and mark them as optional:
 
-- `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and (prior to iOS 14) LAT information.
-- `iAd.framework` - This framework is needed so that SDK can automatically handle attribution for ASA campaigns you might be running.
+- `AdSupport.framework` - This framework is needed so that SDK can access to IDFA value and LAT information (prior to iOS 14) .
+- `AppTrackingTransparency.framework` - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
 - `AdServices.framework` - For devices running iOS 14.3 or higher, this framework allows the SDK to automatically handle attribution for ASA campaigns. It is required when leveraging the Apple Ads Attribution API.
 - `StoreKit.framework` - This framework is needed for access to `SKAdNetwork` framework and for Adjust SDK to handle communication with it automatically in iOS 14 or later.
-- `AppTrackingTransparency.framework` - This framework is needed in iOS 14 and later for SDK to be able to wrap user's tracking consent dialog and access to value of the user's consent to be tracked or not.
 
-## <a id="iae-sdk-integrate"></a>Integrate the Adjust Extension into your app
+### <a id="iae-sdk-integrate"></a>Integrate the Adjust Adobe Extension into your app
 
 Add the following import statement:
 
@@ -79,47 +75,14 @@ Add the following import statement:
 import AdjustAdobeExtension
 ```
 
-## <a id="iae-basic-setup"></a>Basic setup
+### <a id="iae-basic-setup"></a>Basic setup
 
-You don't need to start the Adjust Extension manually. First, set the configuration in [Launch dashboard](https://launch.adobe.com/) and initialize `ACPCore`, then register the Adjust Extension:
+First, configure Adjust SDK Extension in Adobe Experience Platform portal - provide an `Adjust App Token` (you can get it at [Adjust dashboard](https://dash.adjust.com/)) and choose whether to [Share attribution data with Adobe](#iae-attribution) using the toggle. 
 
-```objc
-// Objective-C
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [ACPCore setLogLevel:ACPMobileLogLevelVerbose];
-    [ACPCore configureWithAppId:@"{your_adobe_app_id}"];
-    
-    AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvironment:ADJEnvironmentSandbox];
-    [AdjustAdobeExtension registerExtensionWithConfig:config];
+Then register the Adjust Adobe Extension like in the following code snippet.
 
-    [ACPCore start:^{
-        [ACPCore lifecycleStart:nil];
-    }];
-    return YES;
-}
-```
-
-```swift
-// Swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    ACPCore.setLogLevel(ACPMobileLogLevel.verbose)
-    ACPCore.configure(withAppId: "{your_adobe_app_id}")
-
-    if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandbox) {
-        AdjustAdobeExtension.register(with: config)
-    }
-
-    ACPCore.start {
-        ACPCore.lifecycleStart(nil)
-    }
-    return true
-}
-```
-
-Replace `{your_adobe_app_id}` with your app id from Adobe Launch.
-
-Next, you must set the `environment` to either sandbox or production mode:
-
+- Replace `{your_adobe_app_id}` with your `Unique identifier assigned to the app instance by Adobe Launch Portal`.
+- Set the `{environment}` to either sandbox or production mode:
 ```objc
 ADJEnvironmentSandbox
 ADJEnvironmentProduction
@@ -127,11 +90,61 @@ ADJEnvironmentProduction
 
 **Important:** Set the value to `ADJEnvironmentSandbox` if (and only if) you or someone else is testing your app. Make sure to set the environment to `ADJEnvironmentProduction` before you publish the app. Set it back to `ADJEnvironmentSandbox` if you start developing and testing it again.
 
-We use this environment to distinguish between real traffic and test traffic from test devices. Keeping the environment updated according to your current status is very important!
+We use this environment mode to distinguish between real traffic and test traffic from test devices. Keeping the environment updated according to your current status is very important!
+ 
+Adjust SDK emits log messages according to Adobe AEPCore `AEPLogLevel` set by the user. 
 
-## <a id="iae-attribution"></a>Attribution
+```objc
+// Objective-C
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [AEPMobileCore setLogLevel: AEPLogLevelTrace];
+    const UIApplicationState appState = application.applicationState;
 
-The option to share attribution data with Adobe is in the Launch dashboard under the extensions configuration and is on by default. Adjust tracks the action name `Adjust Campaign Data Received` with the following attribution information from Adjust:
+    // Adjust Adobe Extension configuration
+    AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvironment:{environment}];
+    [AdjustAdobeExtension setConfiguration:config];
+
+    // Adjust Adobe Extension registration
+    [AEPMobileCore registerExtensions:@[AdjustAdobeExtension.class]
+                           completion:^{
+        [AEPMobileCore configureWithAppId: @"{your_adobe_app_id}"];
+
+        if (appState != UIApplicationStateBackground) {
+            // only start lifecycle if the application is not in the background
+            [AEPMobileCore lifecycleStart:nil];
+        }
+    }];
+    
+    return YES;
+}
+```
+
+```swift
+// Swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    MobileCore.setLogLevel(LogLevel.trace)
+    let appState = application.applicationState
+
+    // Adjust Adobe Extension configuration
+    if let config = AdjustAdobeExtensionConfig(environment: ADJEnvironmentSandbox) {
+        AdjustAdobeExtension.setConfiguration(config)
+    }
+
+    // Adjust Adobe Extension registration
+    MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
+        MobileCore.configureWith(appId: "{your_adobe_app_id}")
+        if appState != .background {
+            // Only start lifecycle if the application is not in the background
+            MobileCore.lifecycleStart(additionalContextData: nil)
+        }
+    }
+    return true
+}
+```
+
+### <a id="iae-attribution"></a>Attribution
+
+The option to share attribution data with Adobe is in the Launch dashboard under the extensions configuration and it is on by default. Adjust tracks the action name `Adjust Campaign Data Received` with the following attribution information from Adjust:
 
 * `Adjust Network`
 * `Adjust Campaign`
@@ -142,20 +155,20 @@ The option to share attribution data with Adobe is in the Launch dashboard under
 
 ### <a id="iae-track-event"></a>Track event
 
-You can use Adobe `[ACPCore trackAction:]` API for [`event tracking`](https://docs.adjust.com/en/event-tracking). Suppose you want to track every tap on a button. To do so, you'll create a new event token in your [dashboard](https://dash.adjust.com/). Let's say that the event token is `abc123`. In your button's press handling method, add the following lines to track the click:
+You can use Adobe `[AEPMobileCore trackAction:]` API for [`event tracking`](https://help.adjust.com/en/article/record-events-ios-sdk). Suppose you want to track every tap on a button. To do so, you'll create a new event token in your [Adjust dashboard](https://dash.adjust.com/). Let's say that the event token is `abc123`. In your button's press handling method, add the following lines to track the click:
 
 ```objc
 // Objective-C
 NSMutableDictionary * dataDict = [NSMutableDictionary dictionary];
 [dataDict setValue:@"abc123" forKey:ADJAdobeAdjustEventToken];
-[ACPCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
+[AEPMobileCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
 ```
 
 ```swift
 // Swift
 var dataDict: Dictionary = [String : String]()
 dataDict[ADJAdobeAdjustEventToken] = "abc123"
-ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
+MobileCore.track(action: ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
 ### <a id="iae-track-event-revenue"></a>Track revenue
@@ -168,7 +181,7 @@ NSMutableDictionary * dataDict = [NSMutableDictionary dictionary];
 [dataDict setValue:@"abc123" forKey:ADJAdobeAdjustEventToken];
 [dataDict setValue:@"0.01" forKey:ADJAdobeAdjustEventRevenue];
 [dataDict setValue:@"EUR" forKey:ADJAdobeAdjustEventCurrency];
-[ACPCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
+[AEPMobileCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
 ```
 
 ```swift
@@ -177,7 +190,7 @@ var dataDict: Dictionary = [String : String]()
 dataDict[ADJAdobeAdjustEventToken] = "abc123"
 dataDict[ADJAdobeAdjustEventRevenue] = "0.01"
 dataDict[ADJAdobeAdjustEventCurrency] = "EUR"
-ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
+MobileCore.track(action: ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
 ### <a id="iae-event-callback-parameters"></a>Callback parameters
@@ -192,7 +205,7 @@ NSMutableDictionary * dataDict = [NSMutableDictionary dictionary];
 [dataDict setValue:@"abc123" forKey:ADJAdobeAdjustEventToken];
 [dataDict setValue:@"value1" forKey:[ADJAdobeAdjustEventCallbackParamPrefix stringByAppendingString:@"key1"]];
 [dataDict setValue:@"value2" forKey:[ADJAdobeAdjustEventCallbackParamPrefix stringByAppendingString:@"key2"]];
-[ACPCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
+[AEPMobileCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
 ```
 
 ```swift
@@ -201,18 +214,18 @@ var dataDict: Dictionary = [String : String]()
 dataDict[ADJAdobeAdjustEventToken] = "abc123"
 dataDict[ADJAdobeAdjustEventCallbackParamPrefix.appending("key1")] = "value1"
 dataDict[ADJAdobeAdjustEventCallbackParamPrefix.appending("key2")] = "value2"
-ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
+MobileCore.track(action: ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
 In that case we would track the event and send a request to:
 
 ```
-http://www.mydomain.com/callback?key=value&foo=bar
+http://www.mydomain.com/callback?key1=value1&key2=value2
 ```
 
 It should be mentioned that we support a variety of placeholders like `{idfa}` that can be used as parameter values. In the resulting callback this placeholder would be replaced with the ID for Advertisers of the current device. Also note that we don't store any of your custom parameters, but only append them to your callbacks, thus without a callback they will not be saved nor sent to you.
 
-You can read more about using URL callbacks, including a full list of available values, in our [callbacks guide](https://docs.adjust.com/en/callbacks).
+You can read more about using URL callbacks, including a full list of available values, in our [callbacks guide](https://help.adjust.com/en/article/callbacks-partner).
 
 ### <a id="iae-event-partner-parameters"></a>Partner parameters
 
@@ -226,7 +239,7 @@ NSMutableDictionary * dataDict = [NSMutableDictionary dictionary];
 [dataDict setValue:@"abc123" forKey:ADJAdobeAdjustEventToken];
 [dataDict setValue:@"value1" forKey:[ADJAdobeAdjustEventPartnerParamPrefix stringByAppendingString:@"key1"]];
 [dataDict setValue:@"value2" forKey:[ADJAdobeAdjustEventPartnerParamPrefix stringByAppendingString:@"key2"]];
-[ACPCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
+[AEPMobileCore trackAction:ADJAdobeAdjustActionTrackEvent data:dataDict];
 ```
 
 ```swift
@@ -235,39 +248,50 @@ var dataDict: Dictionary = [String : String]()
 dataDict[ADJAdobeAdjustEventToken] = "abc123"
 dataDict[ADJAdobeAdjustEventPartnerParamPrefix.appending("key1")] = "value1"
 dataDict[ADJAdobeAdjustEventPartnerParamPrefix.appending("key2")] = "value2"
-ACPCore.trackAction(ADJAdobeAdjustActionTrackEvent, data: dataDict)
+MobileCore.track(action: ADJAdobeAdjustActionTrackEvent, data: dataDict)
 ```
 
-You can read more about special partners and these integrations in our [guide to special partners](https://docs.adjust.com/en/special-partners).
+You can read more about special partners and these integrations in our [guide to special partners](https://help.adjust.com/en/classic/integrated-partners-classic).
 
 ## <a id="iae-additional-features"></a>Additional features
 
-Once you have integrated the Adjust Extension for Adobe Experience SDK into your project, you can take advantage of the following features:
+Once you have integrated the Adjust iOS Extension for Adobe Experience Platform SDK into your project, you can take advantage of the following features:
 
 ### <a id="iae-attribution-callback"></a>Attribution callback
 
-You can register a callback code block to be notified of tracker attribution changes. Due to the different sources we consider for attribution, we cannot provide this information synchronously.
+You can register a callback code block to be notified on tracker attribution changes. Due to the different sources we consider for attribution, we cannot provide this information synchronously.
 
 Please see our [attribution data policies](https://github.com/adjust/sdks/blob/master/doc/attribution-data.md) for more information.
 
-With the extension config instance, add the attribution callback before you start the SDK:
+With the extension config instance, add the attribution callback code block to the Adjust extension before you register it (together with other Adobe extensions you possibly use) in Adobe Experience Platform Core SDK:
 
 ```objc
 // Objective-C
 AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvironment:ADJEnvironmentSandbox];
-[config callbackAttributionChanged:^(ADJAttribution * _Nullable attribution) {
+[config setAttributionChangedBlock:^(ADJAttribution * _Nullable attribution) {
     // Attribution response received
 }];
-[AdjustAdobeExtension registerExtensionWithConfig:config];
+[AdjustAdobeExtension setConfiguration:config];
+
+[AEPMobileCore registerExtensions:@[AdjustAdobeExtension.class]
+                       completion:^{
+    // Extensions registration completion handler implementation
+    // ...
+}];
 ```
 
 ```swift
 // Swift
-if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandbox) {
-    config.callbackAttributionChanged { (attribution : ADJAttribution?) in
+if let config = AdjustAdobeExtensionConfig(environment: ADJEnvironmentSandbox) {
+    config.setAttributionChangedBlock({ attribution in
         // Attribution response received
-    }
-    AdjustAdobeExtension.register(with: config)
+    })
+    AdjustAdobeExtension.setConfiguration(config)
+}
+
+MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
+    // Extensions registration completion handler implementation
+    // ...
 }
 ```
 
@@ -275,38 +299,49 @@ The code block is called after the SDK receives the final attribution data. With
 
 ### <a id="iae-deferred-deep-linking-callback"></a>Deferred deep linking callback
 
-The Adjust SDK opens the deferred deep link by default. There is no extra configuration needed. But if you wish to control whether the Adjust SDK will open the deferred deep link or not, you can do it with a callback code block in the config object.
+The Adjust SDK opens the deferred deep link by default. There is no extra configuration needed. But if you wish to control whether the Adjust SDK will open the deferred deep link or not, you can do it with an appropriate callback code block in the config object.
 
-With the extension config instance, add the deferred deep linking callback block before you start the SDK:
+With the extension config instance, add the deferred deep linking callback block to the Adjust extension before you register it (together with other Adobe extensions you possibly use) in Adobe Experience Platform Core SDK:
 
 ```objc
 // Objective-C
 AdjustAdobeExtensionConfig *config = [AdjustAdobeExtensionConfig configWithEnvironment:ADJEnvironmentSandbox];
-[config callbackDeeplinkResponse:^BOOL(NSURL * _Nullable deeplink) {
+[config setDeeplinkResponseBlock:^BOOL(NSURL * _Nullable deeplink) {
     // Deep link response received
     // Apply your logic to determine whether the Adjust SDK should try to open the deep link
     return YES;
     // or
     // return NO;
 }];
-[AdjustAdobeExtension registerExtensionWithConfig:config];
+[AdjustAdobeExtension setConfiguration:config];
+
+[AEPMobileCore registerExtensions:@[AdjustAdobeExtension.class]
+                       completion:^{
+    // Extension registration completion handler implementation
+    // ...
+}];
 ```
 
 ```swift
 // Swift
-if let config = AdjustAdobeExtensionConfig.init(environment: ADJEnvironmentSandbox) {
-    config.callbackDeeplinkResponse { (deeplink : URL?) in
+if let config = AdjustAdobeExtensionConfig(environment: ADJEnvironmentSandbox) {
+    config.setDeeplinkResponseBlock { deepLink in
         // Deep link response received
         // Apply your logic to determine whether the Adjust SDK should try to open the deep link
         return true;
         // or
         // return false;
     }
-    AdjustAdobeExtension.register(with: config)
+    AdjustAdobeExtension.setConfiguration(config)
+}
+
+MobileCore.registerExtensions([AdjustAdobeExtension.self]) {
+    // Extension registration completion handler implementation
+    // ...
 }
 ```
 
-After the Adjust SDK receives the deep link information from our backend, the SDK will deliver you its content via the callback block and expect the boolean return value from you. This return value represents your decision on whether or not the Adjust SDK should open the deep link or not.
+After the Adjust SDK receives the deep link information from our backend, the SDK will deliver you its content via the callback block and expect the boolean return value from you. This return value represents your decision on whether the Adjust SDK should open the deep link or not.
 
 ### <a id="iae-push-token"></a>Push token (uninstall tracking)
 
@@ -317,13 +352,41 @@ To send us the APNs push notification token, add the following call to Adjust on
 ```objc
 // Objective-C
 NSMutableDictionary * dataDict = [NSMutableDictionary dictionary];
-[dataDict setValue:@"your_app_push_token" forKey:ADJAdobeAdjustPushToken];
-[ACPCore trackAction:ADJAdobeAdjustActionSetPushToken data:dataDict];
+[dataDict setValue:@"{your_app_push_token}" forKey:ADJAdobeAdjustPushToken];
+[AEPMobileCore trackAction:ADJAdobeAdjustActionSetPushToken data:dataDict];
 ```
 
 ```swift
 // Swift
-var dataDict: Dictionary = [String : String]()
-dataDict[ADJAdobeAdjustPushToken] = "your_app_push_token"
-ACPCore.trackAction(ADJAdobeAdjustActionSetPushToken, data: dataDict)
+var dataDict = [String:String]();
+dataDict = [ADJAdobeAdjustPushToken:"{your_app_push_token}"]
+MobileCore.track(action: ADJAdobeAdjustActionSetPushToken, data: dataDict)
+```
+
+### <a id="iae-deep-linking"></a>Deep linking (reattribution)
+
+Deep links are URLs that direct users to a specific page in your app without any additional navigation. You can use them throughout your marketing funnel to improve user acquisition, engagement, and retention. You can also re-engage your users via deep links which can potentially change their attribution. In order for Adjust to be able to properly reattribute your users via deep links, you need to make sure to pass the deep link to Adjust Adobe extension like desrcribed below (for scheme based deep links and universal links):
+
+```objc
+// Objective-C
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [AdjustAdobeExtension application:app openURL:url options:options];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+    return [AdjustAdobeExtension application:application continueUserActivity:userActivity];
+}
+```
+
+```swift
+// Swift
+
+func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    return AdjustAdobeExtension.application(app, open: url, options: options)
+}
+
+func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+    return AdjustAdobeExtension.application(application, continue: userActivity)
+}
 ```

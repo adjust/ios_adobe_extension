@@ -1,1 +1,0 @@
-../../AdjustAdobeExtension/Classes/AdjustAdobeExtensionSharedStateListener.m
