@@ -77,23 +77,30 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 + (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity {
     if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
         // Pass deep link to Adjust in order to potentially reattribute user.
-        [Adjust appWillOpenUrl:[userActivity webpageURL]];
+        ADJDeeplink *deeplink = [[ADJDeeplink alloc] initWithDeeplink:[userActivity webpageURL]];
+        [Adjust processDeeplink:deeplink];
     }
     return YES;
 }
 
 + (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary *)options {
     // Pass deep link to Adjust in order to potentially reattribute user.
-    [Adjust appWillOpenUrl:url];
+    ADJDeeplink *deeplink = [[ADJDeeplink alloc] initWithDeeplink:url];
+    [Adjust processDeeplink:deeplink];
     return YES;
 }
 
 #pragma mark AEPExtension interface implementation
 
 + (NSString * _Nonnull)extensionVersion {
-    return [NSString stringWithFormat:@"%@@%@",
-            ADJAdobeExtensionSdkPrefix,
-            [Adjust sdkVersion]];
+    __block NSString *extensionVersion;
+    [Adjust sdkVersionWithCompletionHandler:^(NSString * _Nullable sdkVersion) {
+        extensionVersion = sdkVersion;
+    }];
+
+    return (extensionVersion) ? [NSString stringWithFormat:@"%@@%@",
+                           ADJAdobeExtensionSdkPrefix, extensionVersion] : @"error fetching SDK version";
+
 }
 
 - (nonnull NSString *)name {
@@ -270,7 +277,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         self.sdkInitialized = YES;
 
         _configInstance.shouldTrackAttribution = trackAttribution;
-        ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
+        ADJConfig *adjustConfig = [[ADJConfig alloc] initWithAppToken:appToken
                                                     environment:_configInstance.environment];
         [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
         [adjustConfig setDelegate:self];
@@ -290,7 +297,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                 break;
         }
 
-        [Adjust appDidLaunch:adjustConfig];
+        [Adjust initSdk:adjustConfig];
 
         for (NSDictionary *event in self.receivedEvents) {
             [self processEvent:event];
@@ -333,7 +340,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                        message:@"Skipping Set Push Token action. Push Token is nil or empty."];
         return;
     }
-    [Adjust setPushToken:pushToken];
+    [Adjust setPushTokenAsString:pushToken];
 }
 
 - (void)trackEvent:(NSDictionary<NSString *, NSString *> *)contextData {
@@ -346,7 +353,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
 
-    ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
+    ADJEvent *event = [[ADJEvent alloc] initWithEventToken:adjEventToken];
     NSString *currency = contextData[ADJAdobeAdjustEventCurrency];
     NSString *revenue = contextData[ADJAdobeAdjustEventRevenue];
 

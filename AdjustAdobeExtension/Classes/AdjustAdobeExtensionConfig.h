@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#if defined(__has_include) && __has_include(<Adjust/Adjust.h>)
-#import <Adjust/Adjust.h>
+#if defined(__has_include) && __has_include(<AdjustSdk/AdjustSdk.h>)
+#import <AdjustSdk/AdjustSdk.h>
 #else
-#import <Adjust.h>
+#import <AdjustSdk.h>
 #endif
 
 typedef void (^CallbackAttributionChangedBlock)(ADJAttribution * _Nullable attribution);

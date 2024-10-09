@@ -12,7 +12,7 @@ let package = Package(
             targets: ["AdjustAdobeExtension"])
     ],
     dependencies: [
-        .package(url: "https://github.com/adjust/ios_sdk.git", exact: "4.37.0"),
+        .package(url: "https://github.com/adjust/ios_sdk.git", exact: "5.0.1"),
         .package(url: "https://github.com/adobe/aepsdk-core-ios.git", from: "4.2.0")],
     targets: [
         .target(
