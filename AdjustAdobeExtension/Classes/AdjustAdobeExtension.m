@@ -309,6 +309,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         ADJConfig *adjustConfig = [[ADJConfig alloc] initWithAppToken:appToken
                                                     environment:_configInstance.environment];
         [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
+        [adjustConfig setExternalDeviceId:_configInstance.externalDeviceId];
         [adjustConfig setDelegate:self];
 
         switch ([AEPLog logFilter]) {

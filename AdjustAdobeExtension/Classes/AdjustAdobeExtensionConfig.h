@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly, nullable) CallbackAttributionChangedBlock attributionChangedBlock;
 @property (nonatomic, strong, readonly, nullable) CallbackDeeplinkResponseBlock deeplinkResponseBlock;
+@property (nonatomic, copy, readonly, nonnull) NSString *externalDeviceId;
 @property (nonatomic, copy, readonly, nonnull) NSString *environment;
 @property (nonatomic, assign) BOOL shouldTrackAttribution;
 
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setAttributionChangedBlock:(CallbackAttributionChangedBlock _Nullable)attributionChangedBlock;
 - (void)setDeeplinkResponseBlock:(CallbackDeeplinkResponseBlock _Nullable)deeplinkResponseBlock;
+- (void)setExternalDeviceId:(NSString *)externalDeviceId;
 
 @end
 

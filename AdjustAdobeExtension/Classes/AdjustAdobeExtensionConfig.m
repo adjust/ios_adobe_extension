@@ -31,4 +31,8 @@
     _deeplinkResponseBlock = deeplinkResponseBlock;
 }
 
+- (void)setExternalDeviceId:(NSString *)externalDeviceId {
+    _externalDeviceId = externalDeviceId;
+}
+
 @end
