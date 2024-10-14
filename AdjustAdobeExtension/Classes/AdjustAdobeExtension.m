@@ -27,6 +27,20 @@ NSString * const ADJAdobeAdjustEventPartnerParamPrefix = @"adj.event.partner.";
 // Adjust 'Set Push Token' action field key
 NSString * const ADJAdobeAdjustPushToken = @"adj.pushToken";
 
+// Adjust 'Session callback parameters' action type
+NSString * const ADJAdobeAdjustAddGlobalCallbackParameter = @"adj.addGlobalCallbackParam";
+NSString * const ADJAdobeAdjustRemoveGlobalCallbackParameterForKey = @"adj.removeGlobalCallbackParam";
+NSString * const ADJAdobeAdjustRemoveGlobalCallbackParameters = @"adj.removeGlobalCallbackParams";
+
+// Adjust 'Session partner parameters' action type
+NSString * const ADJAdobeAdjustAddGlobalPartnerParameter = @"adj.addGlobalPartnerParam";
+NSString * const ADJAdobeAdjustRemoveGlobalPartnerParameterForKey = @"adj.removeGlobalPartnerParam";
+NSString * const ADJAdobeAdjustRemoveGlobalPartnerParameters = @"adj.removeGlobalPartnerParams";
+
+// Adjust 'Session parameters' action field key
+NSString * const ADJAdobeAdjustGlobalParamKey = @"adj.globalParamKey";
+NSString * const ADJAdobeAdjustGlobalParamValue = @"adj.globalParamValue";
+
 #pragma mark Internal Constants
 
 NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext2.0.0";
@@ -196,22 +210,37 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         }
 
         NSDictionary *contextDataDict = genericTrack.data[ADJAdobeEventDataKeyContextData];
-        if (contextDataDict == nil) {
-            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
-                           message:@"Skipping generic track event. Event's Adjust Context Data is nil."];
-            return;
-        }
 
-        if (![contextDataDict isKindOfClass:[NSDictionary class]]) {
-            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
-                           message:@"Skipping generic track event. Event's Adjust Context Data is not a dictionary."];
-            return;
-        }
+        if ([action compare:ADJAdobeAdjustActionSetPushToken
+                    options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+            [action compare:ADJAdobeAdjustActionTrackEvent
+                    options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+            [action compare:ADJAdobeAdjustAddGlobalCallbackParameter
+                    options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+            [action compare:ADJAdobeAdjustRemoveGlobalCallbackParameterForKey
+                    options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+            [action compare:ADJAdobeAdjustAddGlobalPartnerParameter
+                    options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+            [action compare:ADJAdobeAdjustRemoveGlobalPartnerParameterForKey
+                    options:NSCaseInsensitiveSearch] == NSOrderedSame) {
 
-        if (contextDataDict.count == 0) {
-            [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
-                           message:@"Skipping generic track event. Event's Adjust Context Data is empty."];
-            return;
+            if (contextDataDict == nil) {
+                [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                               message:@"Skipping generic track event. Event's Adjust Context Data is nil."];
+                return;
+            }
+
+            if (![contextDataDict isKindOfClass:[NSDictionary class]]) {
+                [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                               message:@"Skipping generic track event. Event's Adjust Context Data is not a dictionary."];
+                return;
+            }
+
+            if (contextDataDict.count == 0) {
+                [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                               message:@"Skipping generic track event. Event's Adjust Context Data is empty."];
+                return;
+            }
         }
 
         [self trackEventDictionaryDidReceive:genericTrack.data];
@@ -326,6 +355,24 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     } else if ([action compare:ADJAdobeAdjustActionTrackEvent
                        options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         [self trackEvent:contextdata];
+    } else if ([action compare:ADJAdobeAdjustAddGlobalCallbackParameter
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self addGlobalCallbackParameter:contextdata];
+    } else if ([action compare:ADJAdobeAdjustRemoveGlobalCallbackParameterForKey
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self removeGlobalCallbackParameterForKey:contextdata];
+    } else if ([action compare:ADJAdobeAdjustRemoveGlobalCallbackParameters
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self removeGlobalCallbackParameters];
+    } else if ([action compare:ADJAdobeAdjustAddGlobalPartnerParameter
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self addGlobalPartnerParameter:contextdata];
+    } else if ([action compare:ADJAdobeAdjustRemoveGlobalPartnerParameterForKey
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self removeGlobalPartnerParameterForKey:contextdata];
+    } else if ([action compare:ADJAdobeAdjustRemoveGlobalPartnerParameters
+                       options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+        [self removeGlobalPartnerParameters];
     } else {
         NSString *message = [NSString stringWithFormat:@"Missing implementation of [%@] handling.",
                              action];
@@ -341,6 +388,57 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
     [Adjust setPushTokenAsString:pushToken];
+}
+
+- (void)addGlobalCallbackParameter:(NSDictionary<NSString *, NSString *> *)contextData {
+    NSString *key = contextData[ADJAdobeAdjustGlobalParamKey];
+    NSString *param = contextData[ADJAdobeAdjustGlobalParamValue];
+
+    if (key == nil || param == nil || key.length == 0 || param.length == 0) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Adding Global Callback Parameter. Key or Param is nil or empty."];
+        return;
+    }
+    [Adjust addGlobalCallbackParameter:param forKey:key];
+}
+
+- (void)removeGlobalCallbackParameterForKey:(NSDictionary<NSString *, NSString *> *)contextData {
+    NSString *key = contextData[ADJAdobeAdjustGlobalParamKey];
+    if (key == nil || key.length == 0) {
+        [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                       message:@"Skipping Removing Global Callback Parameter. Key is nil or empty."];
+        return;
+    }
+    [Adjust removeGlobalCallbackParameterForKey:key];
+}
+
+- (void)removeGlobalCallbackParameters {
+    [Adjust removeGlobalCallbackParameters];
+}
+
+- (void)addGlobalPartnerParameter:(NSDictionary<NSString *, NSString *> *)contextData {
+   NSString *key = contextData[ADJAdobeAdjustGlobalParamKey];
+   NSString *param = contextData[ADJAdobeAdjustGlobalParamValue];
+   if (key == nil || param == nil || key.length == 0 || param.length == 0) {
+       [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                      message:@"Skipping Adding Global Partner Parameter. Key or Param is nil or empty."];
+       return;
+   }
+   [Adjust addGlobalPartnerParameter:param forKey:key];
+}
+
+- (void)removeGlobalPartnerParameterForKey:(NSDictionary<NSString *, NSString *> *)contextData {
+   NSString *key = contextData[ADJAdobeAdjustGlobalParamKey];
+   if (key == nil || key.length == 0) {
+       [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
+                      message:@"Skipping Removing Global Partner Parameter. Key is nil or empty."];
+       return;
+   }
+   [Adjust removeGlobalPartnerParameterForKey:key];
+}
+
+- (void)removeGlobalPartnerParameters {
+    [Adjust removeGlobalPartnerParameters];
 }
 
 - (void)trackEvent:(NSDictionary<NSString *, NSString *> *)contextData {
@@ -392,7 +490,19 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     if ([action compare:ADJAdobeAdjustActionSetPushToken
                 options:NSCaseInsensitiveSearch] == NSOrderedSame ||
         [action compare:ADJAdobeAdjustActionTrackEvent
-                           options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustAddGlobalCallbackParameter
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustRemoveGlobalCallbackParameterForKey
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustRemoveGlobalCallbackParameters
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustAddGlobalPartnerParameter
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustRemoveGlobalPartnerParameterForKey
+                options:NSCaseInsensitiveSearch] == NSOrderedSame ||
+        [action compare:ADJAdobeAdjustRemoveGlobalPartnerParameters
+                options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         return YES;
     }
     return NO;
