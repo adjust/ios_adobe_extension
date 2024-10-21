@@ -19,7 +19,7 @@ let package = Package(
             name: "AdjustAdobeExtension",
             dependencies: [
                 .product(name: "AEPCore", package: "aepsdk-core-ios"),
-                .product(name: "Adjust", package: "ios_sdk")],
+                .product(name: "AdjustSdk", package: "ios_sdk")],
             publicHeadersPath: "include",
             cSettings: [
                 .headerSearchPath("include/AdjustAdobeExtension")
