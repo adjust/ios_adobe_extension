@@ -31,22 +31,8 @@ extern NSString * const ADJAdobeAdjustEventRevenue;
 extern NSString * const ADJAdobeAdjustEventCallbackParamPrefix;
 extern NSString * const ADJAdobeAdjustEventPartnerParamPrefix;
 
-// Adjust 'Session callback parameters' action type
-extern NSString * const ADJAdobeAdjustAddGlobalCallbackParameter;
-extern NSString * const ADJAdobeAdjustRemoveGlobalCallbackParameterForKey;
-extern NSString * const ADJAdobeAdjustRemoveGlobalCallbackParameters;
-
-// Adjust 'Session partner parameters' action type
-extern NSString * const ADJAdobeAdjustAddGlobalPartnerParameter;
-extern NSString * const ADJAdobeAdjustRemoveGlobalPartnerParameterForKey;
-extern NSString * const ADJAdobeAdjustRemoveGlobalPartnerParameters;
-
 // Adjust 'Set Push Token' action field key
 extern NSString * const ADJAdobeAdjustPushToken;
-
-// Adjust 'Session parameters' action field key
-extern NSString * const ADJAdobeAdjustGlobalParamKey;
-extern NSString * const ADJAdobeAdjustGlobalParamValue;
 
 NS_ASSUME_NONNULL_END
 
@@ -54,5 +40,6 @@ NS_ASSUME_NONNULL_END
 + (void)setConfiguration:(AdjustAdobeExtensionConfig *_Nonnull)config;
 + (BOOL)application:(UIApplication *_Nonnull)application continueUserActivity:(NSUserActivity *_Nonnull)userActivity;
 + (BOOL)application:(UIApplication *_Nonnull)application openURL:(NSURL *_Nonnull)url options:(NSDictionary *_Nonnull)options;
+
 @end
 
