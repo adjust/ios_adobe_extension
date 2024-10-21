@@ -13,7 +13,7 @@
 #if defined(__has_include) && __has_include(<AdjustSdk/AdjustSdk.h>)
 #import <AdjustSdk/AdjustSdk.h>
 #else
-#import "AdjustSdk.h"
+#import <AdjustSdk.h>
 #endif
 
 #import "AdjustAdobeExtensionConfig.h"
@@ -38,8 +38,6 @@ NS_ASSUME_NONNULL_END
 
 @interface AdjustAdobeExtension : NSObject <AdjustDelegate>
 + (void)setConfiguration:(AdjustAdobeExtensionConfig *_Nonnull)config;
-+ (BOOL)application:(UIApplication *_Nonnull)application continueUserActivity:(NSUserActivity *_Nonnull)userActivity;
-+ (BOOL)application:(UIApplication *_Nonnull)application openURL:(NSURL *_Nonnull)url options:(NSDictionary *_Nonnull)options;
 
 @end
 

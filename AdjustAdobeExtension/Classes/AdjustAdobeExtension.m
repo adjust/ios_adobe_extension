@@ -74,22 +74,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     _configInstance = config;
 }
 
-+ (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity {
-    if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        // Pass deep link to Adjust in order to potentially reattribute user.
-        ADJDeeplink *deeplink = [[ADJDeeplink alloc] initWithDeeplink:[userActivity webpageURL]];
-        [Adjust processDeeplink:deeplink];
-    }
-    return YES;
-}
-
-+ (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary *)options {
-    // Pass deep link to Adjust in order to potentially reattribute user.
-    ADJDeeplink *deeplink = [[ADJDeeplink alloc] initWithDeeplink:url];
-    [Adjust processDeeplink:deeplink];
-    return YES;
-}
-
 #pragma mark AEPExtension interface implementation
 
 + (NSString * _Nonnull)extensionVersion {
