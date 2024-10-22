@@ -27,6 +27,7 @@
         return YES;
     }];
     [adjustConfig setExternalDeviceId:@"external-device-id"];
+    [adjustConfig setDefaultTracker:@"default-tracker"];
     [AdjustAdobeExtension setConfiguration:adjustConfig];
 
     // Adjust Adobe Extension registration
@@ -45,9 +46,7 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-
     NSLog(@"Scheme based deep link opened an app: %@", url);
-
     // Call the below method to send deep link to Adjust backend
     [Adjust processDeeplink:[[ADJDeeplink alloc] initWithDeeplink:url]];
 

@@ -31,6 +31,10 @@
     _deferredDeeplinkReceivedBlock = deferredDeeplinkReceivedBlock;
 }
 
+- (void)setDefaultTracker:(NSString *)defaultTracker {
+    _defaultTracker = defaultTracker;
+}
+
 - (void)setExternalDeviceId:(NSString *)externalDeviceId {
     _externalDeviceId = externalDeviceId;
 }

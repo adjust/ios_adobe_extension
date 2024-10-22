@@ -264,6 +264,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                                                           environment:_configInstance.environment];
         [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
         [adjustConfig setExternalDeviceId:_configInstance.externalDeviceId];
+        [adjustConfig setDefaultTracker:_configInstance.defaultTracker];
         [adjustConfig setDelegate:self];
 
         switch ([AEPLog logFilter]) {

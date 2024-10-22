@@ -22,14 +22,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, readonly, nullable) CallbackAttributionChangedBlock attributionChangedBlock;
 @property (nonatomic, strong, readonly, nullable) CallbackDeferredDeeplinkReceivedBlock deferredDeeplinkReceivedBlock;
-@property (nonatomic, copy, readonly, nonnull) NSString *externalDeviceId;
 @property (nonatomic, copy, readonly, nonnull) NSString *environment;
+@property (nonatomic, copy, readonly, nonnull) NSString *defaultTracker;
+@property (nonatomic, copy, readonly, nonnull) NSString *externalDeviceId;
 @property (nonatomic, assign) BOOL shouldTrackAttribution;
 
 + (nullable AdjustAdobeExtensionConfig *)configWithEnvironment:(nonnull NSString *)environment;
 
 - (void)setAttributionChangedBlock:(CallbackAttributionChangedBlock _Nullable)attributionChangedBlock;
 - (void)setDeferredDeeplinkReceivedBlock:(CallbackDeferredDeeplinkReceivedBlock _Nullable)deferredDeeplinkReceivedBlock;
+- (void)setDefaultTracker:(NSString *)defaultTracker;
 - (void)setExternalDeviceId:(NSString *)externalDeviceId;
 
 @end
