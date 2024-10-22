@@ -83,7 +83,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }];
 
     return (extensionVersion) ? [NSString stringWithFormat:@"%@@%@",
-                           ADJAdobeExtensionSdkPrefix, extensionVersion] : @"error fetching SDK version";
+                                 ADJAdobeExtensionSdkPrefix, extensionVersion] : @"error fetching SDK version";
 
 }
 
@@ -161,7 +161,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                            message:@"Skipping generic track event. Event's Data is nil."];
             return;
         }
-        
+
         NSString *action = genericTrack.data[ADJAdobeEventDataKeyAction];
         if (action == nil || action.length == 0) {
             [AEPLog debugWithLabel:ADJAdobeExtensionLogTag
@@ -261,7 +261,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
         _configInstance.shouldTrackAttribution = trackAttribution;
         ADJConfig *adjustConfig = [[ADJConfig alloc] initWithAppToken:appToken
-                                                    environment:_configInstance.environment];
+                                                          environment:_configInstance.environment];
         [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
         [adjustConfig setExternalDeviceId:_configInstance.externalDeviceId];
         [adjustConfig setDelegate:self];
@@ -409,12 +409,13 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }
 }
 
-- (BOOL)adjustDeeplinkResponse:(nullable NSURL *)deeplink {
-    if (_configInstance.deeplinkResponseBlock) {
-        return _configInstance.deeplinkResponseBlock(deeplink);
+- (BOOL)adjustDeferredDeeplinkReceived:(nullable NSURL *)deeplink {
+    if (_configInstance.deferredDeeplinkReceivedBlock) {
+        return _configInstance.deferredDeeplinkReceivedBlock(deeplink);
     }
 
     return YES;
 }
 
 @end
+
