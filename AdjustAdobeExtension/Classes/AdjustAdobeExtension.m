@@ -77,14 +77,9 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 #pragma mark AEPExtension interface implementation
 
 + (NSString * _Nonnull)extensionVersion {
-    __block NSString *extensionVersion;
-    [Adjust sdkVersionWithCompletionHandler:^(NSString * _Nullable sdkVersion) {
-        extensionVersion = sdkVersion;
-    }];
-
-    return (extensionVersion) ? [NSString stringWithFormat:@"%@@%@",
-                                 ADJAdobeExtensionSdkPrefix, extensionVersion] : @"error fetching SDK version";
-
+    NSString *extensionVersion = [NSString stringWithFormat:@"%@@%@",
+                                  ADJAdobeExtensionSdkPrefix, @"ios5.0.1"];
+    return extensionVersion;
 }
 
 - (nonnull NSString *)name {
@@ -414,7 +409,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     if (_configInstance.deferredDeeplinkReceivedBlock) {
         return _configInstance.deferredDeeplinkReceivedBlock(deeplink);
     }
-
     return YES;
 }
 
