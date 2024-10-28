@@ -68,13 +68,13 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 @implementation AdjustAdobeExtension
 
-#pragma mark Public Class methods
+#pragma mark - Public Class methods
 
 + (void)setConfiguration:(AdjustAdobeExtensionConfig *)config {
     _configInstance = config;
 }
 
-#pragma mark AEPExtension interface implementation
+#pragma mark - AEPExtension interface implementation
 
 + (NSString * _Nonnull)extensionVersion {
     NSString *extensionVersion = [NSString stringWithFormat:@"%@@%@",
@@ -200,13 +200,14 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (BOOL)readyForEvent:(AEPEvent * _Nonnull)event {
-    AEPSharedStateResult *result = [self.extensionRuntime getSharedStateWithExtensionName:ADJAdobeModuleConfiguration
-                                                                                    event:event
-                                                                                  barrier:NO];
+    AEPSharedStateResult *result = [self.extensionRuntime
+                                    getSharedStateWithExtensionName:ADJAdobeModuleConfiguration
+                                    event:event
+                                    barrier:NO];
     return (result.status == AEPSharedStateStatusSet);
 }
 
-#pragma mark Internal logic
+#pragma mark - Internal logic
 
 - (void)configurationDictionaryDidReceive:(nullable NSDictionary<NSString *, id> *)configDict {
 

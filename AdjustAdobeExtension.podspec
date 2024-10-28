@@ -17,5 +17,5 @@ A leading attribution solution that brings the full power of mobile ad measureme
   s.static_framework = true
 
   s.dependency 'Adjust', '5.0.1'
-  s.dependency 'AEPCore', '~> 4.2'
+  s.dependency 'AEPCore', '~> 5.3.1'
 end
