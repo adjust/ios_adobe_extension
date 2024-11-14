@@ -5,7 +5,7 @@ PODS:
     - AdjustSignature (~> 3.18)
   - AdjustAdobeExtension (3.0.0):
     - Adjust (= 5.0.1)
-    - AEPCore (~> 5.3.1)
+    - AEPCore (~> 5.3)
   - AdjustSignature (3.32.0)
   - AEPCore (5.3.1):
     - AEPRulesEngine (< 6.0.0, >= 5.0.0)
@@ -31,7 +31,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Adjust: f27daaa40d0df5550b89dd428cd8545d812e1f6d
-  AdjustAdobeExtension: 884f1974e66501c7b23ae5d27da043346f569694
+  AdjustAdobeExtension: 7b32018508f264b8f8e821541af0dfeafc01a3e5
   AdjustSignature: f3d8bf04ba051bf14b95cddf33409c70f1ba57b9
   AEPCore: 28191f2df03225a5e88b6f8f343f7e18a604c9ef
   AEPRulesEngine: fe5800653a4bee07b1e41e61b4d5551f0dba557b
