@@ -14,6 +14,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // Add Global Partner Parameters
+    [Adjust addGlobalPartnerParameter:@"value1" forKey:@"key1"];
+    [Adjust addGlobalPartnerParameter:@"value2" forKey:@"key2"];
+
+    // Add Global Callback Parameters
+    [Adjust addGlobalCallbackParameter:@"value1" forKey:@"key1"];
+    [Adjust addGlobalCallbackParameter:@"value2" forKey:@"key2"];
+
     // Track simple event
     NSMutableDictionary * dataDict = [NSMutableDictionary dictionary];
     [dataDict setValue:@"g3mfiw" forKey:ADJAdobeAdjustEventToken];
@@ -50,14 +58,6 @@
     [AEPMobileCore trackAction:ADJAdobeAdjustActionSetPushToken
                           data:dataDict];
     [dataDict removeAllObjects];
-
-    // Add Global Partner Parameters
-    [Adjust addGlobalPartnerParameter:@"value1" forKey:@"key1"];
-    [Adjust addGlobalPartnerParameter:@"value2" forKey:@"key2"];
-
-    // Add Global Callback Parameters
-    [Adjust addGlobalCallbackParameter:@"value1" forKey:@"key1"];
-    [Adjust addGlobalCallbackParameter:@"value2" forKey:@"key2"];
 
 }
 
