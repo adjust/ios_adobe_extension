@@ -7,6 +7,7 @@ To try out iOS Adobe extension v3 in your app, you can follow our new v2 to v3 [
 #### Native iOS SDK
 - [iOS@v5.0.1](https://github.com/adjust/ios_sdk/tree/v5.0.1)
 
+---
 
 ### Version 2.0.0 (30th January 2024)
 ### Added
