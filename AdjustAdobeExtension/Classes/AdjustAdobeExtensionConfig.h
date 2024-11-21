@@ -7,29 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
-#if defined(__has_include) && __has_include(<Adjust/Adjust.h>)
-#import <Adjust/Adjust.h>
+#if defined(__has_include) && __has_include(<AdjustSdk/AdjustSdk.h>)
+#import <AdjustSdk/AdjustSdk.h>
 #else
-#import <Adjust.h>
+#import <AdjustSdk.h>
 #endif
 
 typedef void (^CallbackAttributionChangedBlock)(ADJAttribution * _Nullable attribution);
-typedef BOOL (^CallbackDeeplinkResponseBlock)(NSURL * _Nullable deeplink);
+typedef BOOL (^CallbackDeferredDeeplinkReceivedBlock)(NSURL * _Nullable deeplink);
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AdjustAdobeExtensionConfig : NSObject
 
 @property (nonatomic, strong, readonly, nullable) CallbackAttributionChangedBlock attributionChangedBlock;
-@property (nonatomic, strong, readonly, nullable) CallbackDeeplinkResponseBlock deeplinkResponseBlock;
+@property (nonatomic, strong, readonly, nullable) CallbackDeferredDeeplinkReceivedBlock deferredDeeplinkReceivedBlock;
 @property (nonatomic, copy, readonly, nonnull) NSString *environment;
+@property (nonatomic, copy, readonly, nonnull) NSString *defaultTracker;
+@property (nonatomic, copy, readonly, nonnull) NSString *externalDeviceId;
 @property (nonatomic, assign) BOOL shouldTrackAttribution;
 
 + (nullable AdjustAdobeExtensionConfig *)configWithEnvironment:(nonnull NSString *)environment;
 
 - (void)setAttributionChangedBlock:(CallbackAttributionChangedBlock _Nullable)attributionChangedBlock;
-- (void)setDeeplinkResponseBlock:(CallbackDeeplinkResponseBlock _Nullable)deeplinkResponseBlock;
+- (void)setDeferredDeeplinkReceivedBlock:(CallbackDeferredDeeplinkReceivedBlock _Nullable)deferredDeeplinkReceivedBlock;
+- (void)setDefaultTracker:(NSString *)defaultTracker;
+- (void)setExternalDeviceId:(NSString *)externalDeviceId;
 
 @end
 
 NS_ASSUME_NONNULL_END
+

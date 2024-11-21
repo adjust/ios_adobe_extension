@@ -22,10 +22,12 @@
     [adjustConfig setAttributionChangedBlock:^(ADJAttribution * _Nullable attribution) {
         NSLog(@"Adjust Attribution Callback received:[%@]", attribution.description);
     }];
-    [adjustConfig setDeeplinkResponseBlock:^BOOL(NSURL * _Nullable deeplink) {
-        NSLog(@"Adjust Deeplink response received:[%@]", deeplink.absoluteString);
+    [adjustConfig setDeferredDeeplinkReceivedBlock:^BOOL(NSURL * _Nullable deeplink) {
+        NSLog(@"Adjust Deferred Deeplink received:[%@]", deeplink.absoluteString);
         return YES;
     }];
+    [adjustConfig setExternalDeviceId:@"external-device-id"];
+    [adjustConfig setDefaultTracker:@"default-tracker"];
     [AdjustAdobeExtension setConfiguration:adjustConfig];
 
     // Adjust Adobe Extension registration
@@ -44,16 +46,23 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    return [AdjustAdobeExtension application:app openURL:url options:options];
+    NSLog(@"Scheme based deep link opened an app: %@", url);
+    // Call the below method to send deep link to Adjust backend
+    [Adjust processDeeplink:[[ADJDeeplink alloc] initWithDeeplink:url]];
+
+    return YES;
 }
 
-- (BOOL)application:(UIApplication *)application
-continueUserActivity:(NSUserActivity *)userActivity
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
-    return [AdjustAdobeExtension application:application
-                        continueUserActivity:userActivity];
-}
+    if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        NSLog(@"Universal link opened an app: %@", [userActivity webpageURL]);
+        // Pass deep link to Adjust in order to potentially reattribute user.
+        [Adjust processDeeplink:[[ADJDeeplink alloc] initWithDeeplink:[userActivity webpageURL]]];
+    }
 
+    return YES;
+}
 
 #pragma mark - UISceneSession lifecycle
 

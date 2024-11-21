@@ -27,8 +27,17 @@
     _attributionChangedBlock = attributionChangedBlock;
 }
 
-- (void)setDeeplinkResponseBlock:(CallbackDeeplinkResponseBlock _Nullable)deeplinkResponseBlock {
-    _deeplinkResponseBlock = deeplinkResponseBlock;
+- (void)setDeferredDeeplinkReceivedBlock:(CallbackDeferredDeeplinkReceivedBlock _Nullable)deferredDeeplinkReceivedBlock {
+    _deferredDeeplinkReceivedBlock = deferredDeeplinkReceivedBlock;
+}
+
+- (void)setDefaultTracker:(NSString *)defaultTracker {
+    _defaultTracker = defaultTracker;
+}
+
+- (void)setExternalDeviceId:(NSString *)externalDeviceId {
+    _externalDeviceId = externalDeviceId;
 }
 
 @end
+

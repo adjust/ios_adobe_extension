@@ -29,7 +29,7 @@ NSString * const ADJAdobeAdjustPushToken = @"adj.pushToken";
 
 #pragma mark Internal Constants
 
-NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext2.0.0";
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext3.0.0";
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
 NSString * const ADJAdobeExtensionName = @"com.adjust.adobeextension";
 NSString * const ADJAdobeEventDataKeyAction = @"action";
@@ -68,32 +68,18 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 @implementation AdjustAdobeExtension
 
-#pragma mark Public Class methods
+#pragma mark - Public Class methods
 
 + (void)setConfiguration:(AdjustAdobeExtensionConfig *)config {
     _configInstance = config;
 }
 
-+ (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity {
-    if ([[userActivity activityType] isEqualToString:NSUserActivityTypeBrowsingWeb]) {
-        // Pass deep link to Adjust in order to potentially reattribute user.
-        [Adjust appWillOpenUrl:[userActivity webpageURL]];
-    }
-    return YES;
-}
-
-+ (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary *)options {
-    // Pass deep link to Adjust in order to potentially reattribute user.
-    [Adjust appWillOpenUrl:url];
-    return YES;
-}
-
-#pragma mark AEPExtension interface implementation
+#pragma mark - AEPExtension interface implementation
 
 + (NSString * _Nonnull)extensionVersion {
-    return [NSString stringWithFormat:@"%@@%@",
-            ADJAdobeExtensionSdkPrefix,
-            [Adjust sdkVersion]];
+    NSString *extensionVersion = [NSString stringWithFormat:@"%@@%@",
+                                  ADJAdobeExtensionSdkPrefix, @"ios5.0.1"];
+    return extensionVersion;
 }
 
 - (nonnull NSString *)name {
@@ -162,8 +148,6 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         [self configurationDictionaryDidReceive:result.value];
     }];
 
-
-
     [self.extensionRuntime registerListenerWithType:ADJAdobeEventTypeGenericTrack
                                              source:ADJAdobeEventSourceRequestContent
                                            listener:^(AEPEvent * _Nonnull genericTrack) {
@@ -172,7 +156,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                            message:@"Skipping generic track event. Event's Data is nil."];
             return;
         }
-        
+
         NSString *action = genericTrack.data[ADJAdobeEventDataKeyAction];
         if (action == nil || action.length == 0) {
             [AEPLog debugWithLabel:ADJAdobeExtensionLogTag
@@ -189,6 +173,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         }
 
         NSDictionary *contextDataDict = genericTrack.data[ADJAdobeEventDataKeyContextData];
+
         if (contextDataDict == nil) {
             [AEPLog errorWithLabel:ADJAdobeExtensionLogTag
                            message:@"Skipping generic track event. Event's Adjust Context Data is nil."];
@@ -215,13 +200,14 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 }
 
 - (BOOL)readyForEvent:(AEPEvent * _Nonnull)event {
-    AEPSharedStateResult *result = [self.extensionRuntime getSharedStateWithExtensionName:ADJAdobeModuleConfiguration
-                                                                                    event:event
-                                                                                  barrier:NO];
+    AEPSharedStateResult *result = [self.extensionRuntime
+                                    getSharedStateWithExtensionName:ADJAdobeModuleConfiguration
+                                    event:event
+                                    barrier:NO];
     return (result.status == AEPSharedStateStatusSet);
 }
 
-#pragma mark Internal logic
+#pragma mark - Internal logic
 
 - (void)configurationDictionaryDidReceive:(nullable NSDictionary<NSString *, id> *)configDict {
 
@@ -270,9 +256,18 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         self.sdkInitialized = YES;
 
         _configInstance.shouldTrackAttribution = trackAttribution;
-        ADJConfig *adjustConfig = [ADJConfig configWithAppToken:appToken
-                                                    environment:_configInstance.environment];
+        ADJConfig *adjustConfig = [[ADJConfig alloc] initWithAppToken:appToken
+                                                          environment:_configInstance.environment];
         [adjustConfig setSdkPrefix:ADJAdobeExtensionSdkPrefix];
+
+        if (_configInstance.externalDeviceId) {
+            [adjustConfig setExternalDeviceId:_configInstance.externalDeviceId];
+        }
+
+        if (_configInstance.defaultTracker) {
+            [adjustConfig setDefaultTracker:_configInstance.defaultTracker];
+        }
+
         [adjustConfig setDelegate:self];
 
         switch ([AEPLog logFilter]) {
@@ -290,7 +285,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                 break;
         }
 
-        [Adjust appDidLaunch:adjustConfig];
+        [Adjust initSdk:adjustConfig];
 
         for (NSDictionary *event in self.receivedEvents) {
             [self processEvent:event];
@@ -333,7 +328,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
                        message:@"Skipping Set Push Token action. Push Token is nil or empty."];
         return;
     }
-    [Adjust setPushToken:pushToken];
+    [Adjust setPushTokenAsString:pushToken];
 }
 
 - (void)trackEvent:(NSDictionary<NSString *, NSString *> *)contextData {
@@ -346,7 +341,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
         return;
     }
 
-    ADJEvent *event = [ADJEvent eventWithEventToken:adjEventToken];
+    ADJEvent *event = [[ADJEvent alloc] initWithEventToken:adjEventToken];
     NSString *currency = contextData[ADJAdobeAdjustEventCurrency];
     NSString *revenue = contextData[ADJAdobeAdjustEventRevenue];
 
@@ -380,12 +375,11 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     [Adjust trackEvent:event];
 }
 
-
 - (BOOL)isAdjustActionSupported:(nonnull NSString *)action {
     if ([action compare:ADJAdobeAdjustActionSetPushToken
                 options:NSCaseInsensitiveSearch] == NSOrderedSame ||
         [action compare:ADJAdobeAdjustActionTrackEvent
-                           options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+                options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         return YES;
     }
     return NO;
@@ -419,12 +413,12 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
     }
 }
 
-- (BOOL)adjustDeeplinkResponse:(nullable NSURL *)deeplink {
-    if (_configInstance.deeplinkResponseBlock) {
-        return _configInstance.deeplinkResponseBlock(deeplink);
+- (BOOL)adjustDeferredDeeplinkReceived:(nullable NSURL *)deeplink {
+    if (_configInstance.deferredDeeplinkReceivedBlock) {
+        return _configInstance.deferredDeeplinkReceivedBlock(deeplink);
     }
-
     return YES;
 }
 
 @end
+
