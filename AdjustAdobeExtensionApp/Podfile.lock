@@ -1,17 +1,17 @@
 PODS:
-  - Adjust (5.0.1):
-    - Adjust/Adjust (= 5.0.1)
-  - Adjust/Adjust (5.0.1):
-    - AdjustSignature (~> 3.18)
-  - AdjustAdobeExtension (3.0.0):
-    - Adjust (= 5.0.1)
+  - Adjust (5.1.0):
+    - Adjust/Adjust (= 5.1.0)
+  - Adjust/Adjust (5.1.0):
+    - AdjustSignature (= 3.35.2)
+  - AdjustAdobeExtension (3.0.1):
+    - Adjust (= 5.1.0)
     - AEPCore (~> 5.3)
-  - AdjustSignature (3.32.0)
-  - AEPCore (5.3.1):
+  - AdjustSignature (3.35.2)
+  - AEPCore (5.3.2):
     - AEPRulesEngine (< 6.0.0, >= 5.0.0)
-    - AEPServices (< 6.0.0, >= 5.3.1)
+    - AEPServices (< 6.0.0, >= 5.3.2)
   - AEPRulesEngine (5.0.0)
-  - AEPServices (5.3.1)
+  - AEPServices (5.3.2)
 
 DEPENDENCIES:
   - AdjustAdobeExtension (from `../`)
@@ -30,13 +30,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Adjust: f27daaa40d0df5550b89dd428cd8545d812e1f6d
-  AdjustAdobeExtension: 7b32018508f264b8f8e821541af0dfeafc01a3e5
-  AdjustSignature: f3d8bf04ba051bf14b95cddf33409c70f1ba57b9
-  AEPCore: 28191f2df03225a5e88b6f8f343f7e18a604c9ef
+  Adjust: 3ba600784c200eb13664e92f8385230750682d4f
+  AdjustAdobeExtension: d26964b53809e2e99e7b5af28f37b998bda77d0b
+  AdjustSignature: 23b9e5d4adcadffc303bb6b410fde617dd88504f
+  AEPCore: 78d1e2139268abeeb0f12bc061c05a8b3db7029e
   AEPRulesEngine: fe5800653a4bee07b1e41e61b4d5551f0dba557b
-  AEPServices: fcba979e90f6916b066aa66f016700d7b7534d96
+  AEPServices: 327b7141568faa85f889167c6afa31ef29e80030
 
 PODFILE CHECKSUM: a1c4e3c4855cac5c9b08f27ad4caebad79873ee5
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
