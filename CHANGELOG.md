@@ -1,4 +1,4 @@
-### Version 3.0.1 (5th February 2025)
+### Version 3.0.1 (6th February 2025)
 #### Added
 - Added sending of the additional parameter to improve troubleshooting of `SKAdNetwork` related issues.
 #### Native SDKs
