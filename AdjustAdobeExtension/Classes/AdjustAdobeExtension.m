@@ -29,7 +29,7 @@ NSString * const ADJAdobeAdjustPushToken = @"adj.pushToken";
 
 #pragma mark Internal Constants
 
-NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext3.0.0";
+NSString * const ADJAdobeExtensionSdkPrefix = @"adobe_ext3.0.1";
 NSString * const ADJAdobeExtensionLogTag = @"AdjustAdobeExtension";
 NSString * const ADJAdobeExtensionName = @"com.adjust.adobeextension";
 NSString * const ADJAdobeEventDataKeyAction = @"action";
