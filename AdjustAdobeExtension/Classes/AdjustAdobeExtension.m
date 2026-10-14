@@ -78,7 +78,7 @@ static AdjustAdobeExtensionConfig *_configInstance = nil;
 
 + (NSString * _Nonnull)extensionVersion {
     NSString *extensionVersion = [NSString stringWithFormat:@"%@@%@",
-                                  ADJAdobeExtensionSdkPrefix, @"ios5.0.1"];
+                                  ADJAdobeExtensionSdkPrefix, @"ios5.8.0"];
     return extensionVersion;
 }
 
