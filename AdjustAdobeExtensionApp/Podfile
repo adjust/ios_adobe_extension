@@ -1,8 +1,0 @@
-use_frameworks!
-
-platform :ios, '12.0'
-
-target 'AdjustAdobeExtensionApp' do
-  pod 'AdjustAdobeExtension', :path => '../'
-  pod 'AEPCore'
-end

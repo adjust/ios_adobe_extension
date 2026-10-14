@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07EDC31F307E7D6000C88187 /* AdjustAdobeExtension in Frameworks */ = {isa = PBXBuildFile; productRef = 07EDC31E307E7D6000C88187 /* AdjustAdobeExtension */; };
 		0A60715E2B0D0FA9009A18DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A60715D2B0D0FA9009A18DA /* AppDelegate.m */; };
 		0A6071612B0D0FA9009A18DA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6071602B0D0FA9009A18DA /* SceneDelegate.m */; };
 		0A6071642B0D0FA9009A18DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6071632B0D0FA9009A18DA /* ViewController.m */; };
@@ -18,7 +19,6 @@
 		0A840D6D2B2B1552007AD8BA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A840D6C2B2B1552007AD8BA /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0A840D6F2B2B1BF2007AD8BA /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A840D6E2B2B1BF2007AD8BA /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0A840D712B2B1C02007AD8BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A840D702B2B1C02007AD8BA /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7DCB243F3500736EACFFE711 /* Pods_AdjustAdobeExtensionApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7239C2B05D2B82F8CEB2AE85 /* Pods_AdjustAdobeExtensionApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,9 +38,6 @@
 		0A840D6C2B2B1552007AD8BA /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		0A840D6E2B2B1BF2007AD8BA /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
 		0A840D702B2B1C02007AD8BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		3F6136A90E7CFF3DF4119E5F /* Pods-AdjustAdobeExtensionApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjustAdobeExtensionApp.debug.xcconfig"; path = "Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp.debug.xcconfig"; sourceTree = "<group>"; };
-		6F137153222A387C263E41F8 /* Pods-AdjustAdobeExtensionApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdjustAdobeExtensionApp.release.xcconfig"; path = "Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp.release.xcconfig"; sourceTree = "<group>"; };
-		7239C2B05D2B82F8CEB2AE85 /* Pods_AdjustAdobeExtensionApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdjustAdobeExtensionApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +49,7 @@
 				0A840D6F2B2B1BF2007AD8BA /* AppTrackingTransparency.framework in Frameworks */,
 				0A840D6D2B2B1552007AD8BA /* AdSupport.framework in Frameworks */,
 				0A6071BD2B0FCA60009A18DA /* AdServices.framework in Frameworks */,
-				7DCB243F3500736EACFFE711 /* Pods_AdjustAdobeExtensionApp.framework in Frameworks */,
+				07EDC31F307E7D6000C88187 /* AdjustAdobeExtension in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +61,6 @@
 			children = (
 				0A60715B2B0D0FA9009A18DA /* AdjustAdobeExtensionApp */,
 				0A60715A2B0D0FA9009A18DA /* Products */,
-				A1326AF4B6351E88DB71DD42 /* Pods */,
 				42996F7AD18DA1D01E1B9D65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -102,18 +98,8 @@
 				0A840D6E2B2B1BF2007AD8BA /* AppTrackingTransparency.framework */,
 				0A840D6C2B2B1552007AD8BA /* AdSupport.framework */,
 				0A6071BC2B0FCA60009A18DA /* AdServices.framework */,
-				7239C2B05D2B82F8CEB2AE85 /* Pods_AdjustAdobeExtensionApp.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A1326AF4B6351E88DB71DD42 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3F6136A90E7CFF3DF4119E5F /* Pods-AdjustAdobeExtensionApp.debug.xcconfig */,
-				6F137153222A387C263E41F8 /* Pods-AdjustAdobeExtensionApp.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,17 +109,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A6071722B0D0FAA009A18DA /* Build configuration list for PBXNativeTarget "AdjustAdobeExtensionApp" */;
 			buildPhases = (
-				835581F3EB439788821BE6F7 /* [CP] Check Pods Manifest.lock */,
 				0A6071552B0D0FA9009A18DA /* Sources */,
 				0A6071562B0D0FA9009A18DA /* Frameworks */,
 				0A6071572B0D0FA9009A18DA /* Resources */,
-				55D04C78D436F7DCB182230E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AdjustAdobeExtensionApp;
+			packageProductDependencies = (
+				07EDC31E307E7D6000C88187 /* AdjustAdobeExtension */,
+			);
 			productName = AdjustAdobeExtensionApp;
 			productReference = 0A6071592B0D0FA9009A18DA /* AdjustAdobeExtensionApp.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +148,9 @@
 				Base,
 			);
 			mainGroup = 0A6071502B0D0FA9009A18DA;
+			packageReferences = (
+				07EDC31D307E7D6000C88187 /* XCLocalSwiftPackageReference "ios_adobe_extension_dev" */,
+			);
 			productRefGroup = 0A60715A2B0D0FA9009A18DA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -182,52 +172,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		55D04C78D436F7DCB182230E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AdjustAdobeExtensionApp/Pods-AdjustAdobeExtensionApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		835581F3EB439788821BE6F7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-AdjustAdobeExtensionApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0A6071552B0D0FA9009A18DA /* Sources */ = {
@@ -375,7 +319,6 @@
 		};
 		0A6071732B0D0FAA009A18DA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F6136A90E7CFF3DF4119E5F /* Pods-AdjustAdobeExtensionApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -405,7 +348,6 @@
 		};
 		0A6071742B0D0FAA009A18DA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6F137153222A387C263E41F8 /* Pods-AdjustAdobeExtensionApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -455,6 +397,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		07EDC31D307E7D6000C88187 /* XCLocalSwiftPackageReference "ios_adobe_extension_dev" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../ios_adobe_extension_dev;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		07EDC31E307E7D6000C88187 /* AdjustAdobeExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AdjustAdobeExtension;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A6071512B0D0FA9009A18DA /* Project object */;
 }
