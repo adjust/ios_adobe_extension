@@ -1,3 +1,12 @@
+### Version 3.0.2 (16th October 2026)
+#### Changed
+- Updated the Adjust Signature library version to 5.0.0.
+
+#### Native SDKs
+- [iOS@v5.8.0][ios_sdk_v5.8.0]
+
+---
+
 ### Version 3.0.1 (6th February 2025)
 #### Added
 - Added sending of the additional parameter to improve troubleshooting of `SKAdNetwork` related issues.
@@ -92,4 +101,5 @@ To try out iOS Adobe extension v3 in your app, you can follow our new v2 to v3 [
 [ios_sdk_v4.37.0]: https://github.com/adjust/ios_sdk/tree/v4.37.0
 [ios_sdk_v5.0.1]: https://github.com/adjust/ios_sdk/tree/v5.0.1
 [ios_sdk_v5.1.0]: https://github.com/adjust/ios_sdk/tree/v5.1.0
+[ios_sdk_v5.8.0]: https://github.com/adjust/ios_sdk/tree/v5.8.0
 
